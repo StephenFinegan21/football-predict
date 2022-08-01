@@ -3,30 +3,22 @@ import styled from "styled-components";
 import { RootObject } from "../types";
 import ListItem from "./ListItem";
 
-const Container = styled.div`
-  max-width: 1200px;
-  margin: auto;
-  text-align: center;
-`;
 
-const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
-  gap: 10px;
-`;
 
 const ListContainer = ({ data }: any) => {
-  console.log(data);
+  //console.log(data);
   return (
     <>
-      <Container>
-        <h2>Fixtures</h2>
-        <GridContainer>
+     <div className="container mx-auto full">
+ 
+      
+        <h2 className="text-xl">Fixtures</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((fixture: any) => (
             <ListItem item={fixture} />
           ))}
-        </GridContainer>
-      </Container>
+        </div>
+        </div>
     </>
   );
 };
