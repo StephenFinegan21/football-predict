@@ -9,7 +9,8 @@ const ListContainer = ({ data }: any) => {
         <h2 className="text-xl">Fixtures</h2>
         <div className="container mx-auto grid grid-cols-1">
           {data.map((fixture: any) => (
-            <ListItem item={fixture} />
+            <ListItem item={fixture}
+            key={fixture.id} />
           ))}
         </div>
       </div>
