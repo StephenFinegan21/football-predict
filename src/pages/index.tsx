@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useTestGetFixtures } from "../api/useTestGetFixtures";
-import ListContainer from "../components/ListContainer";
+import ListContainer from "../components/fixtureinformation/ListContainer";
 
-const Home: NextPage = () => {
-  const data = useTestGetFixtures()
+const Home: NextPage = ({data} : any) => {
+ 
   
 
   return (
@@ -20,3 +20,11 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+
+  const data = useTestGetFixtures()
+  return {
+    props: {data}, // will be passed to the page component as props
+  }
+}
