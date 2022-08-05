@@ -1,5 +1,5 @@
 import React from "react";
-import { useTestGetH2H } from "../../api/useTestGetH2H";
+import { h2h } from "../../api/useTestGetH2H";
 import Image from "next/image";
 import TeamRecentForm from "../../components/fixtureinformation/TeamRecentForm";
 import LastFiveGames from "../../components/lastFiveGames/LastFiveGames";
@@ -45,8 +45,8 @@ const TeamContainer = styled.div`
   align-items: center;
 `;
 
-const FixtureInformation = () => {
-  const data = useTestGetH2H();
+const FixtureInformation = ({h2hData} : any) => {
+  const data = h2hData;
 
   const { teams, comparison, predictions, league } = data;
 
@@ -173,3 +173,20 @@ const FixtureInformation = () => {
 };
 
 export default FixtureInformation;
+
+
+export async function getStaticProps() {
+
+  const h2hData = h2h
+  return {
+    props: {h2hData}, // will be passed to the page component as props
+  }
+}
+
+export const getStaticPaths = async () => {
+
+  return {
+      paths: [], //indicates that no page needs be created at build time
+      fallback: 'blocking' //indicates the type of fallback
+  }
+}

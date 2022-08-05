@@ -1,5 +1,5 @@
-export const useTestGetH2H = () => {
-    const options =
+
+    export const h2h =
     {
         "predictions": {
             "winner": {
@@ -985,6 +985,3 @@ export const useTestGetH2H = () => {
     }
     
 
-    
-    return options
-}

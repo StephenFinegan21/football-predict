@@ -1,12 +1,12 @@
 
 
-import React, { useState, useEffect } from 'react';
-import axios from "axios";
 
- export const useTestGetFixtures = () => {
+
+
+
   
 
-  const options =[
+  export const fixtures =[
     {
         "fixture": {
             "id": 867946,
@@ -348,9 +348,6 @@ import axios from "axios";
         }
     }
 ]
-return options
-
-};
 
 
 
