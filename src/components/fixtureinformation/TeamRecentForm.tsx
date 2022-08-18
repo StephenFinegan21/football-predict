@@ -62,11 +62,16 @@ const TeamRecentForm = (props: formProps) => {
               <ColouredResultCircle key={index} bg="orange">
                 D
               </ColouredResultCircle>
-            )) || (
+            )) || 
+            result === "L" &&(
               <ColouredResultCircle key={index} bg="#fa314f">
                 L
               </ColouredResultCircle>
-            )
+            ) ||
+            <ColouredResultCircle key={index} bg="#676767">
+            -
+          </ColouredResultCircle>
+
         )}
       </ResultsRow>
       </FormContainer>

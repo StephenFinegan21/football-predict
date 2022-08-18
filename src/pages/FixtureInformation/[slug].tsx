@@ -9,6 +9,10 @@ import Predictions from "../../components/prediction/Predictions";
 import FixtureDataNav from "../../components/FixtureDataNav";
 import Record from "../../components/record/Record";
 import styled from "styled-components";
+import Link from "next/link";
+
+
+
 
 import {
   TwoTeamGrid,
@@ -45,11 +49,12 @@ const TeamContainer = styled.div`
   align-items: center;
 `;
 
-const FixtureInformation = ({h2hData} : any) => {
-  const data = h2hData;
+const FixtureInformation = ({data} : any) => {
+  
+  
 
-  const { teams, comparison, predictions, league } = data;
-
+  const { teams, comparison, predictions, league } = data[0];
+  
   const [currentTab, setCurrentTab] = useState("last-five");
 
   const changeTab = (value: string) => {
@@ -59,11 +64,12 @@ const FixtureInformation = ({h2hData} : any) => {
   return (
     <>
       <PageContainer>
-        <TwoTeamGrid>
+      <Link href={`/`}>Fixtures</Link>
+      <TwoTeamGrid>
           <TeamContainer>
             <div>
               <Image
-                src={"/Chelseabadge.png"}
+                src={teams.home.logo}
                 alt={teams.home.name + "crest"}
                 width={60}
                 height={60}
@@ -80,7 +86,7 @@ const FixtureInformation = ({h2hData} : any) => {
           <TeamContainer>
             <div>
               <Image
-                src={"/Chelseabadge.png"}
+                src={teams.away.logo}
                 alt={teams.away.name + "crest"}
                 width={60}
                 height={60}
@@ -175,12 +181,31 @@ const FixtureInformation = ({h2hData} : any) => {
 export default FixtureInformation;
 
 
-export async function getStaticProps() {
+export async function getStaticProps(context : any) {
 
-  const h2hData = h2h
-  return {
-    props: {h2hData}, // will be passed to the page component as props
+  const axios = require("axios");
+  let h2hData = ''
+  
+
+const options = {
+  method: 'GET',
+  url: 'https://api-football-v1.p.rapidapi.com/v3/predictions',
+  params: {fixture: context.params.slug},
+  headers: {
+    'X-RapidAPI-Key': 'cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854',
+    'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
   }
+};
+
+const data = await axios.request(options).then(function (response : any) {
+return response.data.response
+})
+
+return{
+  props : { data }
+}
+  
+ 
 }
 
 export const getStaticPaths = async () => {

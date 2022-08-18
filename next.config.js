@@ -5,6 +5,10 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ['media.api-sports.io'],
+    formats: ['image/avif', 'image/webp'],
+  },
 }
 
 module.exports = nextConfig
