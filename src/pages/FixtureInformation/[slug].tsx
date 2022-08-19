@@ -1,5 +1,5 @@
 import React from "react";
-import { h2h } from "../../api/useTestGetH2H";
+import { h2h } from "../api/useTestGetH2H";
 import Image from "next/image";
 import TeamRecentForm from "../../components/fixtureinformation/TeamRecentForm";
 import LastFiveGames from "../../components/lastFiveGames/LastFiveGames";
@@ -53,7 +53,7 @@ const FixtureInformation = ({data} : any) => {
   
   
 
-  const { teams, comparison, predictions, league } = data[0];
+const { teams, comparison, predictions, league } = data[0];
   
   const [currentTab, setCurrentTab] = useState("last-five");
 
@@ -61,9 +61,12 @@ const FixtureInformation = ({data} : any) => {
     setCurrentTab(value);
   };
 
+
   return (
     <>
+    {data &&
       <PageContainer>
+       
       <Link href={`/`}>Fixtures</Link>
       <TwoTeamGrid>
           <TeamContainer>
@@ -173,7 +176,9 @@ const FixtureInformation = ({data} : any) => {
             </>
           </>
         )}
+      
       </PageContainer>
+}
     </>
   );
 };
@@ -181,37 +186,28 @@ const FixtureInformation = ({data} : any) => {
 export default FixtureInformation;
 
 
-export async function getStaticProps(context : any) {
+export async function getServerSideProps(context : any) {
 
   const axios = require("axios");
-  let h2hData = ''
+  
+  const options = {
+    method: 'GET',
+    url: 'http://localhost:3000/api/head2head',
+    params: {id: context.params.slug},
+    
+  };
+  const data = await axios.request(options).then(function (response : any) {
+   // console.log('response here', response.data)
+    return response.data.data
+    
+    })
+
+   
   
 
-const options = {
-  method: 'GET',
-  url: 'https://api-football-v1.p.rapidapi.com/v3/predictions',
-  params: {fixture: context.params.slug},
-  headers: {
-    'X-RapidAPI-Key': 'cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854',
-    'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-  }
-};
-
-const data = await axios.request(options).then(function (response : any) {
-return response.data.response
-})
-
-return{
-  props : { data }
-}
-  
+    return {
+      props: {data}, // will be passed to the page component as props
+    }
  
 }
 
-export const getStaticPaths = async () => {
-
-  return {
-      paths: [], //indicates that no page needs be created at build time
-      fallback: 'blocking' //indicates the type of fallback
-  }
-}

@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import ListItem from "./ListItem";
 import styled from "styled-components";
 
@@ -16,17 +17,20 @@ const Centered = styled.h2`
   text-align: center;
 `
 
-const ListContainer = ({ data }: any) => {
+const ListContainer = ({ fixtures }: any) => {
+//  console.log(fixtures.response)
   return (
     <>
       <div >
         <Centered>Fixtures</Centered>
+    
         <Container>
-          {data.map((fixture: any) => (
+          {fixtures && fixtures.response.map((fixture: any) => (
             <ListItem item={fixture}
-            key={fixture.id} />
+            key={fixture.fixture.id} />
           ))}
         </Container>
+        
       </div>
     </>
   );
