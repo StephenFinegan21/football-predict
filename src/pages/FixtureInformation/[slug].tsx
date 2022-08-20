@@ -17,7 +17,7 @@ import {
   TwoTeamGridTables,
   SectionHeadingText,
   SectionContainer,
-  TeamContainer
+  TeamContainer,
 } from "../../styles/commonStyles";
 
 const PageContainer = styled.div`
@@ -38,10 +38,7 @@ const PageContainer = styled.div`
 const Section = styled.div`
   max-width: 100%;
   margin: 32px 0;
-  
 `;
-
-
 
 const BackContainer = styled.div`
   font-size: xx-large;
@@ -52,12 +49,12 @@ const BackContainer = styled.div`
   }
 `;
 
-
-
 const FixtureInformation = ({ data }: any) => {
-  const { teams, comparison, predictions, league } = data[0];
+  const { teams, comparison, predictions, league } = data.data;
 
   const [currentTab, setCurrentTab] = useState("last-five");
+
+  //console.log(teams)
 
   const changeTab = (value: string) => {
     setCurrentTab(value);
@@ -67,11 +64,12 @@ const FixtureInformation = ({ data }: any) => {
     <>
       {data && (
         <PageContainer>
-          <BackContainer>
-            <Link href={`/`}>
+          <Link href={`/`}>
+            <BackContainer>
               <IoMdArrowRoundBack />
-            </Link>
-          </BackContainer>
+            </BackContainer>
+          </Link>
+
           <TwoTeamGrid>
             <TeamContainer>
               <div>
@@ -212,15 +210,17 @@ export default FixtureInformation;
 
 export async function getServerSideProps(context: any) {
   const axios = require("axios");
+  const slug = context.params.slug
 
   const options = {
     method: "GET",
-    url: "https://football-predict.vercel.app/api/head2head",
-    params: { id: context.params.slug },
+    //  url: `https://football-predict.vercel.app/api/${context.params.slug}`,
+    url: `http://localhost:3000/api/${slug}`,
   };
   const data = await axios.request(options).then(function (response: any) {
-    return response.data.data;
+    return response.data;
   });
+   console.log(context.params.slug, 'jjj')
 
   return {
     props: { data }, // will be passed to the page component as props
