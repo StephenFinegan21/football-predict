@@ -7,7 +7,7 @@ import {
   SectionContainer,
   UnderlinedHeading
 } from "../styles/commonStyles"
-import StatSlider from "./StatSlider";
+import StatSlider from "../components/StatSlider";
 import styled from "styled-components";
 
 type goals = {

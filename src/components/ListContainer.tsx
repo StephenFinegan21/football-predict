@@ -1,36 +1,29 @@
 import React from "react";
 
-
 import ListItem from "./ListItem";
 import styled from "styled-components";
-import {Centered} from '../styles/commonStyles'
+import { Heading1 } from "../styles/commonStyles";
 
 const Container = styled.div`
   width: 100%;
-  margin:auto;
-
+  margin: auto;
+  background-color: white;
   @media (min-width: 800px) {
     width: 90%;
-   
   }
-`
-
-
+`;
 
 const ListContainer = ({ fixtures }: any) => {
-//  console.log(fixtures.response)
   return (
     <>
-      <div >
-        <Centered>Stats of the day</Centered>
-    
+      <div>
+        <Heading1>Stats of the day</Heading1>
         <Container>
-          {fixtures && fixtures.response.map((fixture: any) => (
-            <ListItem item={fixture}
-            key={fixture.fixture.id} />
-          ))}
+          {fixtures &&
+            fixtures.response.map((fixture: any) => (
+              <ListItem item={fixture} key={fixture.fixture.id} />
+            ))}
         </Container>
-        
       </div>
     </>
   );

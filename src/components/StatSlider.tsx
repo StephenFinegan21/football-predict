@@ -4,12 +4,12 @@ import { LightText, SectionHeadingText } from "../styles/commonStyles";
 
 const Counter = styled.div<{ isHomeTeam: boolean }>`
   max-width: 100%;
-  height: 40px;
+  height: 20px;
   background-color: #eff1f3;
   border-radius: 2px;
   display: flex;
   justify-content: ${(props) => (props.isHomeTeam ? "flex-end" : "flex-start")};
-  margin-bottom: 24px;
+  margin-bottom: 60px;
 `;
 
 const ReversibleText = styled.p<{ isHomeTeam: boolean }>`
@@ -18,8 +18,10 @@ const ReversibleText = styled.p<{ isHomeTeam: boolean }>`
 
 const ScoreText = styled.h4<{ value: number }>`
   color: ${(props) =>
-    props.value > 70 ? "#00b271" : props.value < 40 ? "#fa314f" : "orange"};
+    props.value > 70 ? "#1fac92" : props.value < 40 ? "#eb428b" : "#eebc72"};
   font-weight: 600;
+  margin-top:-20px;
+  margin-bottom:0;
 `;
 
 type statProps = {
@@ -29,6 +31,12 @@ type statProps = {
 };
 
 const StatSlider = ({ description, value, isHomeTeam }: statProps) => {
+  const sliderColour =
+    parseInt(value) > 70
+      ? "#1fac92"
+      : parseInt(value) < 40
+      ? "#eb428b"
+      : "#eebc72";
   return (
     <>
       <LightText>
@@ -43,7 +51,7 @@ const StatSlider = ({ description, value, isHomeTeam }: statProps) => {
             maxWidth: "100%",
             width: `${value}`,
             borderRadius: "2px",
-            background: "#38323a",
+            background: sliderColour,
             height: "100%",
           }}
         ></div>

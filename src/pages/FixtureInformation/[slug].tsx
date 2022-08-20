@@ -1,22 +1,23 @@
 import React from "react";
 import Image from "next/image";
 import TeamRecentForm from "../../components/TeamRecentForm";
-import LastFiveGames from "../../components/LastFiveGames";
-import Comparison from "../../components/Comparison";
+import LastFiveGames from "../../tabs/LastFiveTab";
+import Comparison from "../../tabs/CompareTab";
 import { useState } from "react";
-import Predictions from "../../components/Predictions";
+import Predictions from "../../tabs/PredictionsTab";
 import FixtureDataNav from "../../components/FixtureDataNav";
-import Record from "../../components/Record";
+import Record from "../../tabs/RecordTab";
 import styled from "styled-components";
 import Link from "next/link";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import Goals from "../../components/Goals";
+import Goals from "../../tabs/GoalsTab";
 
 import {
   TwoTeamGrid,
   TwoTeamGridTables,
   SectionHeadingText,
   SectionContainer,
+  TeamContainer
 } from "../../styles/commonStyles";
 
 const PageContainer = styled.div`
@@ -37,16 +38,10 @@ const PageContainer = styled.div`
 const Section = styled.div`
   max-width: 100%;
   margin: 32px 0;
+  
 `;
 
-const TeamContainer = styled.div`
-  max-width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
+
 
 const BackContainer = styled.div`
   font-size: xx-large;
@@ -56,6 +51,8 @@ const BackContainer = styled.div`
     color: #c334e3;
   }
 `;
+
+
 
 const FixtureInformation = ({ data }: any) => {
   const { teams, comparison, predictions, league } = data[0];

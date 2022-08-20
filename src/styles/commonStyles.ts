@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 
-
 export const TwoTeamGrid = styled.div`
   max-width: 100%;
   text-align: center;
@@ -26,11 +25,29 @@ export const TwoTeamGridTables = styled.div`
   }
 `;
 
-export const Centered = styled.h2`
+export const FlexCenterDiv = styled.div `
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  `
+
+export const Heading1 = styled.h1`
   text-align: center;
+  font-size: medium;
 `
 
+export const Heading2 = styled.h2`
+  text-align: center;
+  font-size: medium;
+`
 
+export const Heading3 = styled.h2`
+    font-size: x-small;
+
+@media (min-width: 800px) {
+font-size: medium;
+}
+`
 
 export const LightText = styled.h4`
 font-size: smaller;
@@ -58,6 +75,19 @@ text-align: ${(props) => (props.isHomeTeam ? "left" : "right")};
   font-size: large;
   }
 `;
+
+
+export const TeamContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+ 
+  text-align: center;
+`;
+
 
 export const SectionHeadingText = styled.p`
 
@@ -92,3 +122,42 @@ overflow: hidden;
 
 `;
 
+export const RecordTable = styled.table<{ isHomeTeam: boolean }>`
+  width: 100%;
+  
+  color: #7f7f7f;
+  font-size: smaller;
+  border-collapse: collapse;
+  justify-content: "flex-start";
+
+  @media (min-width: 600px) {
+    justify-content: ${(props) => props.isHomeTeam ? "flex-start" : "flex-end"};
+    margin-left: ${(props) => (props.isHomeTeam ? "0px" : "40px")};
+  margin-right: ${(props) => (props.isHomeTeam ? "40px" : "0px")};
+  }
+`;
+
+export const Row = styled.tr`
+  border-bottom: 1px solid #dfdfdf;
+`;
+
+export const TableData = styled.td`
+  padding: 12px 10px;
+`;
+export const TableHead = styled.th`
+  padding: 12px 10px;
+`;
+
+
+
+
+export const FlexContainer = styled.div<{ isHomeTeam: boolean }>`
+  max-width: 100%;
+  display: flex;
+  justify-content: "flex-start";
+
+  @media (min-width: 600px) {
+    justify-content: ${(props) =>
+      props.isHomeTeam ? "flex-start" : "flex-end"};
+  }
+`;

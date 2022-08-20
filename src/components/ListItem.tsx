@@ -2,81 +2,56 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import { Heading3, LightText, FlexCenterDiv, TeamContainer } from "../styles/commonStyles";
 
-const Fixture = styled.div `
+const Fixture = styled.div`
   background-color: #f6f6f6;
   padding: 40px;
-  border-radius:2px;
-  margin:  25px auto;
-`
+  border-radius: 2px;
+  margin: 25px auto;
+`;
 
-const FixtureDetails = styled.div `
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
 
-const TeamContainer = styled.div `
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`
-
-const DateContainer = styled.div `
+const DateContainer = styled.div`
   width: 100%;
   text-align: center;
   font-size: small;
 
   @media (min-width: 800px) {
-  font-size: medium;
+    font-size: medium;
   }
-`
-
-const TeamName = styled.h3 `
- 
-  font-size: x-small;
-
-  @media (min-width: 800px) {
-  font-size: medium;
-  }
-`
-
+`;
 
 const ListItem = (props: any) => {
   const { fixture, teams } = props.item;
- 
 
   const date = new Date(fixture.date);
   return (
     <>
       <Fixture>
-        <FixtureDetails>
+        <FlexCenterDiv>
           <TeamContainer>
-            
             <Image
               src={teams.home.logo}
               alt={teams.home.name + "crest"}
               width={50}
               height={50}
             />
-            <TeamName>{teams.home.name}</TeamName>
+            <Heading3>{teams.home.name}</Heading3>
           </TeamContainer>
           <DateContainer>
-          <p>{date.toDateString()}</p>
+            <LightText>{date.toDateString()}</LightText>
           </DateContainer>
           <TeamContainer>
-          
             <Image
               src={teams.away.logo}
               alt={teams.away.name + "crest"}
               width={50}
               height={50}
             />
-            <TeamName>{teams.away.name}</TeamName>
-            
+            <Heading3>{teams.away.name}</Heading3>
           </TeamContainer>
-        </FixtureDetails>
+        </FlexCenterDiv>
         <DateContainer>
           <Link href={`/FixtureInformation/${fixture.id}`}>Stats</Link>
         </DateContainer>
