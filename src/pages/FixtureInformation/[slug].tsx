@@ -214,8 +214,8 @@ export async function getServerSideProps(context: any) {
 
   const options = {
     method: "GET",
-    //  url: `https://football-predict.vercel.app/api/${context.params.slug}`,
-    url: `http://localhost:3000/api/${slug}`,
+     url: `https://football-predict.vercel.app/api/${slug}`,
+   // url: `http://localhost:3000/api/${slug}`,
   };
   const data = await axios.request(options).then(function (response: any) {
     return response.data;
