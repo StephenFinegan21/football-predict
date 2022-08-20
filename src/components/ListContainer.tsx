@@ -3,6 +3,7 @@ import React from "react";
 
 import ListItem from "./ListItem";
 import styled from "styled-components";
+import {Centered} from '../styles/commonStyles'
 
 const Container = styled.div`
   width: 100%;
@@ -14,9 +15,7 @@ const Container = styled.div`
   }
 `
 
-const Centered = styled.h2`
-  text-align: center;
-`
+
 
 const ListContainer = ({ fixtures }: any) => {
 //  console.log(fixtures.response)

@@ -5,8 +5,8 @@ import { LightText, SectionHeadingText } from "../styles/commonStyles";
 const Counter = styled.div<{ isHomeTeam: boolean }>`
   max-width: 100%;
   height: 40px;
-  background-color: #e0eaf1;
-
+  background-color: #eff1f3;
+  border-radius: 2px;
   display: flex;
   justify-content: ${(props) => (props.isHomeTeam ? "flex-end" : "flex-start")};
   margin-bottom: 24px;
@@ -40,9 +40,10 @@ const StatSlider = ({ description, value, isHomeTeam }: statProps) => {
       <Counter isHomeTeam={isHomeTeam}>
         <div
           style={{
-            maxWidth:'100%',
+            maxWidth: "100%",
             width: `${value}`,
-            background: "#2e2a38",
+            borderRadius: "2px",
+            background: "#38323a",
             height: "100%",
           }}
         ></div>

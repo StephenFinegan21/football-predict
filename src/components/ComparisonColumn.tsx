@@ -1,6 +1,6 @@
 import React from "react";
-import StatSlider from "../StatSlider";
-import {SectionContainer, UnderlinedHeading} from '../../styles/commonStyles'
+import StatSlider from "./StatSlider";
+import {SectionContainer, UnderlinedHeading} from '../styles/commonStyles'
 type teamDataProps = {
   form: string;
   attack: string;

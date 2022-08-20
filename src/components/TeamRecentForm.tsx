@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LightText } from "../../styles/commonStyles";
+import { LightText } from "../styles/commonStyles";
 
 type formProps = {
   form: string;

@@ -61,6 +61,13 @@ const FixtureDataNav = ({ currentTab, changeTab }: navProps) => {
         >
           <LightText>Record</LightText>
         </NavList>
+
+        <NavList
+          current={currentTab === "goals"}
+          onClick={() => changeTab("goals")}
+        >
+          <LightText>Goals</LightText>
+        </NavList>
       
       </NavContainer>
    

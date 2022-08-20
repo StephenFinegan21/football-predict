@@ -10,8 +10,27 @@ export const TwoTeamGrid = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
-
 `;
+
+export const TwoTeamGridTables = styled.div`
+  max-width: 100%;
+  text-align: center;
+  display: grid;
+  grid-template-columns:1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  @media (min-width: 600px) {
+    grid-template-columns:1fr 1fr;
+  }
+`;
+
+export const Centered = styled.h2`
+  text-align: center;
+`
+
+
 
 export const LightText = styled.h4`
 font-size: smaller;
@@ -25,7 +44,7 @@ font-weight: 400;
 `;
 
 export const UnderlinedHeading = styled.h4<{ isHomeTeam: boolean }>`
-font-size: medium;
+font-size: small;
 color: #666666;
 font-weight: 400;
 text-decoration: underline;
@@ -64,6 +83,7 @@ export const SectionContainer = styled.div`
 max-width: 100%;
 margin: auto;
 padding: 5% 0;
+overflow: hidden;
 
 @media (min-width: 800px) {
   

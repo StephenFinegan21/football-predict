@@ -6,8 +6,8 @@ import {
   GridItem,
   SectionContainer,
   UnderlinedHeading
-} from "../../styles/commonStyles";
-import StatSlider from "../StatSlider";
+} from "../styles/commonStyles"
+import StatSlider from "./StatSlider";
 import styled from "styled-components";
 
 type goals = {

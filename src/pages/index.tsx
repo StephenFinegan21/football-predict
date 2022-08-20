@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import ListContainer from "../components/fixtureinformation/ListContainer";
+import ListContainer from "../components/ListContainer";
 import axios from "axios";
 
 const Home: NextPage = ({ data }: any) => {

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ComparisonColumn from "./ComparisonColumn";
 
-import { TwoTeamGrid, SectionContainer } from "../../styles/commonStyles";
+import { TwoTeamGrid, SectionContainer } from "../styles/commonStyles";
 
 
 

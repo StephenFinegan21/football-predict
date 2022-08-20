@@ -1,17 +1,20 @@
 import React from "react";
 import Image from "next/image";
-import TeamRecentForm from "../../components/fixtureinformation/TeamRecentForm";
-import LastFiveGames from "../../components/lastFiveGames/LastFiveGames";
-import Comparison from "../../components/comparison/Comparison";
+import TeamRecentForm from "../../components/TeamRecentForm";
+import LastFiveGames from "../../components/LastFiveGames";
+import Comparison from "../../components/Comparison";
 import { useState } from "react";
-import Predictions from "../../components/prediction/Predictions";
+import Predictions from "../../components/Predictions";
 import FixtureDataNav from "../../components/FixtureDataNav";
-import Record from "../../components/record/Record";
+import Record from "../../components/Record";
 import styled from "styled-components";
 import Link from "next/link";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import Goals from "../../components/Goals";
 
 import {
   TwoTeamGrid,
+  TwoTeamGridTables,
   SectionHeadingText,
   SectionContainer,
 } from "../../styles/commonStyles";
@@ -28,15 +31,12 @@ const PageContainer = styled.div`
 
   @media (min-width: 1100px) {
     max-width: 70%;
-  
   }
 `;
 
 const Section = styled.div`
   max-width: 100%;
   margin: 32px 0;
-
- 
 `;
 
 const TeamContainer = styled.div`
@@ -46,6 +46,15 @@ const TeamContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+`;
+
+const BackContainer = styled.div`
+  font-size: xx-large;
+  cursor: pointer;
+
+  &:hover {
+    color: #c334e3;
+  }
 `;
 
 const FixtureInformation = ({ data }: any) => {
@@ -61,7 +70,11 @@ const FixtureInformation = ({ data }: any) => {
     <>
       {data && (
         <PageContainer>
-          <Link href={`/`}>Fixtures</Link>
+          <BackContainer>
+            <Link href={`/`}>
+              <IoMdArrowRoundBack />
+            </Link>
+          </BackContainer>
           <TwoTeamGrid>
             <TeamContainer>
               <div>
@@ -152,20 +165,41 @@ const FixtureInformation = ({ data }: any) => {
               <>
                 <Section>
                   <SectionContainer>
-                    <TwoTeamGrid>
+                    <TwoTeamGridTables>
                       <Record
                         fixtures={teams.home.league.fixtures}
-                        goals={teams.home.league.goals}
                         isHomeTeam={true}
                         teamName={teams.home.name}
                       />
                       <Record
                         fixtures={teams.away.league.fixtures}
+                        isHomeTeam={false}
+                        teamName={teams.away.name}
+                      />
+                    </TwoTeamGridTables>
+                  </SectionContainer>
+                </Section>
+              </>
+            </>
+          )}
+
+          {currentTab === "goals" && (
+            <>
+              <>
+                <Section>
+                  <SectionContainer>
+                    <TwoTeamGridTables>
+                      <Goals
+                        goals={teams.home.league.goals}
+                        isHomeTeam={true}
+                        teamName={teams.home.name}
+                      />
+                      <Goals
                         goals={teams.away.league.goals}
                         isHomeTeam={false}
                         teamName={teams.away.name}
                       />
-                    </TwoTeamGrid>
+                    </TwoTeamGridTables>
                   </SectionContainer>
                 </Section>
               </>

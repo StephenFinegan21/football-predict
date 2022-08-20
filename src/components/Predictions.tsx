@@ -1,5 +1,5 @@
 import React from "react";
-import { LightText, SectionHeadingText} from "../../styles/commonStyles";
+import { LightText, SectionHeadingText} from "../styles/commonStyles"
 
 const Predictions = (props: any) => {
   return (

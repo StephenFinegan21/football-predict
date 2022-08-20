@@ -4,9 +4,9 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const Fixture = styled.div `
-  background-color: #ffffff;
-  padding: 25px;
-  border: 1px solid black;
+  background-color: #f6f6f6;
+  padding: 40px;
+  border-radius:2px;
   margin:  25px auto;
 `
 
