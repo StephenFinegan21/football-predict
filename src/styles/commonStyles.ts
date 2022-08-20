@@ -63,10 +63,10 @@ export const GridItem = styled.div`
 export const SectionContainer = styled.div`
 max-width: 100%;
 margin: auto;
-padding: 5%;
+padding: 5% 0;
 
 @media (min-width: 800px) {
-  border: 2px solid #5e5e5e;
+  
   }
 
 

@@ -9,7 +9,8 @@ const Container = styled.div`
   margin:auto;
 
   @media (min-width: 800px) {
-    width: 80%;
+    width: 90%;
+   
   }
 `
 
@@ -22,7 +23,7 @@ const ListContainer = ({ fixtures }: any) => {
   return (
     <>
       <div >
-        <Centered>Fixtures</Centered>
+        <Centered>Who's Playing</Centered>
     
         <Container>
           {fixtures && fixtures.response.map((fixture: any) => (
