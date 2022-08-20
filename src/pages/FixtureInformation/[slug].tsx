@@ -184,7 +184,7 @@ export async function getServerSideProps(context: any) {
 
   const options = {
     method: "GET",
-    url: "http://localhost:3000/api/head2head",
+    url: "https://football-predict.vercel.app/api/head2head",
     params: { id: context.params.slug },
   };
   const data = await axios.request(options).then(function (response: any) {

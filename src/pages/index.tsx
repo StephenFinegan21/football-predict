@@ -19,7 +19,7 @@ const Home: NextPage = ({ data }: any) => {
 export default Home;
 
 export async function getServerSideProps() {
-  const res = await axios.get("http://localhost:3000/api/test");
+  const res = await axios.get("https://football-predict.vercel.app/api/test");
   const data = res.data;
 
   return {
