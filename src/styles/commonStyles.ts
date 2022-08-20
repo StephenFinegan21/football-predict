@@ -61,7 +61,7 @@ text-align: ${(props) => (props.isHomeTeam ? "left" : "right")};
 
 export const SectionHeadingText = styled.p`
 
-font-size: medium;
+font-size: small;
 color: #282828;
 text-align: center;
 font-weight: 800;

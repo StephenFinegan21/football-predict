@@ -26,6 +26,20 @@ const TeamContainer = styled.div `
 const DateContainer = styled.div `
   width: 100%;
   text-align: center;
+  font-size: small;
+
+  @media (min-width: 800px) {
+  font-size: medium;
+  }
+`
+
+const TeamName = styled.h3 `
+ 
+  font-size: x-small;
+
+  @media (min-width: 800px) {
+  font-size: medium;
+  }
 `
 
 
@@ -46,7 +60,7 @@ const ListItem = (props: any) => {
               width={50}
               height={50}
             />
-            <p>{teams.home.name}</p>
+            <TeamName>{teams.home.name}</TeamName>
           </TeamContainer>
           <DateContainer>
           <p>{date.toDateString()}</p>
@@ -59,7 +73,7 @@ const ListItem = (props: any) => {
               width={50}
               height={50}
             />
-            <p>{teams.away.name}</p>
+            <TeamName>{teams.away.name}</TeamName>
             
           </TeamContainer>
         </FixtureDetails>

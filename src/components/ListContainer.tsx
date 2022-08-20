@@ -22,7 +22,7 @@ const ListContainer = ({ fixtures }: any) => {
   return (
     <>
       <div >
-        <Centered>Who&apos;s Playing</Centered>
+        <Centered>Stats of the day</Centered>
     
         <Container>
           {fixtures && fixtures.response.map((fixture: any) => (
