@@ -4,6 +4,7 @@ import ListContainer from "../components/ListContainer";
 import axios from "axios";
 
 const Home: NextPage = ({ data }: any) => {
+
   return (
     <>
       <Head>
@@ -18,9 +19,22 @@ const Home: NextPage = ({ data }: any) => {
 
 export default Home;
 
-export async function getServerSideProps() {
-  const res = await axios.get("https://football-predict.vercel.app/api/test");
+export async function getStaticProps() {
+
+  const options = {
+    method: 'GET',
+    url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
+    params: {league: '39', next: '10'},
+    headers: {
+      'X-RapidAPI-Key': 'cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854',
+      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+    }
+  };
+
+
+  const res = await axios.request(options);
   const data = res.data;
+  
 
   return {
     props: { data }, // will be passed to the page component as props
