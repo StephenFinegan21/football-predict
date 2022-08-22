@@ -11,6 +11,8 @@ import styled from "styled-components";
 import FixtureHeader from "../../components/fixtureheader/FixtureHeader";
 import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
 
 import {
   TwoTeamGrid,
@@ -38,7 +40,10 @@ const Section = styled.div`
   margin: 32px 0;
 `;
 
-const FixtureInformation = ({ data }: any) => {
+const FixtureInformation = ({ fetchedData }: any) => {
+  const { isLoading, data, error } = useQuery(["fixtureData"], {
+    initialData: fetchedData,
+  });
   const { teams, comparison, predictions, league } = data.response[0];
 
   const [currentTab, setCurrentTab] = useState("last-five");
@@ -49,6 +54,7 @@ const FixtureInformation = ({ data }: any) => {
 
   return (
     <>
+    {isLoading && 'LOADING  '}
       {data && (
         <PageContainer>
           <FixtureHeader
@@ -170,12 +176,12 @@ export async function getStaticProps(context: any) {
     },
   };
 
-  const data = await axios.request(options).then(function (response: any) {
+  const fetchedData = await axios.request(options).then(function (response: any) {
     return response.data;
   });
 
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { fetchedData }, // will be passed to the page component as props
   };
 }
 

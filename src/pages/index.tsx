@@ -3,7 +3,9 @@ import Head from "next/head";
 import ListContainer from "../components/ListContainer";
 import axios from "axios";
 
-const Home: NextPage = ({ data }: any) => {
+
+const Home: NextPage = ({data} : any) => {
+
 
   return (
     <>
@@ -32,11 +34,15 @@ export async function getStaticProps() {
   };
 
 
-  const res = await axios.request(options);
-  const data = res.data;
+  const data = await axios.request(options).then(function (response) {
+    return response.data
+  }).catch(function (error) {
+    console.error(error);
+  });
+
   
 
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { data }  // will be passed to the page component as props
   };
 }

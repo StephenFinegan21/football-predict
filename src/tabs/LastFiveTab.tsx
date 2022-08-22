@@ -4,11 +4,9 @@ import {
   TwoTeamGrid,
   LightText,
   GridItem,
-  SectionContainer,
-  UnderlinedHeading
-} from "../styles/commonStyles"
+  UnderlinedHeading,
+} from "../styles/commonStyles";
 import StatSlider from "../components/StatSlider";
-import styled from "styled-components";
 
 type goals = {
   for: {
@@ -29,17 +27,21 @@ type attributeProps = {
     goals: goals;
   };
   isHomeTeam: boolean;
-  teamName : string
+  teamName: string;
 };
 
-const LastFiveGames = ({ attributes, isHomeTeam, teamName }: attributeProps) => {
+const LastFiveGames = ({
+  attributes,
+  isHomeTeam,
+  teamName,
+}: attributeProps) => {
   const goals = attributes.goals;
   return (
     <>
-   
       <div>
-      <UnderlinedHeading isHomeTeam={isHomeTeam}
-      >{teamName}</UnderlinedHeading>
+        <UnderlinedHeading isHomeTeam={isHomeTeam}>
+          {teamName}
+        </UnderlinedHeading>
         <StatSlider
           description="Attacking Form"
           value={attributes.att}

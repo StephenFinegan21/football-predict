@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { SectionContainer, UnderlinedHeading, RecordTable, Row, TableData, TableHead, FlexContainer } from "../styles/commonStyles";
-
-
+import {
+  UnderlinedHeading,
+  RecordTable,
+  Row,
+  TableData,
+  TableHead,
+  FlexContainer,
+} from "../styles/commonStyles";
 
 const Container = styled.div`
   max-width: 100%;
@@ -10,11 +15,9 @@ const Container = styled.div`
 `;
 
 const Goals = ({ goals, isHomeTeam, teamName }: any) => {
-    console.log(goals)
   return (
     <>
       <Container>
-        
         <UnderlinedHeading isHomeTeam={isHomeTeam}>
           {teamName}
         </UnderlinedHeading>
@@ -41,11 +44,9 @@ const Goals = ({ goals, isHomeTeam, teamName }: any) => {
                 <TableData>{goals.against.total.away}</TableData>
                 <TableData>{goals.against.total.total}</TableData>
               </Row>
-             
             </tbody>
           </RecordTable>
         </FlexContainer>
-  
       </Container>
     </>
   );

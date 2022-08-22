@@ -2,15 +2,20 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { Heading3, LightText, FlexCenterDiv, TeamContainer } from "../styles/commonStyles";
+import {
+  Heading3,
+  LightText,
+  FlexCenterDiv,
+  TeamContainer,
+  ImageContainer,
+} from "../styles/commonStyles";
 
 const Fixture = styled.div`
-  background-color: #f6f6f6;
   padding: 40px;
   border-radius: 2px;
   margin: 25px auto;
+  border-bottom: #d8d8d8 1px solid;
 `;
-
 
 const DateContainer = styled.div`
   width: 100%;
@@ -31,24 +36,28 @@ const ListItem = (props: any) => {
       <Fixture>
         <FlexCenterDiv>
           <TeamContainer>
-            <Image
-              src={teams.home.logo}
-              alt={teams.home.name + "crest"}
-              width={50}
-              height={50}
-            />
+            <ImageContainer>
+              <Image
+                src={teams.home.logo}
+                alt={teams.home.name + "crest"}
+                width={50}
+                height={50}
+              />
+            </ImageContainer>
             <Heading3>{teams.home.name}</Heading3>
           </TeamContainer>
           <DateContainer>
             <LightText>{date.toDateString()}</LightText>
           </DateContainer>
           <TeamContainer>
-            <Image
-              src={teams.away.logo}
-              alt={teams.away.name + "crest"}
-              width={50}
-              height={50}
-            />
+            <ImageContainer>
+              <Image
+                src={teams.away.logo}
+                alt={teams.away.name + "crest"}
+                width={50}
+                height={50}
+              />
+            </ImageContainer>
             <Heading3>{teams.away.name}</Heading3>
           </TeamContainer>
         </FlexCenterDiv>
