@@ -11,6 +11,8 @@ import styled from "styled-components";
 import Link from "next/link";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import Goals from "../../tabs/GoalsTab";
+import axios from "axios";
+
 
 import {
   TwoTeamGrid,
@@ -50,11 +52,10 @@ const BackContainer = styled.div`
 `;
 
 const FixtureInformation = ({ data }: any) => {
-  const { teams, comparison, predictions, league } = data.data;
+  const { teams, comparison, predictions, league } = data.response[0];
 
   const [currentTab, setCurrentTab] = useState("last-five");
 
-  //console.log(teams)
 
   const changeTab = (value: string) => {
     setCurrentTab(value);
@@ -208,21 +209,55 @@ const FixtureInformation = ({ data }: any) => {
 
 export default FixtureInformation;
 
-export async function getServerSideProps(context: any) {
-  const axios = require("axios");
+export async function getStaticProps(context: any) {
   const slug = context.params.slug
 
   const options = {
-    method: "GET",
-     url: `https://football-predict.vercel.app/api/${slug}`,
-   // url: `http://localhost:3000/api/${slug}`,
+    method: 'GET',
+    url: 'https://api-football-v1.p.rapidapi.com/v3/predictions',
+    params: {fixture: `${slug}`},
+    headers: {
+      'X-RapidAPI-Key': 'cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854',
+      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+    }
   };
+
   const data = await axios.request(options).then(function (response: any) {
     return response.data;
   });
-   console.log(context.params.slug, 'jjj')
 
   return {
     props: { data }, // will be passed to the page component as props
   };
+}
+
+
+
+export async function getStaticPaths() {
+  const options = {
+    method: 'GET',
+    url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
+    params: {league: '39', next: '10'},
+    headers: {
+      'X-RapidAPI-Key': 'cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854',
+      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+    }
+  };
+
+
+  const res = await axios.request(options);
+  const paths = res.data.response.map((fixture : any) => {
+   return {
+    params : {
+      slug: `${fixture.fixture.id}`
+    }
+   }
+  })
+
+  return {
+    paths,
+    fallback: false, // can also be true or 'blocking'
+  }
+
+ 
 }
