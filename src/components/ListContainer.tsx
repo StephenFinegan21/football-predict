@@ -3,7 +3,6 @@ import React from "react";
 import ListItem from "./ListItem";
 import styled from "styled-components";
 import { Heading1 } from "../styles/commonStyles";
-import { useQuery } from "@tanstack/react-query";
 
 const Container = styled.div`
   width: 100%;
@@ -15,23 +14,16 @@ const Container = styled.div`
 `;
 
 const ListContainer = ({ fixtures }: any) => {
-  const { isLoading, data, error } = useQuery(["data"], {
-    initialData: fixtures,
-  });
+ 
   
 
   return (
     <>
-      {isLoading && (
-        <>
-          <p>loading</p>
-        </>
-      )}
       <div>
         <Heading1>Stats of the day</Heading1>
         <Container>
-          {data &&
-            data.response.map((fixture: any) => (
+          {fixtures &&
+            fixtures.response.map((fixture: any) => (
               <ListItem item={fixture} key={fixture.fixture.id} />
             ))}
         </Container>
