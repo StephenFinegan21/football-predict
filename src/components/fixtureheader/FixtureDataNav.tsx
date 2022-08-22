@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { LightText, SectionContainer } from "../styles/commonStyles";
+import { LightText, SectionContainer } from "../../styles/commonStyles";
 
 type navProps = {
   currentTab: string;

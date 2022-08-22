@@ -1,25 +1,21 @@
 import React from "react";
 import Image from "next/image";
-import TeamRecentForm from "../../components/TeamRecentForm";
+import TeamRecentForm from "../../components/fixtureheader/TeamRecentForm";
 import LastFiveGames from "../../tabs/LastFiveTab";
 import Comparison from "../../tabs/CompareTab";
 import { useState } from "react";
 import Predictions from "../../tabs/PredictionsTab";
-import FixtureDataNav from "../../components/FixtureDataNav";
+import FixtureDataNav from "../../components/fixtureheader/FixtureDataNav";
 import Record from "../../tabs/RecordTab";
 import styled from "styled-components";
-import Link from "next/link";
-import { IoMdArrowRoundBack } from "react-icons/io";
+import FixtureHeader from "../../components/fixtureheader/FixtureHeader";
 import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
-
 
 import {
   TwoTeamGrid,
   TwoTeamGridTables,
-  SectionHeadingText,
   SectionContainer,
-  TeamContainer,
 } from "../../styles/commonStyles";
 
 const PageContainer = styled.div`
@@ -42,20 +38,10 @@ const Section = styled.div`
   margin: 32px 0;
 `;
 
-const BackContainer = styled.div`
-  font-size: xx-large;
-  cursor: pointer;
-
-  &:hover {
-    color: #c334e3;
-  }
-`;
-
 const FixtureInformation = ({ data }: any) => {
   const { teams, comparison, predictions, league } = data.response[0];
 
   const [currentTab, setCurrentTab] = useState("last-five");
-
 
   const changeTab = (value: string) => {
     setCurrentTab(value);
@@ -65,49 +51,11 @@ const FixtureInformation = ({ data }: any) => {
     <>
       {data && (
         <PageContainer>
-          <Link href={`/`}>
-            <BackContainer>
-              <IoMdArrowRoundBack />
-            </BackContainer>
-          </Link>
-
-          <TwoTeamGrid>
-            <TeamContainer>
-              <div>
-                <Image
-                  src={teams.home.logo}
-                  alt={teams.home.name + "crest"}
-                  width={60}
-                  height={60}
-                />
-
-                <SectionHeadingText> {teams.home.name}</SectionHeadingText>
-              </div>
-              {!teams?.home.league.form && <p>No form</p>}
-              {teams.home.league.form && (
-                <TeamRecentForm form={teams?.home.league.form} />
-              )}
-            </TeamContainer>
-
-            <TeamContainer>
-              <div>
-                <Image
-                  src={teams.away.logo}
-                  alt={teams.away.name + "crest"}
-                  width={60}
-                  height={60}
-                />
-
-                <SectionHeadingText> {teams.away.name}</SectionHeadingText>
-              </div>
-              {!teams?.away.league.form && <p>No form</p>}
-              {teams.away.league.form && (
-                <TeamRecentForm form={teams?.away.league.form} />
-              )}
-            </TeamContainer>
-          </TwoTeamGrid>
-          <FixtureDataNav currentTab={currentTab} changeTab={changeTab} />
-
+          <FixtureHeader
+            teams={teams}
+            currentTab={currentTab}
+            changeTab={changeTab}
+          />
           {currentTab === "last-five" && (
             <>
               <>
@@ -210,16 +158,16 @@ const FixtureInformation = ({ data }: any) => {
 export default FixtureInformation;
 
 export async function getStaticProps(context: any) {
-  const slug = context.params.slug
+  const slug = context.params.slug;
 
   const options = {
-    method: 'GET',
-    url: 'https://api-football-v1.p.rapidapi.com/v3/predictions',
-    params: {fixture: `${slug}`},
+    method: "GET",
+    url: "https://api-football-v1.p.rapidapi.com/v3/predictions",
+    params: { fixture: `${slug}` },
     headers: {
-      'X-RapidAPI-Key': 'cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854',
-      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-    }
+      "X-RapidAPI-Key": "cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854",
+      "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+    },
   };
 
   const data = await axios.request(options).then(function (response: any) {
@@ -231,33 +179,28 @@ export async function getStaticProps(context: any) {
   };
 }
 
-
-
 export async function getStaticPaths() {
   const options = {
-    method: 'GET',
-    url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
-    params: {league: '39', next: '10'},
+    method: "GET",
+    url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
+    params: { league: "39", next: "10" },
     headers: {
-      'X-RapidAPI-Key': 'cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854',
-      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-    }
+      "X-RapidAPI-Key": "cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854",
+      "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+    },
   };
 
-
   const res = await axios.request(options);
-  const paths = res.data.response.map((fixture : any) => {
-   return {
-    params : {
-      slug: `${fixture.fixture.id}`
-    }
-   }
-  })
+  const paths = res.data.response.map((fixture: any) => {
+    return {
+      params: {
+        slug: `${fixture.fixture.id}`,
+      },
+    };
+  });
 
   return {
     paths,
     fallback: false, // can also be true or 'blocking'
-  }
-
- 
+  };
 }
