@@ -37,7 +37,7 @@ const Section = styled.div`
 
 const FixtureInformation = ({ data }: any) => {
   const { teams, comparison, predictions, league } = data.response[0];
-  console.log(data)
+  console.log(data);
   const [currentTab, setCurrentTab] = useState("last-five");
 
   const changeTab = (value: string) => {
@@ -162,8 +162,8 @@ export async function getStaticProps(context: any) {
     url: "https://api-football-v1.p.rapidapi.com/v3/predictions",
     params: { fixture: `${slug}` },
     headers: {
-      "X-RapidAPI-Key": "cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854",
-      "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
+      "X-RapidAPI-Host": `${process.env.NEXT_PUBLIC_HOST_NAME}`,
     },
   };
 
@@ -182,8 +182,8 @@ export async function getStaticPaths() {
     url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
     params: { league: "39", next: "10" },
     headers: {
-      "X-RapidAPI-Key": "cfb46f14e4mshc29e8bb6b4d31c3p18e819jsne9c885907854",
-      "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
+      "X-RapidAPI-Host": `${process.env.NEXT_PUBLIC_HOST_NAME}`,
     },
   };
 
