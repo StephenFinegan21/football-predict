@@ -37,7 +37,6 @@ const Section = styled.div`
 
 const FixtureInformation = ({ data }: any) => {
   const { teams, comparison, predictions, league } = data.response[0];
-  console.log(data);
   const [currentTab, setCurrentTab] = useState("last-five");
 
   const changeTab = (value: string) => {
