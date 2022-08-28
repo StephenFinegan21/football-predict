@@ -5,6 +5,7 @@ import {
   LightText,
   GridItem,
   UnderlinedHeading,
+  SectionContainer,
 } from "../styles/commonStyles";
 import StatSlider from "../components/StatSlider";
 
@@ -38,7 +39,7 @@ const LastFiveGames = ({
   const goals = attributes.goals;
   return (
     <>
-      <div>
+      <SectionContainer>
         <UnderlinedHeading isHomeTeam={isHomeTeam}>
           {teamName}
         </UnderlinedHeading>
@@ -76,7 +77,7 @@ const LastFiveGames = ({
             <SectionHeadingText>{goals.against.average}</SectionHeadingText>
           </GridItem>
         </TwoTeamGrid>
-      </div>
+      </SectionContainer>
     </>
   );
 };

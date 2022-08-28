@@ -124,7 +124,7 @@ export const SectionContainer = styled.div`
 `;
 
 export const RecordTable = styled.table<{ isHomeTeam: boolean }>`
-  width: 100%;
+  max-width: 100%;
 
   color: #7f7f7f;
   font-size: smaller;
