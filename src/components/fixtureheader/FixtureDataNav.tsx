@@ -9,13 +9,16 @@ type navProps = {
 };
 
 const NavContainer = styled.div`
-  max-width: 100%;
+
   border-bottom: 2px solid #7a7a7a;
   display: flex;
   justify-content: flex-start;
   gap: 5%;
   padding-bottom:5px;
   padding-top: 20px;
+  overflow: auto;
+  white-space: nowrap;
+
  
   
 `;
