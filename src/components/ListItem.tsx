@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { IoMdArrowRoundForward } from "react-icons/io";
 import {
   Heading3,
   LightText,
@@ -12,14 +10,14 @@ import {
   ImageContainer,
 } from "../styles/commonStyles";
 
-const Fixture = styled.div`
+const Fixture = styled.div<{ isLink: boolean }>`
   padding: 20px 0;
   border-radius: 2px;
   margin: auto;
   border-bottom: #d8d8d8 1px solid;
   cursor: pointer;
-  &:hover{
-    background-color: #eaeaea;
+   &:hover {
+    background: ${(props) => props.isLink  ? "#eaeaea" :  "#ffffff"};
   }
 `;
 
@@ -46,67 +44,60 @@ const ScoreContainer = styled.div`
   }
 `;
 
-
 const ListItem = (props: any) => {
   const { fixture, teams, goals, league } = props.item;
   const date = new Date(fixture.date);
   return (
     <>
-    <Link href={`/FixtureInformation/${fixture.id}`}>
-      <Fixture>
-      
-    
+      <Link href={!goals.home ? `/FixtureInformation/${fixture.id}` : '#' }>
+     
+      <Fixture isLink={goals.home ? false : true}>
         <FlexCenterDiv>
           <TeamContainer>
             <ImageContainer>
               <Image
                 src={teams.home.logo}
                 alt={teams.home.name + "crest"}
-                width={50}
-                height={50}
+                width={40}
+                height={40}
               />
             </ImageContainer>
             <Heading3>{teams.home.name}</Heading3>
           </TeamContainer>
           <DateContainer>
-          <Image
-                src={league.logo}
-                alt={league.logo + "logo"}
-                width={20}
-                height={20}
-              />
+            <Image
+              src={league.logo}
+              alt={league.logo + "logo"}
+              width={20}
+              height={20}
+            />
             <LightText>{date.toDateString()}</LightText>
-            
-         </DateContainer>
-          
-                
+          </DateContainer>
+
           <TeamContainer>
             <ImageContainer>
               <Image
                 src={teams.away.logo}
                 alt={teams.away.name + "crest"}
-                width={50}
-                height={50}
+                width={40}
+                height={40}
               />
             </ImageContainer>
             <Heading3>{teams.away.name}</Heading3>
           </TeamContainer>
-          
         </FlexCenterDiv>
-        {goals.home !== null && 
+        {goals.home !== null && (
           <DateContainer>
             <ScoreContainer>
-          <p>{goals.home}</p>
-          <p> - </p>
-          <p>{goals.away}</p>
-          </ScoreContainer>
-        </DateContainer>
-            }
-   
+              <p>{goals.home}</p>
+              <p> - </p>
+              <p>{goals.away}</p>
+            </ScoreContainer>
+          </DateContainer>
+        )}
       </Fixture>
+   
       </Link>
-
-  
     </>
   );
 };
