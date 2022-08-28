@@ -49,9 +49,9 @@ const ListItem = (props: any) => {
   const date = new Date(fixture.date);
   return (
     <>
-      <Link href={!goals.home ? `/FixtureInformation/${fixture.id}` : '#' }>
+      <Link href={goals.home == null ? `/FixtureInformation/${fixture.id}` : '#' }>
      
-      <Fixture isLink={goals.home ? false : true}>
+      <Fixture isLink={goals.home == null ? true : false}>
         <FlexCenterDiv>
           <TeamContainer>
             <ImageContainer>
