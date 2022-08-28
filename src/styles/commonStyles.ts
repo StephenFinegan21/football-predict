@@ -63,6 +63,8 @@ export const LightText = styled.h4`
   color: #666666;
   text-align: center;
   font-weight: 400;
+margin: 0;
+padding: 20px;
 
   @media (min-width: 800px) {
     font-size: medium;

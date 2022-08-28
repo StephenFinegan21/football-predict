@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { IoMdArrowRoundForward } from "react-icons/io";
 import {
   Heading3,
   LightText,
@@ -13,14 +11,10 @@ import {
 } from "../styles/commonStyles";
 
 const Fixture = styled.div`
-  padding: 20px 0;
+  padding: 40px;
   border-radius: 2px;
-  margin: auto;
+  margin: 25px auto;
   border-bottom: #d8d8d8 1px solid;
-  cursor: pointer;
-  &:hover{
-    background-color: #eaeaea;
-  }
 `;
 
 const DateContainer = styled.div`
@@ -32,30 +26,27 @@ const DateContainer = styled.div`
     font-size: medium;
   }
 `;
-
 const ScoreContainer = styled.div`
-  width: 40%;
-  margin: auto;
+  width: 100%;
   text-align: center;
   font-size: small;
-  display: flex;
-  justify-content: center;
 
   @media (min-width: 800px) {
     font-size: medium;
   }
 `;
 
+const H2hItem = (props: any) => {
+  const { fixture, teams, goals } = props.item;
 
-const ListItem = (props: any) => {
-  const { fixture, teams, goals, league } = props.item;
   const date = new Date(fixture.date);
   return (
     <>
-    <Link href={`/FixtureInformation/${fixture.id}`}>
+    {
       <Fixture>
-      
-    
+         <DateContainer>
+            <LightText>{date.toDateString()}</LightText>
+          </DateContainer>
         <FlexCenterDiv>
           <TeamContainer>
             <ImageContainer>
@@ -68,18 +59,14 @@ const ListItem = (props: any) => {
             </ImageContainer>
             <Heading3>{teams.home.name}</Heading3>
           </TeamContainer>
+          {goals && 
           <DateContainer>
-          <Image
-                src={league.logo}
-                alt={league.logo + "logo"}
-                width={20}
-                height={20}
-              />
-            <LightText>{date.toDateString()}</LightText>
-            
-         </DateContainer>
-          
-                
+            <ScoreContainer>
+          <p>{goals.home}</p>
+          <p>{goals.away}</p>
+          </ScoreContainer>
+        </DateContainer>
+            }
           <TeamContainer>
             <ImageContainer>
               <Image
@@ -91,24 +78,12 @@ const ListItem = (props: any) => {
             </ImageContainer>
             <Heading3>{teams.away.name}</Heading3>
           </TeamContainer>
-          
         </FlexCenterDiv>
-        {goals.home !== null && 
-          <DateContainer>
-            <ScoreContainer>
-          <p>{goals.home}</p>
-          <p> - </p>
-          <p>{goals.away}</p>
-          </ScoreContainer>
-        </DateContainer>
-            }
-   
+     
       </Fixture>
-      </Link>
-
-  
+  }
     </>
   );
 };
 
-export default ListItem;
+export default H2hItem;

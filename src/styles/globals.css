@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
-    html {
+    body {
         font-family: 'Space Mono', monospace;
         max-width: 100%;
         background-color: rgb(255, 255, 255);
@@ -10,9 +10,7 @@
         margin: 0;
     }
 
-    img{
-        display: none;
-    }
+   
    
     
    

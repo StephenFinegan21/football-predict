@@ -1,14 +1,12 @@
 import "../styles/globals.css";
 import type { AppType } from "next/dist/shared/lib/utils";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-const queryClient = new QueryClient();
+import Layout from "../components/Layout";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <QueryClientProvider client={queryClient}>
+    <Layout>
       <Component {...pageProps} />
-    </QueryClientProvider>
+    </Layout>
   );
 };
 

@@ -14,6 +14,8 @@ import {
   TwoTeamGridTables,
   SectionContainer,
 } from "../../styles/commonStyles";
+import H2hItem from "../../components/H2hItem";
+import ListItem from "../../components/ListItem";
 
 const PageContainer = styled.div`
   max-width: 95%;
@@ -36,12 +38,14 @@ const Section = styled.div`
 `;
 
 const FixtureInformation = ({ data }: any) => {
-  const { teams, comparison, predictions, league } = data.response[0];
+  const { teams, comparison, predictions, league, h2h } = data.response[0];
   const [currentTab, setCurrentTab] = useState("last-five");
 
   const changeTab = (value: string) => {
     setCurrentTab(value);
   };
+
+ 
 
   return (
     <>
@@ -140,6 +144,19 @@ const FixtureInformation = ({ data }: any) => {
                         teamName={teams.away.name}
                       />
                     </TwoTeamGridTables>
+                  </SectionContainer>
+                </Section>
+              </>
+            </>
+          )}
+          {currentTab === "h2h" && (
+            <>
+              <>
+                <Section>
+                  <SectionContainer>
+                    { h2h.map((fixture : any) => 
+                   <ListItem item={fixture} key={fixture.fixture.id} />
+                    )}
                   </SectionContainer>
                 </Section>
               </>
