@@ -55,6 +55,7 @@ const ScoreContainer = styled.div`
 
 const ListItem = (props: any) => {
   const { fixture, teams, goals, league } = props.fixture;
+  //console.log('props, ', props)
 
   return (
     <>

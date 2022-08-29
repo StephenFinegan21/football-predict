@@ -36,7 +36,7 @@ const ListContainer = ({ fixtures }: any) => {
         <Heading1>Stats of the day</Heading1>
         <Container>
           {getDates(matchDates).map((date) => (
-            <DateList date={date} fixtures={fixtures} />
+            <DateList date={date} fixtures={fixtures} key={date} />
           ))}
         </Container>
       </div>

@@ -26,6 +26,7 @@ const DateList = ({ date, fixtures }: any) => {
         matches.push(fixtures.response[i]);
       }
     }
+
     return matches;
   };
 
@@ -35,7 +36,7 @@ const DateList = ({ date, fixtures }: any) => {
         <LightText>{date}</LightText>
       </DateContainer>
       {checkFixtures().map((f) => (
-        <ListItem fixture={f} />
+        <ListItem fixture={f} key={f.fixture.id} />
       ))}
     </>
   );
