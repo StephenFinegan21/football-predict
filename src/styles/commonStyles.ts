@@ -8,7 +8,6 @@ export const TwoTeamGrid = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
-  
 `;
 
 export const TwoTeamGridTables = styled.div`
@@ -28,7 +27,7 @@ export const TwoTeamGridTables = styled.div`
 export const FlexCenterDiv = styled.div`
   display: flex;
   align-items: center;
-  
+
   justify-content: space-between;
 `;
 
@@ -44,14 +43,14 @@ export const Heading2 = styled.h2`
 
 export const ImageContainer = styled.div`
   width: 30px;
-  
+
   @media (min-width: 800px) {
     width: 100px;
   }
 `;
 
 export const Heading3 = styled.h2`
-  font-size: x-small;
+  font-size: xx-small;
 
   @media (min-width: 800px) {
     font-size: medium;
@@ -59,12 +58,12 @@ export const Heading3 = styled.h2`
 `;
 
 export const LightText = styled.h4`
-  font-size: smaller;
+  font-size: xx-small;
   color: #666666;
   text-align: center;
   font-weight: 400;
-margin: 0;
-padding: 20px;
+  margin: 0;
+  padding: 20px;
 
   @media (min-width: 800px) {
     font-size: medium;
@@ -92,8 +91,6 @@ export const TeamContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  
-
   text-align: center;
 `;
 

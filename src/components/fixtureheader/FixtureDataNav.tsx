@@ -9,11 +9,11 @@ type navProps = {
 };
 
 const NavContainer = styled.div`
-max-width: 100%;
+  max-width: 100%;
   border-bottom: 2px solid #7a7a7a;
   display: flex;
   justify-content: flex-start;
-  gap: 5%;
+gap: 1%;
   padding-bottom:5px;
   padding-top: 20px;
   overflow: auto;
@@ -30,6 +30,8 @@ const NavList = styled.li<{ current: boolean }>`
   max-width: 100%;
   list-style: none;
   cursor: pointer;
+
+
  
 
 `;

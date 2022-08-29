@@ -45,8 +45,6 @@ const FixtureInformation = ({ data }: any) => {
     setCurrentTab(value);
   };
 
- 
-
   return (
     <>
       {data && (
@@ -154,9 +152,9 @@ const FixtureInformation = ({ data }: any) => {
               <>
                 <Section>
                   <SectionContainer>
-                    { h2h.map((fixture : any) => 
-                   <ListItem item={fixture} key={fixture.fixture.id} />
-                    )}
+                    {h2h.map((fixture: any) => (
+                      <ListItem fixture={fixture} key={fixture.fixture.id} />
+                    ))}
                   </SectionContainer>
                 </Section>
               </>
