@@ -63,7 +63,8 @@ export const LightText = styled.h4`
   text-align: center;
   font-weight: 400;
   margin: 0;
-  padding: 20px;
+  padding-right: 10px;
+  padding-bottom: 20px;
 
   @media (min-width: 800px) {
     font-size: medium;
@@ -120,19 +121,17 @@ export const SectionContainer = styled.div`
   }
 `;
 
-export const RecordTable = styled.table<{ isHomeTeam: boolean }>`
+export const RecordTable = styled.table`
   max-width: 100%;
 
   color: #7f7f7f;
   font-size: smaller;
   border-collapse: collapse;
-  justify-content: "flex-start";
+  margin: auto;
 
   @media (min-width: 600px) {
-    justify-content: ${(props) =>
-      props.isHomeTeam ? "flex-start" : "flex-end"};
-    margin-left: ${(props) => (props.isHomeTeam ? "0px" : "40px")};
-    margin-right: ${(props) => (props.isHomeTeam ? "40px" : "0px")};
+    
+ 
   }
 `;
 
@@ -141,19 +140,23 @@ export const Row = styled.tr`
 `;
 
 export const TableData = styled.td`
-  padding: 12px 10px;
+font-size: large;
+width: 100%;
+text-align: left;
+padding: 20px 14px;
+
 `;
 export const TableHead = styled.th`
-  padding: 12px 10px;
+  padding: 20px 14px;
+  border-bottom: 1px solid #dfdfdf;
 `;
 
-export const FlexContainer = styled.div<{ isHomeTeam: boolean }>`
+export const FlexContainer = styled.div`
   max-width: 100%;
   display: flex;
   justify-content: "flex-start";
 
   @media (min-width: 600px) {
-    justify-content: ${(props) =>
-      props.isHomeTeam ? "flex-start" : "flex-end"};
+  
   }
 `;

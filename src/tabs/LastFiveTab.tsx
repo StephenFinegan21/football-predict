@@ -8,6 +8,25 @@ import {
   SectionContainer,
 } from "../styles/commonStyles";
 import StatSlider from "../components/StatSlider";
+import styled from "styled-components";
+
+const CenteredContainer = styled.div`
+  width: 90%;
+  margin: auto;
+
+  @media (min-width: 800px) {
+    width: 70%;
+  }
+
+  @media (min-width: 1800px) {
+    width: 50%;
+  }
+`;
+
+const Metric = styled.div`
+  border-bottom: 1px solid gray;
+  padding: 30px 0;
+`;
 
 type goals = {
   for: {
@@ -32,52 +51,58 @@ type attributeProps = {
 };
 
 const LastFiveGames = ({
-  attributes,
-  isHomeTeam,
-  teamName,
-}: attributeProps) => {
-  const goals = attributes.goals;
+  away, home
+}: any) => {
+ 
   return (
     <>
-      <SectionContainer>
-        <UnderlinedHeading isHomeTeam={isHomeTeam}>
-          {teamName}
-        </UnderlinedHeading>
-        <StatSlider
-          description="Attacking Form"
-          value={attributes.att}
-          isHomeTeam={isHomeTeam}
-        />
-        <StatSlider
-          description="Defensive Form"
-          value={attributes.def}
-          isHomeTeam={isHomeTeam}
-        />
-        <StatSlider
-          description="Overall Form"
-          value={attributes.form}
-          isHomeTeam={isHomeTeam}
-        />
+      <CenteredContainer>
+      <Metric>
+        <h4>Overall Form</h4>
 
-        <TwoTeamGrid>
-          <GridItem>
-            <LightText>Scored</LightText>
-            <SectionHeadingText>{goals.for.total}</SectionHeadingText>
-          </GridItem>
-          <GridItem>
-            <LightText>Avg Scored</LightText>
-            <SectionHeadingText>{goals.for.average}</SectionHeadingText>
-          </GridItem>
-          <GridItem>
-            <LightText>Against</LightText>{" "}
-            <SectionHeadingText>{goals.against.total}</SectionHeadingText>
-          </GridItem>
-          <GridItem>
-            <LightText>Avg against</LightText>{" "}
-            <SectionHeadingText>{goals.against.average}</SectionHeadingText>
-          </GridItem>
-        </TwoTeamGrid>
-      </SectionContainer>
+        <div>
+          <p>{home.name}</p>
+          <p> &#128200; {home.league.form}</p>
+        </div>
+        <StatSlider value={home.last_5.form} />
+
+        <div>
+          <p>{away.name}</p>
+          <p>&#128200; {away.league.form}</p>
+        </div>
+        <StatSlider value={away.last_5.form} />
+      </Metric>
+      <Metric>
+        <h4>Attacking Form</h4>
+
+        <div>
+          <p>{home.name}</p>
+          <p>&#9917; {home.league.goals.for.total.total}</p>
+        </div>
+        <StatSlider value={home.last_5.att} />
+
+        <div>
+          <p>{away.name}</p>
+          <p>&#9917; {away.league.goals.for.total.total}</p>
+        </div>
+        <StatSlider value={away.last_5.att} />
+      </Metric>
+      <Metric>
+        <h4>Defensive Form</h4>
+
+        <div>
+          <p>{home.name}</p>
+          <p>&#129349; {home.league.goals.against.total.total}</p>
+        </div>
+        <StatSlider value={home.last_5.def} />
+
+        <div>
+          <p>{away.name}</p>
+          <p>&#129349; {away.league.goals.against.total.total}</p>
+        </div>
+        <StatSlider value={away.last_5.def} />
+      </Metric>
+    </CenteredContainer>
     </>
   );
 };

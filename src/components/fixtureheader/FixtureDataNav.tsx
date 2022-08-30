@@ -48,6 +48,7 @@ const FixtureDataNav = ({ currentTab, changeTab }: navProps) => {
         >
           <LightText>Last 5</LightText>
         </NavList>
+       
         <NavList
           current={currentTab === "comparison"}
           onClick={() => changeTab("comparison")}

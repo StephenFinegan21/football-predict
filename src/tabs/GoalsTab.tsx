@@ -18,11 +18,11 @@ const Goals = ({ goals, isHomeTeam, teamName }: any) => {
   return (
     <>
       <Container>
-        <UnderlinedHeading isHomeTeam={isHomeTeam}>
+        <p>
           {teamName}
-        </UnderlinedHeading>
-        <FlexContainer isHomeTeam={isHomeTeam}>
-          <RecordTable isHomeTeam={isHomeTeam}>
+        </p>
+        <FlexContainer>
+          <RecordTable>
             <thead>
               <tr>
                 <TableHead></TableHead>

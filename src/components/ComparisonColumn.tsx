@@ -21,37 +21,37 @@ const ComparisonColumn = (props: teamDataProps) => {
         <StatSlider
           description="Form"
           value={props.form}
-          isHomeTeam={props.isHomeTeam}
+         
         />
         <StatSlider
           description="Attack"
           value={props.attack}
-          isHomeTeam={props.isHomeTeam}
+        
         />
         <StatSlider
           description="Defense"
           value={props.defense}
-          isHomeTeam={props.isHomeTeam}
+        
         />
         <StatSlider
           description="Poisson Distribution"
           value={props.poisson}
-          isHomeTeam={props.isHomeTeam}
+       
         />
         <StatSlider
           description="Head 2 Head"
           value={props.h2h}
-          isHomeTeam={props.isHomeTeam}
+      
         />
         <StatSlider
           description="Goals"
           value={props.goals}
-          isHomeTeam={props.isHomeTeam}
+       
         />
         <StatSlider
           description="Total"
           value={props.total}
-          isHomeTeam={props.isHomeTeam}
+       
         />
      </div>
     </>

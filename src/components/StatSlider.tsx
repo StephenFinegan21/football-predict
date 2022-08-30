@@ -2,18 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { LightText, SectionHeadingText } from "../styles/commonStyles";
 
-const Counter = styled.div<{ isHomeTeam: boolean }>`
+const Counter = styled.div`
   max-width: 100%;
-  height: 20px;
+  height: 10px;
   background-color: #eff1f3;
   border-radius: 2px;
   display: flex;
-  justify-content: ${(props) => (props.isHomeTeam ? "flex-end" : "flex-start")};
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 `;
 
-const ReversibleText = styled.p<{ isHomeTeam: boolean }>`
-  text-align: ${(props) => (props.isHomeTeam ? "left" : "right")};
+const ReversibleText = styled.p`
+  
 `;
 
 const ScoreText = styled.h4<{ value: number }>`
@@ -25,12 +24,17 @@ const ScoreText = styled.h4<{ value: number }>`
 `;
 
 type statProps = {
-  description: string;
+  description?: string;
   value: string;
-  isHomeTeam: boolean;
+
 };
 
-const StatSlider = ({ description, value, isHomeTeam }: statProps) => {
+const Flex = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+`
+
+const StatSlider = ({ description, value }: statProps) => {
   const sliderColour =
     parseInt(value) > 70
       ? "#1fac92"
@@ -39,13 +43,13 @@ const StatSlider = ({ description, value, isHomeTeam }: statProps) => {
       : "#eebc72";
   return (
     <>
-      <LightText>
-        <ReversibleText isHomeTeam={isHomeTeam}>{description}</ReversibleText>
-      </LightText>
+    <div>
+      <h4>{description}</h4>
+    <Flex>
       <ScoreText value={parseInt(value)}>
-        <ReversibleText isHomeTeam={isHomeTeam}>{value}</ReversibleText>
+        <ReversibleText >{value}</ReversibleText>
       </ScoreText>
-      <Counter isHomeTeam={isHomeTeam}>
+      <Counter>
         <div
           style={{
             maxWidth: "100%",
@@ -56,6 +60,8 @@ const StatSlider = ({ description, value, isHomeTeam }: statProps) => {
           }}
         ></div>
       </Counter>
+      </Flex>
+      </div>
     </>
   );
 };

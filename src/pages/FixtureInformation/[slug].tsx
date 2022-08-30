@@ -58,26 +58,13 @@ const FixtureInformation = ({ data }: any) => {
             <>
               <>
                 <Section>
-                  <SectionContainer>
-                    <TwoTeamGrid>
-                      <LastFiveGames
-                        attributes={teams.home.last_5}
-                        isHomeTeam={true}
-                        teamName={teams.home.name}
-                      />
-
-                      <LastFiveGames
-                        attributes={teams.away.last_5}
-                        isHomeTeam={false}
-                        teamName={teams.away.name}
-                      />
-                    </TwoTeamGrid>
-                  </SectionContainer>
+                  <LastFiveGames home={teams.home} away={teams.away} />
                 </Section>
               </>
             </>
           )}
 
+         
           {currentTab === "comparison" && (
             <>
               <>
@@ -106,20 +93,12 @@ const FixtureInformation = ({ data }: any) => {
             <>
               <>
                 <Section>
-                  <SectionContainer>
-                    <TwoTeamGridTables>
-                      <Record
-                        fixtures={teams.home.league.fixtures}
-                        isHomeTeam={true}
-                        teamName={teams.home.name}
-                      />
-                      <Record
-                        fixtures={teams.away.league.fixtures}
-                        isHomeTeam={false}
-                        teamName={teams.away.name}
-                      />
-                    </TwoTeamGridTables>
-                  </SectionContainer>
+                  <Record
+                    homeFixtures={teams.home.league.fixtures}
+                    awayFixtures={teams.away.league.fixtures}
+                    homeTeam={teams.home.name}
+                    awayTeam={teams.away.name}
+                  />
                 </Section>
               </>
             </>
