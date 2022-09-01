@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import WinPercentage from "../components/WinPercentage";
+import StatTable from "../components/StatTable";
 import {
   UnderlinedHeading,
   RecordTable,
@@ -26,9 +27,13 @@ const CenteredContainer = styled.div`
 
 const Flex = styled.div`
   display: flex;
-  width: 40%;
+  width: 80%;
   margin: auto;
   justify-content: space-between;
+
+  @media (min-width: 800px) {
+    width: 50%;
+  }
 `;
 
 const TableContainer = styled.div`
@@ -43,11 +48,15 @@ const StatHeading = styled.div`
 
 
 const Legend = styled.div`
-  max-width: 50%;
+  max-width: 90%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  @media (min-width: 800px) {
+    width: 50%;
+  }
 `;
 
 const LegendIcon = styled.div`
@@ -55,13 +64,14 @@ const LegendIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 `;
 
 const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   return (
     <>
       <CenteredContainer>
-        <TableContainer>
+      
           <Legend>
             <LegendIcon>
               <p>Win</p>
@@ -96,138 +106,32 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
               caption={awayTeam}
             />
           </Flex>
-          <RecordTable>
-            <thead>
-              <tr>
-                <TableHead style={{ textAlign: "left", fontSize: "large" }}>
-                  Games Played
-                </TableHead>
-                <TableHead>Home</TableHead>
-                <TableHead>Away</TableHead>
-                <TableHead>Total</TableHead>
-              </tr>
-            </thead>
-            <tbody>
-              <Row>
-                <TableData>{homeTeam}</TableData>
-                <TableData>{homeFixtures.played.home}</TableData>
-                <TableData>{homeFixtures.played.away}</TableData>
-                <TableData>{homeFixtures.played.total}</TableData>
-              </Row>
-              <Row>
-                <TableData>{awayTeam}</TableData>
-                <TableData>{awayFixtures.played.home}</TableData>
-                <TableData>{awayFixtures.played.away}</TableData>
-                <TableData>{awayFixtures.played.total}</TableData>
-              </Row>
-            </tbody>
-          </RecordTable>
+          <TableContainer>
+          <StatTable
+             title='Games Played'
+             homeTeam={homeTeam} homeStats={homeFixtures.played}
+             awayTeam={awayTeam} awayStats={awayFixtures.played}
+             />
+          <StatTable
+             title='Wins'
+             homeTeam={homeTeam} homeStats={homeFixtures.wins}
+             awayTeam={awayTeam} awayStats={awayFixtures.wins}
+             />
+             <StatTable
+             title='Losses'
+             homeTeam={homeTeam} homeStats={homeFixtures.loses}
+             awayTeam={awayTeam} awayStats={awayFixtures.loses}
+             />
+              <StatTable
+             title='Draws'
+             homeTeam={homeTeam} homeStats={homeFixtures.draws}
+             awayTeam={awayTeam} awayStats={awayFixtures.draws}
+             />
+          
+         
         </TableContainer>
 
-        <TableContainer>
-          <RecordTable>
-            <thead>
-              <tr>
-                <TableHead
-                  style={{
-                    textAlign: "left",
-                    fontSize: "large",
-                    color: "#209868",
-                  }}
-                >
-                  Wins
-                </TableHead>
-                <TableHead>Home</TableHead>
-                <TableHead>Away</TableHead>
-                <TableHead>Total</TableHead>
-              </tr>
-            </thead>
-            <tbody>
-              <Row>
-                <TableData>{homeTeam}</TableData>
-                <TableData>{homeFixtures.wins.home}</TableData>
-                <TableData>{homeFixtures.wins.away}</TableData>
-                <TableData>{homeFixtures.wins.total}</TableData>
-              </Row>
-              <Row>
-                <TableData>{awayTeam}</TableData>
-                <TableData>{awayFixtures.wins.home}</TableData>
-                <TableData>{awayFixtures.wins.away}</TableData>
-                <TableData>{awayFixtures.wins.total}</TableData>
-              </Row>
-            </tbody>
-          </RecordTable>
-        </TableContainer>
-
-        <TableContainer>
-          <RecordTable>
-            <thead>
-              <tr>
-                <TableHead
-                  style={{
-                    textAlign: "left",
-                    fontSize: "large",
-                    color: "#e79339",
-                  }}
-                >
-                  Draws
-                </TableHead>
-                <TableHead>Home</TableHead>
-                <TableHead>Away</TableHead>
-                <TableHead>Total</TableHead>
-              </tr>
-            </thead>
-            <tbody>
-              <Row>
-                <TableData>{homeTeam}</TableData>
-                <TableData>{homeFixtures.draws.home}</TableData>
-                <TableData>{homeFixtures.draws.away}</TableData>
-                <TableData>{homeFixtures.draws.total}</TableData>
-              </Row>
-              <Row>
-                <TableData>{awayTeam}</TableData>
-                <TableData>{awayFixtures.draws.home}</TableData>
-                <TableData>{awayFixtures.draws.away}</TableData>
-                <TableData>{awayFixtures.draws.total}</TableData>
-              </Row>
-            </tbody>
-          </RecordTable>
-        </TableContainer>
-
-        <TableContainer>
-          <RecordTable>
-            <thead>
-              <tr>
-                <TableHead
-                  style={{
-                    textAlign: "left",
-                    fontSize: "large",
-                    color: "#dd4266",
-                  }}
-                >
-                  Losses
-                </TableHead>
-                <TableHead>Home</TableHead>
-                <TableHead>Away</TableHead>
-                <TableHead>Total</TableHead>
-              </tr>
-            </thead>
-            <tbody>
-              <Row>
-                <TableData>{homeTeam}</TableData>
-                <TableData>{homeFixtures.loses.home}</TableData>
-                <TableData>{homeFixtures.loses.away}</TableData>
-                <TableData>{homeFixtures.loses.total}</TableData>
-              </Row>
-              <Row>
-                <TableData>{awayTeam}</TableData>
-                <TableData>{awayFixtures.loses.home}</TableData>
-                <TableData>{awayFixtures.loses.away}</TableData>
-                <TableData>{awayFixtures.loses.total}</TableData>
-              </Row>
-            </tbody>
-          </RecordTable>
-        </TableContainer>
+      
       </CenteredContainer>
     </>
   );

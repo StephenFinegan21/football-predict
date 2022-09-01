@@ -9,15 +9,19 @@ import {
   FlexContainer,
 } from "../styles/commonStyles";
 
+import StatTable from "../components/StatTable";
+
 const Container = styled.div`
   max-width: 100%;
   margin-bottom: 50px;
 `;
 
 const Goals = ({ goals, isHomeTeam, teamName }: any) => {
+  console.log(goals)
   return (
     <>
       <Container>
+     
         <p>
           {teamName}
         </p>

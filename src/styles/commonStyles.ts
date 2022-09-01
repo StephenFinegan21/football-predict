@@ -129,7 +129,7 @@ export const RecordTable = styled.table`
   color: #7f7f7f;
   font-size: smaller;
   border-collapse: collapse;
-  margin: auto;
+  margin: 60px auto;
 
   @media (min-width: 600px) {
     
