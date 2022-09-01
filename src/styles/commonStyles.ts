@@ -58,13 +58,14 @@ export const Heading3 = styled.h2`
 `;
 
 export const LightText = styled.h4`
-  font-size: xx-small;
+  font-size: small;
   color: #666666;
   text-align: center;
   font-weight: 400;
   margin: 0;
-  padding-right: 10px;
-  padding-bottom: 20px;
+  padding: 20px;
+  padding-right: 18px;
+
 
   @media (min-width: 800px) {
     font-size: medium;
@@ -93,6 +94,7 @@ export const TeamContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   text-align: center;
+ 
 `;
 
 export const SectionHeadingText = styled.p`
@@ -159,4 +161,21 @@ export const FlexContainer = styled.div`
   @media (min-width: 600px) {
   
   }
+`;
+
+export const ColouredResultCircle = styled.div<{ bg: string }>`
+  background-color: ${(props) => props.bg};
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  font-size: small;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 5px;
+  color: #f5f5f5;
+  margin-right: 5px;
+  font-weight: 800;
+  font-size: xx-small;
 `;

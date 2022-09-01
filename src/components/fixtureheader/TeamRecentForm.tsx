@@ -29,13 +29,9 @@ const ResultsRow = styled.div`
   justify-content: center;
   margin-top: -15px;
   max-width: 100%;
-
 `;
 
-const FormContainer = styled.div`
-
-
-`;
+const FormContainer = styled.div``;
 
 const TeamRecentForm = (props: formProps) => {
   const test = (str: string) => {
@@ -48,32 +44,32 @@ const TeamRecentForm = (props: formProps) => {
 
   return (
     <>
-    <FormContainer>
-      <LightText>Recent Form</LightText>
-      <ResultsRow>
-        {test(props.form).map(
-          (result, index) =>
-            (result === "W" && (
-              <ColouredResultCircle key={index} bg="#00b271">
-                W
-              </ColouredResultCircle>
-            )) ||
-            (result === "D" && (
-              <ColouredResultCircle key={index} bg="orange">
-                D
-              </ColouredResultCircle>
-            )) || 
-            result === "L" &&(
-              <ColouredResultCircle key={index} bg="#fa314f">
-                L
-              </ColouredResultCircle>
-            ) ||
-            <ColouredResultCircle key={index} bg="#676767">
-            -
-          </ColouredResultCircle>
-
-        )}
-      </ResultsRow>
+      <FormContainer>
+        <LightText>Recent Form</LightText>
+        <ResultsRow>
+          {test(props.form).map(
+            (result, index) =>
+              (result === "W" && (
+                <ColouredResultCircle key={index} bg="#26e3c0">
+                  W
+                </ColouredResultCircle>
+              )) ||
+              (result === "D" && (
+                <ColouredResultCircle key={index} bg="#f9a939">
+                  D
+                </ColouredResultCircle>
+              )) ||
+              (result === "L" && (
+                <ColouredResultCircle key={index} bg="#f03154">
+                  L
+                </ColouredResultCircle>
+              )) || (
+                <ColouredResultCircle key={index} bg="#676767">
+                  -
+                </ColouredResultCircle>
+              )
+          )}
+        </ResultsRow>
       </FormContainer>
     </>
   );

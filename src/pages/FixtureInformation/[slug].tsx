@@ -10,11 +10,9 @@ import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
 
 import {
-  TwoTeamGrid,
   TwoTeamGridTables,
   SectionContainer,
 } from "../../styles/commonStyles";
-import H2hItem from "../../components/H2hItem";
 import ListItem from "../../components/ListItem";
 
 const PageContainer = styled.div`
@@ -23,12 +21,12 @@ const PageContainer = styled.div`
   min-height: 100vh;
   margin: auto;
 
-  @media (min-width: 800px) {
-    max-width: 80%;
+  @media (min-width: 1200px) {
+    max-width: 60%;
   }
 
-  @media (min-width: 1100px) {
-    max-width: 70%;
+  @media (min-width: 1800px) {
+    max-width: 50%;
   }
 `;
 
@@ -64,7 +62,6 @@ const FixtureInformation = ({ data }: any) => {
             </>
           )}
 
-         
           {currentTab === "comparison" && (
             <>
               <>

@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { FlexCenterDiv } from "../styles/commonStyles";
 
 const Counter = styled.div`
-  max-width: 100%;
-  height: 40px;
+  width: 100px;
+  height: 200px;
   background-color: #eff1f3;
-
-  display: flex;
   margin-bottom: 40px;
 `;
 
@@ -15,9 +14,16 @@ type percentageProps = {
   won: number;
   draws: number;
   losses: number;
+  caption: string;
 };
 
-const WinPercentage = ({ played, won, losses, draws }: percentageProps) => {
+const InfoText = styled.div`
+  padding: 0;
+  margin: 0;
+  color: #fbfbfb;
+`;
+
+const WinPercentage = ({ played, won, losses, draws, caption }: percentageProps) => {
   const getPercentage = (metric: number, total: number) => {
     const score: number = (metric / total) * 100;
 
@@ -29,43 +35,44 @@ const WinPercentage = ({ played, won, losses, draws }: percentageProps) => {
       <Counter>
         <div
           style={{
-            maxWidth: "100%",
-            width: `${getPercentage(won, played)}%`,
-
-            backgroundColor: "#74d4c3",
-            border: "2px solid #3c3c3c",
-            height: "100%",
-            lineHeight: "100%",
+            display: `${getPercentage(won, played) === 0 ? "none" : "flex"}`,
+            height: `${getPercentage(won, played)}%`,
+            backgroundColor: "#26e3c0",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <p>{getPercentage(won, played)}%</p>
+          <InfoText>{getPercentage(won, played)}%</InfoText>
         </div>
+
         <div
           style={{
-            maxWidth: "100%",
-            width: `${getPercentage(draws, played)}%`,
+            display: `${getPercentage(draws, played) === 0 ? "none" : "flex"}`,
 
-            backgroundColor: "#fee9b5",
-            border: "2px solid #3c3c3c",
-            height: "100%",
-            lineHeight: "100%",
+            backgroundColor: "#f9a939",
+
+            height: `${getPercentage(draws, played)}%`,
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <p>{getPercentage(draws, played)}%</p>
+          <InfoText>{getPercentage(draws, played)}%</InfoText>
         </div>
+
         <div
           style={{
-            maxWidth: "100%",
-            width: `${getPercentage(losses, played)}%`,
+            display: `${getPercentage(losses, played) === 0 ? "none" : "flex"}`,
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#f03154",
 
-            backgroundColor: "#f26a8a",
-            border: "2px solid #3c3c3c",
-            height: "100%",
+            height: `${getPercentage(losses, played)}%`,
             lineHeight: "100%",
           }}
         >
-          <p>{getPercentage(losses, played)}%</p>
+          <InfoText>{getPercentage(losses, played)}%</InfoText>
         </div>
+        <p>{caption}</p>
       </Counter>
     </>
   );

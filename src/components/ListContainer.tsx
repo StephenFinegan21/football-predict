@@ -7,11 +7,13 @@ import DateList from "./DateList";
 
 const Container = styled.div`
   max-width: 100%;
+
   padding: 2px;
   margin: auto;
   background-color: white;
   @media (min-width: 800px) {
     width: 90%;
+ 
   }
 `;
 

@@ -8,6 +8,7 @@ import {
   TableData,
   TableHead,
   FlexContainer,
+  ColouredResultCircle
 } from "../styles/commonStyles";
 
 const CenteredContainer = styled.div`
@@ -23,6 +24,13 @@ const CenteredContainer = styled.div`
   }
 `;
 
+const Flex = styled.div`
+  display: flex;
+  width: 40%;
+  margin: auto;
+  justify-content: space-between;
+`;
+
 const TableContainer = styled.div`
   padding: 30px 0;
   text-align: center;
@@ -33,27 +41,61 @@ const StatHeading = styled.div`
   margin-top: 100px;
 `;
 
+
+const Legend = styled.div`
+  max-width: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+const LegendIcon = styled.div`
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   return (
     <>
       <CenteredContainer>
         <TableContainer>
-          <p>{homeTeam} Win %</p>
-          <WinPercentage
-            played={homeFixtures.played.total}
-            won={homeFixtures.wins.total}
-            draws={homeFixtures.draws.total}
-            losses={homeFixtures.loses.total}
-          />
+          <Legend>
+            <LegendIcon>
+              <p>Win</p>
+              <ColouredResultCircle bg="#26e3c0"></ColouredResultCircle>
+            </LegendIcon>
 
-          <p>{awayTeam} Win %</p>
-          <WinPercentage
-            played={awayFixtures.played.total}
-            won={awayFixtures.wins.total}
-            draws={awayFixtures.draws.total}
-            losses={awayFixtures.loses.total}
-          />
+            <LegendIcon>
+              <p>Draw</p>
+              <ColouredResultCircle bg="#f9a939"></ColouredResultCircle>
+            </LegendIcon>
 
+            <LegendIcon>
+              <p>Loss</p>
+              <ColouredResultCircle bg="#f03154"></ColouredResultCircle>
+            </LegendIcon>
+          </Legend>
+
+          <Flex>
+            <WinPercentage
+              played={homeFixtures.played.total}
+              won={homeFixtures.wins.total}
+              draws={homeFixtures.draws.total}
+              losses={homeFixtures.loses.total}
+              caption={homeTeam}
+            />
+
+            <WinPercentage
+              played={awayFixtures.played.total}
+              won={awayFixtures.wins.total}
+              draws={awayFixtures.draws.total}
+              losses={awayFixtures.loses.total}
+              caption={awayTeam}
+            />
+          </Flex>
           <RecordTable>
             <thead>
               <tr>

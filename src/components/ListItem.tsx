@@ -26,7 +26,8 @@ const Fixture = styled.div<{ isLink: boolean }>`
   }
 
   @media (min-width: 1800px) {
-    width: 50%;
+    width: 40%;
+    background-color: red;
   }
 `;
 
