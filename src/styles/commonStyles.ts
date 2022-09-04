@@ -1,5 +1,21 @@
 import styled from "styled-components";
 
+
+export const PageContainer = styled.div`
+  max-width: 95%;
+  padding: 5% 0;
+  min-height: 100vh;
+  margin: auto;
+
+  @media (min-width: 1200px) {
+    max-width: 60%;
+  }
+
+  @media (min-width: 1800px) {
+    max-width: 50%;
+  }
+`;
+
 export const TwoTeamGrid = styled.div`
   max-width: 100%;
   text-align: center;
@@ -10,19 +26,7 @@ export const TwoTeamGrid = styled.div`
   gap: 5px;
 `;
 
-export const TwoTeamGridTables = styled.div`
-  max-width: 100%;
-  text-align: center;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
 
-  @media (min-width: 600px) {
-    grid-template-columns: 1fr 1fr;
-  }
-`;
 
 export const FlexCenterDiv = styled.div`
   display: flex;
@@ -72,19 +76,7 @@ export const LightText = styled.h4`
   }
 `;
 
-export const UnderlinedHeading = styled.h4<{ isHomeTeam: boolean }>`
-  font-size: small;
-  color: #666666;
-  font-weight: 400;
-  text-decoration: underline;
-  text-underline-offset: 5px;
 
-  text-align: ${(props) => (props.isHomeTeam ? "left" : "right")};
-
-  @media (min-width: 800px) {
-    font-size: large;
-  }
-`;
 
 export const TeamContainer = styled.div`
   width: 100%;
@@ -108,20 +100,6 @@ export const SectionHeadingText = styled.p`
   }
 `;
 
-export const GridItem = styled.div`
-  margin: 10px;
-  padding-bottom: 10px;
-`;
-
-export const SectionContainer = styled.div`
-  max-width: 100%;
-  margin: auto;
-  padding: 5% 0;
-  overflow: hidden;
-
-  @media (min-width: 800px) {
-  }
-`;
 
 export const RecordTable = styled.table`
   max-width: 100%;

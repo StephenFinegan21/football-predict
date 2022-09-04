@@ -23,9 +23,15 @@ const InfoText = styled.div`
   color: #fbfbfb;
 `;
 
-const WinPercentage = ({ played, won, losses, draws, caption }: percentageProps) => {
+const WinPercentage = ({
+  played,
+  won,
+  losses,
+  draws,
+  caption,
+}: percentageProps) => {
   const getPercentage = (metric: number, total: number) => {
-    const score: number = (metric / total) * 100;
+    const score: number = Math.floor((metric / total) * 100);
 
     return score;
   };

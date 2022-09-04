@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ComparisonColumn from "../components/ComparisonColumn";
 import StatSlider from "../components/StatSlider";
 
 

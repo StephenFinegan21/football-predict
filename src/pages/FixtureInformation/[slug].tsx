@@ -8,27 +8,12 @@ import styled from "styled-components";
 import FixtureHeader from "../../components/fixtureheader/FixtureHeader";
 import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
-
-import {
-  TwoTeamGridTables,
-  SectionContainer,
-} from "../../styles/commonStyles";
+import { PageContainer } from "../../styles/commonStyles";
 import ListItem from "../../components/ListItem";
+import StackedChart from "../../components/StackedChart";
+import Chart from "../../components/Chart";
 
-const PageContainer = styled.div`
-  max-width: 95%;
-  padding: 5% 0;
-  min-height: 100vh;
-  margin: auto;
 
-  @media (min-width: 1200px) {
-    max-width: 60%;
-  }
-
-  @media (min-width: 1800px) {
-    max-width: 50%;
-  }
-`;
 
 const Section = styled.div`
   max-width: 100%;
@@ -105,20 +90,37 @@ const FixtureInformation = ({ data }: any) => {
             <>
               <>
                 <Section>
-                  <SectionContainer>
-                    <TwoTeamGridTables>
-                      <Goals
-                        goals={teams.home.league.goals}
-                        isHomeTeam={true}
-                        teamName={teams.home.name}
-                      />
-                      <Goals
-                        goals={teams.away.league.goals}
-                        isHomeTeam={false}
-                        teamName={teams.away.name}
-                      />
-                    </TwoTeamGridTables>
-                  </SectionContainer>
+                <Section>
+                  <Chart 
+                  title="Goals For"
+                  homeTeamName={teams.home.name}
+                  awayTeamName={teams.away.name}
+                  homeData={teams.home.league.goals.for}
+                  awayData={teams.away.league.goals.for}
+                  total={teams.home.league.goals.for.total.total + teams.away.league.goals.for.total.total}/>
+                </Section>
+
+                <Section>
+                  <Chart 
+                  title="Goals Against"
+                  homeTeamName={teams.home.name}
+                  awayTeamName={teams.away.name}
+                  homeData={teams.home.league.goals.against}
+                  awayData={teams.away.league.goals.against}
+                  total={teams.home.league.goals.against.total.total + teams.away.league.goals.against.total.total}/>
+                </Section>
+                
+                  <Goals
+                    goals={teams.home.league.goals}
+                    teamName={teams.home.name}
+                    forTotal={teams.home.league.goals.for.total.total + teams.away.league.goals.for.total.total}
+                  />
+                  <Goals
+                    goals={teams.away.league.goals}
+                    teamName={teams.away.name}
+                    forTotal={teams.home.league.goals.for.total.total + teams.away.league.goals.for.total.total}
+
+                  />
                 </Section>
               </>
             </>
@@ -127,11 +129,9 @@ const FixtureInformation = ({ data }: any) => {
             <>
               <>
                 <Section>
-                  <SectionContainer>
-                    {h2h.map((fixture: any) => (
-                      <ListItem fixture={fixture} key={fixture.fixture.id} />
-                    ))}
-                  </SectionContainer>
+                  {h2h.map((fixture: any) => (
+                    <ListItem fixture={fixture} key={fixture.fixture.id} />
+                  ))}
                 </Section>
               </>
             </>

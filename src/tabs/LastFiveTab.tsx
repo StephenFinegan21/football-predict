@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  SectionHeadingText,
-  TwoTeamGrid,
-  LightText,
-  GridItem,
-  UnderlinedHeading,
-  SectionContainer,
-} from "../styles/commonStyles";
+
 import StatSlider from "../components/StatSlider";
 import styled from "styled-components";
 

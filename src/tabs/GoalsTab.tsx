@@ -1,31 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 import {
-  UnderlinedHeading,
   RecordTable,
   Row,
   TableData,
   TableHead,
   FlexContainer,
+  Heading2
 } from "../styles/commonStyles";
-
-import StatTable from "../components/StatTable";
+import StackedChart from "../components/StackedChart";
 
 const Container = styled.div`
   max-width: 100%;
   margin-bottom: 50px;
 `;
 
-const Goals = ({ goals, isHomeTeam, teamName }: any) => {
-  console.log(goals)
+const Goals = ({ goals, teamName, forTotal }: any) => {
+ 
   return (
     <>
       <Container>
-     
-        <p>
-          {teamName}
-        </p>
+        <Heading2>{teamName}</Heading2>
         <FlexContainer>
+    
+          
           <RecordTable>
             <thead>
               <tr>

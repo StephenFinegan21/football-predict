@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { LightText, SectionContainer } from "../../styles/commonStyles";
+import { LightText } from "../../styles/commonStyles";
 
 type navProps = {
   currentTab: string;
@@ -13,42 +13,33 @@ const NavContainer = styled.div`
   border-bottom: 2px solid #7a7a7a;
   display: flex;
   justify-content: flex-start;
-gap: 1%;
-  padding-bottom:5px;
+  gap: 1%;
+  padding-bottom: 5px;
   padding-top: 20px;
   overflow: auto;
   white-space: nowrap;
-
- 
-  
 `;
 
 const NavList = styled.li<{ current: boolean }>`
   opacity: ${(props) => (props.current ? "100%" : "40%")};
-  text-decoration: ${(props) => (props.current ? "underline" : "none")};;
+  text-decoration: ${(props) => (props.current ? "underline" : "none")};
   text-underline-offset: 5px;
   max-width: 100%;
   list-style: none;
   cursor: pointer;
-
-
- 
-
 `;
 
 const FixtureDataNav = ({ currentTab, changeTab }: navProps) => {
   return (
     <>
-   
       <NavContainer>
-        
         <NavList
           current={currentTab === "last-five"}
           onClick={() => changeTab("last-five")}
         >
           <LightText>Last 5</LightText>
         </NavList>
-       
+
         <NavList
           current={currentTab === "comparison"}
           onClick={() => changeTab("comparison")}
@@ -81,9 +72,7 @@ const FixtureDataNav = ({ currentTab, changeTab }: navProps) => {
         >
           <LightText>Head to Head</LightText>
         </NavList>
-      
       </NavContainer>
-   
     </>
   );
 };

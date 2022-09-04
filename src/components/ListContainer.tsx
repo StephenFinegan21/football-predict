@@ -2,20 +2,8 @@ import React from "react";
 
 import ListItem from "./ListItem";
 import styled from "styled-components";
-import { Heading1 } from "../styles/commonStyles";
+import { Heading1, PageContainer } from "../styles/commonStyles";
 import DateList from "./DateList";
-
-const Container = styled.div`
-  max-width: 100%;
-
-  padding: 2px;
-  margin: auto;
-  background-color: white;
-  @media (min-width: 800px) {
-    width: 90%;
- 
-  }
-`;
 
 const ListContainer = ({ fixtures }: any) => {
   const matchDates = fixtures.response.map((fixture: any) =>
@@ -36,11 +24,11 @@ const ListContainer = ({ fixtures }: any) => {
     <>
       <div>
         <Heading1>Stats of the day</Heading1>
-        <Container>
+        <PageContainer>
           {getDates(matchDates).map((date) => (
             <DateList date={date} fixtures={fixtures} key={date} />
           ))}
-        </Container>
+        </PageContainer>
       </div>
     </>
   );

@@ -4,7 +4,6 @@ import Link from "next/link";
 import styled from "styled-components";
 import {
   Heading3,
-  LightText,
   FlexCenterDiv,
   TeamContainer,
   ImageContainer,
@@ -27,7 +26,6 @@ const Fixture = styled.div<{ isLink: boolean }>`
 
   @media (min-width: 1800px) {
     width: 40%;
-   
   }
 `;
 
@@ -56,7 +54,6 @@ const ScoreContainer = styled.div`
 
 const ListItem = (props: any) => {
   const { fixture, teams, goals, league } = props.fixture;
- 
 
   return (
     <>

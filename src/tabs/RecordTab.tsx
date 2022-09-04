@@ -3,12 +3,6 @@ import styled from "styled-components";
 import WinPercentage from "../components/WinPercentage";
 import StatTable from "../components/StatTable";
 import {
-  UnderlinedHeading,
-  RecordTable,
-  Row,
-  TableData,
-  TableHead,
-  FlexContainer,
   ColouredResultCircle
 } from "../styles/commonStyles";
 

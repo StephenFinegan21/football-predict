@@ -1,27 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { LightText } from "../../styles/commonStyles";
+import { LightText, ColouredResultCircle } from "../../styles/commonStyles";
 
 type formProps = {
   form: string;
 };
-
-const ColouredResultCircle = styled.div<{ bg: string }>`
-  background-color: ${(props) => props.bg};
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  font-size: small;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  padding: 5px;
-  color: #f5f5f5;
-  margin-right: 5px;
-  font-weight: 800;
-  font-size: xx-small;
-`;
 
 const ResultsRow = styled.div`
   display: flex;
@@ -34,7 +17,7 @@ const ResultsRow = styled.div`
 const FormContainer = styled.div``;
 
 const TeamRecentForm = (props: formProps) => {
-  const test = (str: string) => {
+  const formString = (str: string) => {
     let array = [];
     for (let i = str.length - 1; i > str.length - 6; i--) {
       array.push(str.charAt(i));
@@ -47,7 +30,7 @@ const TeamRecentForm = (props: formProps) => {
       <FormContainer>
         <LightText>Recent Form</LightText>
         <ResultsRow>
-          {test(props.form).map(
+          {formString(props.form).map(
             (result, index) =>
               (result === "W" && (
                 <ColouredResultCircle key={index} bg="#26e3c0">
