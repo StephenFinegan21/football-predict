@@ -6,24 +6,21 @@ import {
   TableData,
   TableHead,
   FlexContainer,
-  Heading2
+  Heading2,
 } from "../styles/commonStyles";
-import StackedChart from "../components/StackedChart";
+
 
 const Container = styled.div`
   max-width: 100%;
   margin-bottom: 50px;
 `;
 
-const Goals = ({ goals, teamName, forTotal }: any) => {
- 
+const Goals = ({ goals, teamName }: any) => {
   return (
     <>
       <Container>
         <Heading2>{teamName}</Heading2>
         <FlexContainer>
-    
-          
           <RecordTable>
             <thead>
               <tr>

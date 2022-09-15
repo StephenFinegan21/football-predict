@@ -24,6 +24,7 @@ export const TwoTeamGrid = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
+ 
 `;
 
 
@@ -31,8 +32,8 @@ export const TwoTeamGrid = styled.div`
 export const FlexCenterDiv = styled.div`
   display: flex;
   align-items: center;
-
-  justify-content: space-between;
+  
+  width: 100%;
 `;
 
 export const Heading1 = styled.h1`
@@ -63,7 +64,7 @@ export const Heading3 = styled.h2`
 
 export const LightText = styled.h4`
   font-size: small;
-  color: #666666;
+
   text-align: center;
   font-weight: 400;
   margin: 0;
@@ -83,15 +84,15 @@ export const TeamContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   text-align: center;
+  
  
 `;
 
 export const SectionHeadingText = styled.p`
   font-size: small;
-  color: #282828;
+  
   text-align: center;
   font-weight: 800;
 
@@ -104,7 +105,7 @@ export const SectionHeadingText = styled.p`
 export const RecordTable = styled.table`
   max-width: 100%;
 
-  color: #7f7f7f;
+
   font-size: smaller;
   border-collapse: collapse;
   margin: 60px auto;

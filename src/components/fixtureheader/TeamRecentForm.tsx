@@ -33,21 +33,21 @@ const TeamRecentForm = (props: formProps) => {
           {formString(props.form).map(
             (result, index) =>
               (result === "W" && (
-                <ColouredResultCircle key={index} bg="#26e3c0">
+                <ColouredResultCircle key={index} bg="#049c9c">
                   W
                 </ColouredResultCircle>
               )) ||
               (result === "D" && (
-                <ColouredResultCircle key={index} bg="#f9a939">
+                <ColouredResultCircle key={index} bg="#521ffa">
                   D
                 </ColouredResultCircle>
               )) ||
               (result === "L" && (
-                <ColouredResultCircle key={index} bg="#f03154">
+                <ColouredResultCircle key={index} bg="#e01e62">
                   L
                 </ColouredResultCircle>
               )) || (
-                <ColouredResultCircle key={index} bg="#676767">
+                <ColouredResultCircle key={index} bg="#a7a7a7">
                   -
                 </ColouredResultCircle>
               )

@@ -13,7 +13,7 @@ const StatTitle = styled.h3`
 const ChartContainer = styled.div`
   width: 90%;
   margin: 80px auto;
-  background-color: #fafafa;
+  background-color: #162c41;
 
 
   @media (min-width: 1200px) {
@@ -72,12 +72,12 @@ const Chart = ({
         <Legend>
             <LegendIcon>
               <p>Home</p>
-              <ColouredResultCircle bg="#26e3c0"></ColouredResultCircle>
+              <ColouredResultCircle bg="#521ffa"></ColouredResultCircle>
             </LegendIcon>
 
             <LegendIcon>
               <p>Away</p>
-              <ColouredResultCircle bg="#f9a939"></ColouredResultCircle>
+              <ColouredResultCircle bg="#c334e3"></ColouredResultCircle>
             </LegendIcon>
           </Legend>
         <Flex>

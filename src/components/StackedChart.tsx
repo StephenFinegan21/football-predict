@@ -15,7 +15,7 @@ const Bar = styled.div<{ height: string }>`
   height: ${(props) => props.height};
   width: 50px;
 
-  background-color: aliceblue;
+ 
   
 `;
 
@@ -25,7 +25,7 @@ const Value = styled.div<{ height: string; bg: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+
   font-size: small;
 `;
 
@@ -42,13 +42,13 @@ const StackedChart = ({ data, total }: any) => {
         <Bar height={getPercentage(data.total.total, total) + "%"}>
           <Value
             height={getPercentage(data.total.home, data.total.total) + "%"}
-            bg="#26e3c0"
+            bg="#521ffa"
           >
             {data.total.home}
           </Value>
           <Value
             height={getPercentage(data.total.away, data.total.total) + "%"}
-            bg="#f9a939"
+            bg="#c334e3"
           >
             {data.total.away}
           </Value>

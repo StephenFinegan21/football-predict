@@ -24,6 +24,9 @@ const Flex = styled.div`
   width: 80%;
   margin: auto;
   justify-content: space-between;
+  background-color: #162c41; 
+  padding:80px;
+  padding-bottom: 0;
 
   @media (min-width: 800px) {
     width: 50%;
@@ -69,17 +72,17 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
           <Legend>
             <LegendIcon>
               <p>Win</p>
-              <ColouredResultCircle bg="#26e3c0"></ColouredResultCircle>
+              <ColouredResultCircle bg="#049c9c"></ColouredResultCircle>
             </LegendIcon>
 
             <LegendIcon>
               <p>Draw</p>
-              <ColouredResultCircle bg="#f9a939"></ColouredResultCircle>
+              <ColouredResultCircle bg="#521ffa"></ColouredResultCircle>
             </LegendIcon>
 
             <LegendIcon>
               <p>Loss</p>
-              <ColouredResultCircle bg="#f03154"></ColouredResultCircle>
+              <ColouredResultCircle bg="#e01e62"></ColouredResultCircle>
             </LegendIcon>
           </Legend>
 

@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { FlexCenterDiv } from "../styles/commonStyles";
+import { LightText } from "../styles/commonStyles";
+
 
 const Counter = styled.div`
-  width: 100px;
+  width: 70px;
   height: 200px;
-  background-color: #eff1f3;
+
   margin-bottom: 40px;
+
+  @media (min-width: 800px) {
+    width: 100px;
+}
 `;
 
 type percentageProps = {
@@ -16,6 +21,18 @@ type percentageProps = {
   losses: number;
   caption: string;
 };
+
+const TeamName = styled.div`
+  width: 100%;
+  margin: auto;
+  padding-top:10px;
+  font-size: xx-small;
+  text-align: center;
+  @media (min-width: 800px) {
+    font-size: small;
+}
+
+`
 
 const InfoText = styled.div`
   padding: 0;
@@ -43,7 +60,7 @@ const WinPercentage = ({
           style={{
             display: `${getPercentage(won, played) === 0 ? "none" : "flex"}`,
             height: `${getPercentage(won, played)}%`,
-            backgroundColor: "#26e3c0",
+            backgroundColor: "#049c9c",
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -55,7 +72,7 @@ const WinPercentage = ({
           style={{
             display: `${getPercentage(draws, played) === 0 ? "none" : "flex"}`,
 
-            backgroundColor: "#f9a939",
+            backgroundColor: "#521ffa",
 
             height: `${getPercentage(draws, played)}%`,
             alignItems: "center",
@@ -70,7 +87,7 @@ const WinPercentage = ({
             display: `${getPercentage(losses, played) === 0 ? "none" : "flex"}`,
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "#f03154",
+            backgroundColor: "#e01e62",
 
             height: `${getPercentage(losses, played)}%`,
             lineHeight: "100%",
@@ -78,7 +95,7 @@ const WinPercentage = ({
         >
           <InfoText>{getPercentage(losses, played)}%</InfoText>
         </div>
-        <p>{caption}</p>
+        <TeamName>{caption}</TeamName>
       </Counter>
     </>
   );

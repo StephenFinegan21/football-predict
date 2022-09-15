@@ -10,14 +10,15 @@ import {
 } from "../styles/commonStyles";
 
 const Fixture = styled.div<{ isLink: boolean }>`
-  padding: 20px 0;
+  background-color: #162c41;
+  padding: 20px 0 ;
   width: 90%;
-  border-radius: 2px;
-  margin: auto;
-  border-bottom: #d8d8d8 1px solid;
+  border-radius: 4px;
+  margin: 20px auto;
+
   cursor: ${(props) => (props.isLink ? "pointer" : "default")};
   &:hover {
-    background: ${(props) => (props.isLink ? "#eaeaea" : "#ffffff")};
+    background: ${(props) => (props.isLink ? "#2b4a67" : "#162c41")};
   }
 
   @media (min-width: 800px) {
@@ -30,18 +31,26 @@ const Fixture = styled.div<{ isLink: boolean }>`
 `;
 
 const DateContainer = styled.div`
-  width: 100%;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: small;
+  background-color: #c7cfd5;
 
   @media (min-width: 800px) {
     font-size: medium;
+  
   }
 `;
 
 const ScoreContainer = styled.div`
-  width: 40%;
+  width: 100px;
   margin: auto;
+
   text-align: center;
   font-size: small;
   display: flex;
@@ -50,6 +59,10 @@ const ScoreContainer = styled.div`
   @media (min-width: 800px) {
     font-size: medium;
   }
+`;
+
+const Block = styled.div`
+  display: block;
 `;
 
 const ListItem = (props: any) => {
@@ -74,24 +87,23 @@ const ListItem = (props: any) => {
                 </ImageContainer>
                 <Heading3>{teams.home.name}</Heading3>
               </TeamContainer>
-              <DateContainer>
+              <Block>
+                <DateContainer>
+                  <Image
+                    src={league.logo}
+                    alt={league.logo + "logo"}
+                    width={20}
+                    height={20}
+                  />
+                </DateContainer>
                 {goals.home !== null && (
-                  <DateContainer>
-                    <ScoreContainer>
-                      <p>{goals.home}</p>
-                      <p> - </p>
-                      <p>{goals.away}</p>
-                    </ScoreContainer>
-                  </DateContainer>
+                  <ScoreContainer>
+                    <p>{goals.home}</p>
+                    <p> - </p>
+                    <p>{goals.away}</p>
+                  </ScoreContainer>
                 )}
-                <Image
-                  src={league.logo}
-                  alt={league.logo + "logo"}
-                  width={20}
-                  height={20}
-                />
-              </DateContainer>
-
+              </Block>
               <TeamContainer>
                 <ImageContainer>
                   <Image
