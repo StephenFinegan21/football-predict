@@ -5,7 +5,7 @@ import { LightText } from "../styles/commonStyles";
 
 const DateContainer = styled.div`
   margin: auto;
-  margin-top: 80px;
+
   width: 90%;
   text-align: center;
 

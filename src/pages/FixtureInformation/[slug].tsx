@@ -10,7 +10,6 @@ import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
 import { PageContainer } from "../../styles/commonStyles";
 import ListItem from "../../components/ListItem";
-import StackedChart from "../../components/StackedChart";
 import Chart from "../../components/Chart";
 
 

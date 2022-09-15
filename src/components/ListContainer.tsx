@@ -1,8 +1,7 @@
 import React from "react";
 
-import ListItem from "./ListItem";
-import styled from "styled-components";
-import { Heading1, PageContainer } from "../styles/commonStyles";
+
+import {  PageContainer } from "../styles/commonStyles";
 import DateList from "./DateList";
 
 const ListContainer = ({ fixtures }: any) => {
@@ -23,7 +22,7 @@ const ListContainer = ({ fixtures }: any) => {
   return (
     <>
       <div>
-        <Heading1>Stats of the day</Heading1>
+   
         <PageContainer>
           {getDates(matchDates).map((date) => (
             <DateList date={date} fixtures={fixtures} key={date} />

@@ -23,13 +23,14 @@ const Flex = styled.div`
   display: flex;
   width: 80%;
   margin: auto;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #162c41; 
-  padding:80px;
+  padding:5%;
   padding-bottom: 0;
 
   @media (min-width: 800px) {
     width: 50%;
+    padding:10%;
   }
 `;
 
@@ -38,10 +39,7 @@ const TableContainer = styled.div`
   text-align: center;
 `;
 
-const StatHeading = styled.div`
-  text-align: left;
-  margin-top: 100px;
-`;
+
 
 
 const Legend = styled.div`

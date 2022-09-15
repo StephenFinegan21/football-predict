@@ -5,7 +5,7 @@ export const PageContainer = styled.div`
   max-width: 95%;
   padding: 5% 0;
   min-height: 100vh;
-  margin: auto;
+  margin: 0 auto;
 
   @media (min-width: 1200px) {
     max-width: 60%;
@@ -36,10 +36,6 @@ export const FlexCenterDiv = styled.div`
   width: 100%;
 `;
 
-export const Heading1 = styled.h1`
-  text-align: center;
-  font-size: medium;
-`;
 
 export const Heading2 = styled.h2`
   text-align: center;

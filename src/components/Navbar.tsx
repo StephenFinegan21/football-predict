@@ -1,17 +1,27 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
+
+
+ const Heading1 = styled.h1`
+  text-align: center;
+  font-size: medium;
+  margin: 0;
+  line-height: 100px;
+`;
 
 const Nav = styled.div`
-    background-color: rgba(100,0,0,0);
-    margin: 0;
-    padding: 0;
-    height: 60px;
-    
-`
+  background-color: #162c41;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+
+`;
 const Navbar = () => {
   return (
-    <Nav></Nav>
-  )
-}
+    <Nav>
+      <Heading1>Stats of the day</Heading1>
+    </Nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
