@@ -21,16 +21,18 @@ const CenteredContainer = styled.div`
 
 const Flex = styled.div`
   display: flex;
-  width: 80%;
+  width: 90%;
   margin: auto;
   justify-content: space-around;
   background-color: #162c41; 
-  padding:5%;
-  padding-bottom: 0;
+  padding: 5%;
+  
 
   @media (min-width: 800px) {
-    width: 50%;
-    padding:10%;
+    max-width: 100%;
+    
+    margin: auto;
+  
   }
 `;
 

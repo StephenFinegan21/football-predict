@@ -7,7 +7,6 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import styled from "styled-components";
 
 import {
-  TwoTeamGrid,
   SectionHeadingText,
   TeamContainer,
 } from "../../styles/commonStyles";
@@ -26,6 +25,16 @@ type headerProps = {
   currentTab: string;
   changeTab: Function;
 };
+
+ const TwoTeamGrid = styled.div`
+  max-width: 100%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+`;
 
 const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
   return (
@@ -46,7 +55,7 @@ const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
               height={60}
             />
 
-            <SectionHeadingText> {teams.home.name}</SectionHeadingText>
+            <SectionHeadingText>{teams.home.name}</SectionHeadingText>
           </div>
           {!teams?.home.league.form && <p>No form</p>}
           {teams.home.league.form && (

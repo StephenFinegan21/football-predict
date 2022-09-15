@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { LightText } from "../styles/commonStyles";
-
 
 const Counter = styled.div`
   width: 70px;
   height: 200px;
-
   margin-bottom: 40px;
 
   @media (min-width: 800px) {

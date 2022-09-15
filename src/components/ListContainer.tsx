@@ -1,7 +1,5 @@
 import React from "react";
-
-
-import {  PageContainer } from "../styles/commonStyles";
+import { PageContainer } from "../styles/commonStyles";
 import DateList from "./DateList";
 
 const ListContainer = ({ fixtures }: any) => {
@@ -22,7 +20,6 @@ const ListContainer = ({ fixtures }: any) => {
   return (
     <>
       <div>
-   
         <PageContainer>
           {getDates(matchDates).map((date) => (
             <DateList date={date} fixtures={fixtures} key={date} />

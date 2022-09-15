@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const PageContainer = styled.div`
   max-width: 95%;
   padding: 5% 0;
@@ -16,26 +15,13 @@ export const PageContainer = styled.div`
   }
 `;
 
-export const TwoTeamGrid = styled.div`
-  max-width: 100%;
-  text-align: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
- 
-`;
-
 
 
 export const FlexCenterDiv = styled.div`
   display: flex;
   align-items: center;
-  
   width: 100%;
 `;
-
 
 export const Heading2 = styled.h2`
   text-align: center;
@@ -60,20 +46,16 @@ export const Heading3 = styled.h2`
 
 export const LightText = styled.h4`
   font-size: small;
-
   text-align: center;
   font-weight: 400;
   margin: 0;
   padding: 20px;
   padding-right: 18px;
 
-
   @media (min-width: 800px) {
     font-size: medium;
   }
 `;
-
-
 
 export const TeamContainer = styled.div`
   width: 100%;
@@ -82,13 +64,10 @@ export const TeamContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  
- 
 `;
 
 export const SectionHeadingText = styled.p`
   font-size: small;
-  
   text-align: center;
   font-weight: 800;
 
@@ -97,18 +76,13 @@ export const SectionHeadingText = styled.p`
   }
 `;
 
-
 export const RecordTable = styled.table`
-  max-width: 100%;
-
-
+  max-width: 80%;
   font-size: smaller;
   border-collapse: collapse;
   margin: 60px auto;
 
   @media (min-width: 600px) {
-    
- 
   }
 `;
 
@@ -117,11 +91,10 @@ export const Row = styled.tr`
 `;
 
 export const TableData = styled.td`
-font-size: large;
-width: 100%;
-text-align: left;
-padding: 20px 14px;
-
+  font-size: large;
+  width: 100%;
+  text-align: left;
+  padding: 20px 14px;
 `;
 export const TableHead = styled.th`
   padding: 20px 14px;
@@ -134,7 +107,6 @@ export const FlexContainer = styled.div`
   justify-content: "flex-start";
 
   @media (min-width: 600px) {
-  
   }
 `;
 

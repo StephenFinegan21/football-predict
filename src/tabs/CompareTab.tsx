@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import StatSlider from "../components/StatSlider";
 
-
 const Metric = styled.div`
-  border-bottom: 1px solid gray;
-  padding: 30px 0;
+  background-color: #162c41;
+  margin: 20px 0;
+  padding: 5px 30px ;
 `;
 
 const CenteredContainer = styled.div`
@@ -15,7 +15,6 @@ const CenteredContainer = styled.div`
   @media (min-width: 800px) {
     width: 70%;
   }
-
   @media (min-width: 1800px) {
     width: 50%;
   }
@@ -57,108 +56,94 @@ type ComparisonProps = {
 };
 
 const Comparison = ({ data, homeName, awayName }: ComparisonProps) => {
-
   return (
     <>
-    
-        <CenteredContainer>
-          <Metric>
-            <h4>Overall Form &#128200;</h4>
-            <div>
-              <p>{homeName} </p>
-          
-            </div>
-            <StatSlider value={data.form.home} />
+      <CenteredContainer>
+        <Metric>
+          <h4>Overall Form &#128200;</h4>
+          <div>
+            <p>{homeName} </p>
+          </div>
+          <StatSlider value={data.form.home} />
 
-            <div>
-              <p>{awayName}</p>
-      
-            </div>
-            <StatSlider value={data.form.away} />
-          </Metric>
-          <Metric>
-            <h4>Attacking Score &#128293;</h4>
-            <div>
-              <p>{homeName}</p>
-         
-            </div>
-            <StatSlider value={data.att.home} />
+          <div>
+            <p>{awayName}</p>
+          </div>
+          <StatSlider value={data.form.away} />
+        </Metric>
+        <Metric>
+          <h4>Attacking Score &#128293;</h4>
+          <div>
+            <p>{homeName}</p>
+          </div>
+          <StatSlider value={data.att.home} />
 
-            <div>
-              <p>{awayName}</p>
-  
-            </div>
-            <StatSlider value={data.att.away} />
-          </Metric>
-          <Metric>
-            <h4>Defensive Score &#10060;</h4>
-            <div>
-              <p>{homeName}</p>
+          <div>
+            <p>{awayName}</p>
+          </div>
+          <StatSlider value={data.att.away} />
+        </Metric>
+        <Metric>
+          <h4>Defensive Score &#10060;</h4>
+          <div>
+            <p>{homeName}</p>
+          </div>
+          <StatSlider value={data.def.home} />
 
-            </div>
-            <StatSlider value={data.def.home} />
+          <div>
+            <p>{awayName}</p>
+          </div>
+          <StatSlider value={data.def.away} />
+        </Metric>
+        <Metric>
+          <h4>Goals &#9917;</h4>
+          <div>
+            <p>{homeName}</p>
+          </div>
+          <StatSlider value={data.goals.home} />
 
-            <div>
-              <p>{awayName}</p>
-  
-            </div>
-            <StatSlider value={data.def.away} />
-          </Metric>
-          <Metric>
-            <h4>Goals &#9917;</h4>
-            <div>
-              <p>{homeName}</p>
-      
-            </div>
-            <StatSlider value={data.goals.home} />
+          <div>
+            <p>{awayName}</p>
+          </div>
+          <StatSlider value={data.goals.away} />
+        </Metric>
+        <Metric>
+          <h4>Head 2 Head &#129354;</h4>
+          <div>
+            <p>{homeName}</p>
+          </div>
+          <StatSlider value={data.h2h.home} />
 
-            <div>
-              <p>{awayName}</p>
-    
-            </div>
-            <StatSlider value={data.goals.away} />
-          </Metric>
-          <Metric>
-            <h4>Head 2 Head &#129354;</h4>
-            <div>
-              <p>{homeName}</p>
-     
-            </div>
-            <StatSlider value={data.h2h.home} />
+          <div>
+            <p>{awayName}</p>
+          </div>
+          <StatSlider value={data.h2h.away} />
+        </Metric>
+        <Metric>
+          <h4>Poisson Distribution &#129488;</h4>
+          <div>
+            <p>{homeName}</p>
+          </div>
+          <StatSlider value={data.poisson_distribution.home} />
 
-            <div>
-              <p>{awayName}</p>
+          <div>
+            <p>{awayName}</p>
+          </div>
+          <StatSlider value={data.poisson_distribution.away} />
+        </Metric>
+        <Metric>
+          <h4>Total &#128221;</h4>
+          <div>
+            <p>{homeName}</p>
+          </div>
+          <StatSlider value={data.total.home} />
 
-            </div>
-            <StatSlider value={data.h2h.away} />
-          </Metric>
-          <Metric>
-            <h4>Poisson Distribution &#129488;</h4>
-            <div>
-              <p>{homeName}</p>
- 
-            </div>
-            <StatSlider value={data.poisson_distribution.home} />
-
-            <div>
-              <p>{awayName}</p>
-            </div>
-            <StatSlider value={data.poisson_distribution.away} />
-          </Metric>
-          <Metric>
-            <h4>Total &#128221;</h4>
-            <div>
-              <p>{homeName}</p>
-            </div>
-            <StatSlider value={data.total.home} />
-
-            <div>
-              <p>{awayName}</p>
-            </div>
-            <StatSlider value={data.total.away} />
-          </Metric>
-        </CenteredContainer>
-     
+          <div>
+            <p>{awayName}</p>
+          </div>
+          <StatSlider value={data.total.away} />
+        </Metric>
+      </CenteredContainer>
     </>
   );
 };

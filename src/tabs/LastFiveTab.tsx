@@ -17,8 +17,9 @@ const CenteredContainer = styled.div`
 `;
 
 const Metric = styled.div`
-  border-bottom: 1px solid gray;
-  padding: 30px 0;
+  background-color: #162c41;
+  margin: 20px 0;
+  padding: 5px 30px ;
 `;
 
 type goals = {

@@ -14,6 +14,9 @@ const ChartContainer = styled.div`
   width: 90%;
   margin: 80px auto;
   background-color: #162c41;
+  margin: 20px auto;
+  padding: 5px 30px ;
+
 
 
   @media (min-width: 1200px) {

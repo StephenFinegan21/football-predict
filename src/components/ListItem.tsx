@@ -11,8 +11,8 @@ import {
 
 const Fixture = styled.div<{ isLink: boolean }>`
   background-color: #162c41;
-  padding: 20px 0 ;
-  width: 90%;
+  padding: 20px 0;
+  width: 100%;
   border-radius: 4px;
   margin: 20px auto;
 
@@ -43,14 +43,12 @@ const DateContainer = styled.div`
 
   @media (min-width: 800px) {
     font-size: medium;
-  
   }
 `;
 
 const ScoreContainer = styled.div`
   width: 100px;
   margin: auto;
-
   text-align: center;
   font-size: small;
   display: flex;
@@ -60,7 +58,6 @@ const ScoreContainer = styled.div`
     font-size: medium;
   }
 `;
-
 const Block = styled.div`
   display: block;
 `;
@@ -81,8 +78,8 @@ const ListItem = (props: any) => {
                   <Image
                     src={teams.home.logo}
                     alt={teams.home.name + "crest"}
-                    width={40}
-                    height={40}
+                    width={30}
+                    height={30}
                   />
                 </ImageContainer>
                 <Heading3>{teams.home.name}</Heading3>
@@ -92,8 +89,8 @@ const ListItem = (props: any) => {
                   <Image
                     src={league.logo}
                     alt={league.logo + "logo"}
-                    width={20}
-                    height={20}
+                    width={35}
+                    height={35}
                   />
                 </DateContainer>
                 {goals.home !== null && (
@@ -109,8 +106,8 @@ const ListItem = (props: any) => {
                   <Image
                     src={teams.away.logo}
                     alt={teams.away.name + "crest"}
-                    width={40}
-                    height={40}
+                    width={35}
+                    height={35}
                   />
                 </ImageContainer>
                 <Heading3>{teams.away.name}</Heading3>
