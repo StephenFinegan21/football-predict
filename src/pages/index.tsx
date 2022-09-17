@@ -5,6 +5,7 @@ import axios from "axios";
 import Script from "next/script";
 import CookieConsent from "react-cookie-consent";
 
+
 const Home: NextPage = ({ data }: any) => {
  
 
@@ -57,6 +58,7 @@ const Home: NextPage = ({ data }: any) => {
         This website uses analytics to monitor site performance
         </CookieConsent>
 
+      
       <ListContainer fixtures={data} />
     </>
   );

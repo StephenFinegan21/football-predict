@@ -1,24 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import StatSlider from "../components/StatSlider";
+import Box from "../components/Box";
+import PercentBar from '../components/PercentBar'
 
-const Metric = styled.div`
-  background-color: #162c41;
-  margin: 20px 0;
-  padding: 5px 30px ;
-`;
 
-const CenteredContainer = styled.div`
-  width: 90%;
-  margin: auto;
-
-  @media (min-width: 800px) {
-    width: 70%;
-  }
-  @media (min-width: 1800px) {
-    width: 50%;
-  }
-`;
 
 type ComparisonProps = {
   data: {
@@ -58,92 +43,92 @@ type ComparisonProps = {
 const Comparison = ({ data, homeName, awayName }: ComparisonProps) => {
   return (
     <>
-      <CenteredContainer>
-        <Metric>
+   
+        <Box>
           <h4>Overall Form &#128200;</h4>
           <div>
             <p>{homeName} </p>
           </div>
-          <StatSlider value={data.form.home} />
+          <PercentBar value={data.form.home} />
 
           <div>
             <p>{awayName}</p>
           </div>
-          <StatSlider value={data.form.away} />
-        </Metric>
-        <Metric>
+          <PercentBar value={data.form.away} />
+        </Box>
+        <Box>
           <h4>Attacking Score &#128293;</h4>
           <div>
             <p>{homeName}</p>
           </div>
-          <StatSlider value={data.att.home} />
+          <PercentBar value={data.att.home} />
 
           <div>
             <p>{awayName}</p>
           </div>
-          <StatSlider value={data.att.away} />
-        </Metric>
-        <Metric>
+          <PercentBar value={data.att.away} />
+        </Box>
+        <Box>
           <h4>Defensive Score &#10060;</h4>
           <div>
             <p>{homeName}</p>
           </div>
-          <StatSlider value={data.def.home} />
+          <PercentBar value={data.def.home} />
 
           <div>
             <p>{awayName}</p>
           </div>
-          <StatSlider value={data.def.away} />
-        </Metric>
-        <Metric>
+          <PercentBar value={data.def.away} />
+        </Box>
+        <Box>
           <h4>Goals &#9917;</h4>
           <div>
             <p>{homeName}</p>
           </div>
-          <StatSlider value={data.goals.home} />
+          <PercentBar value={data.goals.home} />
 
           <div>
             <p>{awayName}</p>
           </div>
-          <StatSlider value={data.goals.away} />
-        </Metric>
-        <Metric>
+          <PercentBar value={data.goals.away} />
+        </Box>
+        <Box>
           <h4>Head 2 Head &#129354;</h4>
           <div>
             <p>{homeName}</p>
           </div>
-          <StatSlider value={data.h2h.home} />
+          <PercentBar value={data.h2h.home} />
 
           <div>
             <p>{awayName}</p>
           </div>
-          <StatSlider value={data.h2h.away} />
-        </Metric>
-        <Metric>
+          <PercentBar value={data.h2h.away} />
+        </Box>
+        <Box>
           <h4>Poisson Distribution &#129488;</h4>
           <div>
             <p>{homeName}</p>
           </div>
-          <StatSlider value={data.poisson_distribution.home} />
+          <PercentBar value={data.poisson_distribution.home} />
 
           <div>
             <p>{awayName}</p>
           </div>
-          <StatSlider value={data.poisson_distribution.away} />
-        </Metric>
-        <Metric>
+          <PercentBar value={data.poisson_distribution.away} />
+        </Box>
+        <Box>
           <h4>Total &#128221;</h4>
           <div>
             <p>{homeName}</p>
           </div>
-          <StatSlider value={data.total.home} />
+          <PercentBar value={data.total.home} />
 
           <div>
             <p>{awayName}</p>
           </div>
-          <StatSlider value={data.total.away} />
-        </Metric>
-      </CenteredContainer>
+          <PercentBar value={data.total.away} />
+        </Box>
+    
     </>
   );
 };

@@ -5,11 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import styled from "styled-components";
-
-import {
-  SectionHeadingText,
-  TeamContainer,
-} from "../../styles/commonStyles";
+import { FlexCenterDiv, Heading2 } from "../../styles/commonStyles";
+import Column from "../Column";
 
 const BackContainer = styled.div`
   font-size: xx-large;
@@ -26,16 +23,6 @@ type headerProps = {
   changeTab: Function;
 };
 
- const TwoTeamGrid = styled.div`
-  max-width: 100%;
-  text-align: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-`;
-
 const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
   return (
     <>
@@ -45,41 +32,37 @@ const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
         </BackContainer>
       </Link>
 
-      <TwoTeamGrid>
-        <TeamContainer>
-          <div>
-            <Image
-              src={teams.home.logo}
-              alt={teams.home.name + "crest"}
-              width={60}
-              height={60}
-            />
-
-            <SectionHeadingText>{teams.home.name}</SectionHeadingText>
-          </div>
+      <FlexCenterDiv>
+        <Column>
+          <Image
+            src={teams.home.logo}
+            alt={teams.home.name + "crest"}
+            width={50}
+            height={50}
+          />
+          <Heading2>{teams.home.name}</Heading2>
           {!teams?.home.league.form && <p>No form</p>}
           {teams.home.league.form && (
             <TeamRecentForm form={teams?.home.league.form} />
           )}
-        </TeamContainer>
+        </Column>
 
-        <TeamContainer>
-          <div>
-            <Image
-              src={teams.away.logo}
-              alt={teams.away.name + "crest"}
-              width={60}
-              height={60}
-            />
+        <Column>
+          <Image
+            src={teams.away.logo}
+            alt={teams.away.name + "crest"}
+            width={50}
+            height={50}
+          />
 
-            <SectionHeadingText> {teams.away.name}</SectionHeadingText>
-          </div>
+          <Heading2> {teams.away.name}</Heading2>
+
           {!teams?.away.league.form && <p>No form</p>}
           {teams.away.league.form && (
             <TeamRecentForm form={teams?.away.league.form} />
           )}
-        </TeamContainer>
-      </TwoTeamGrid>
+        </Column>
+      </FlexCenterDiv>
       <FixtureDataNav currentTab={currentTab} changeTab={changeTab} />
     </>
   );

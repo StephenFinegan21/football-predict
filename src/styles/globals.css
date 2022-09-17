@@ -1,22 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
 
+body {
+  font-family: "Space Mono", monospace;
+  max-width: 100%;
+  background-color: #0e2439;
+  padding: 0;
+  margin: 0;
+  color: rgb(245, 245, 245);
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
-
-    body {
-        font-family: 'Space Mono', monospace;
-        max-width: 100%;
-        background-color:#0e2439;
-        padding: 0;
-        margin: 0;
-        color: rgb(245, 245, 245);
-    }
-
-   .disabled-link{
-    pointer-events: none;
-   }
-
-   
-   
-    
-   
-  
+.disabled-link {
+  pointer-events: none;
+}

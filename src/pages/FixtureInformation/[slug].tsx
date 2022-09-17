@@ -13,14 +13,13 @@ import ListItem from "../../components/ListItem";
 import Chart from "../../components/Chart";
 
 
-
 const Section = styled.div`
   max-width: 100%;
   margin: 32px 0;
 `;
 
 const FixtureInformation = ({ data }: any) => {
-  const { teams, comparison, predictions, league, h2h } = data.response[0];
+  const { teams, comparison, predictions, h2h } = data.response[0];
   const [currentTab, setCurrentTab] = useState("last-five");
 
   const changeTab = (value: string) => {

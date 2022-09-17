@@ -1,20 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-
-
- const Heading1 = styled.h1`
-  text-align: center;
-  font-size: medium;
-  margin: 0;
-  line-height: 70px;
-`;
+import { Heading1 } from "../styles/commonStyles";
 
 const Nav = styled.div`
   background-color: #162c41;
   margin: 0;
   padding: 0;
   height: 70px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const Navbar = () => {
   return (

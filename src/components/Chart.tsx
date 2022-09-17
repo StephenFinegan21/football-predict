@@ -2,30 +2,13 @@ import React from "react";
 import StackedChart from "./StackedChart";
 import styled from "styled-components";
 import { ColouredResultCircle } from "../styles/commonStyles";
+import Box from "./Box";
 
 const StatTitle = styled.h3`
   font-weight: 800;
   text-align: center;
 
   padding-bottom: 0;
-`;
-
-const ChartContainer = styled.div`
-  width: 90%;
-  margin: 80px auto;
-  background-color: #162c41;
-  margin: 20px auto;
-  padding: 5px 30px ;
-
-
-
-  @media (min-width: 1200px) {
-    max-width: 60%;
-  }
-
-  @media (min-width: 1800px) {
-    max-width: 50%;
-  }
 `;
 
 const Flex = styled.div`
@@ -70,7 +53,7 @@ const Chart = ({
 }: any) => {
   return (
     <>
-      <ChartContainer>
+      <Box>
         <StatTitle>{title}</StatTitle>
         <Legend>
             <LegendIcon>
@@ -93,7 +76,7 @@ const Chart = ({
             <p>{awayTeamName}</p>
           </ChartSection>
         </Flex>
-      </ChartContainer>
+      </Box>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Box from "../components/Box";
 import {
   RecordTable,
   Row,
@@ -18,7 +19,7 @@ const Container = styled.div`
 const Goals = ({ goals, teamName }: any) => {
   return (
     <>
-      <Container>
+      <Box>
         <Heading2>{teamName}</Heading2>
         <FlexContainer>
           <RecordTable>
@@ -46,7 +47,7 @@ const Goals = ({ goals, teamName }: any) => {
             </tbody>
           </RecordTable>
         </FlexContainer>
-      </Container>
+      </Box>
     </>
   );
 };

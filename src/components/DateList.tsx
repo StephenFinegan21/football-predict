@@ -1,22 +1,8 @@
 import React from "react";
 import ListItem from "./ListItem";
 import styled from "styled-components";
-import { LightText } from "../styles/commonStyles";
+import { FlexCenterDiv, Heading2 } from "../styles/commonStyles";
 
-const DateContainer = styled.div`
-  margin: auto;
-
-  width: 90%;
-  text-align: center;
-
-  @media (min-width: 800px) {
-    width: 70%;
-  }
-
-  @media (min-width: 1800px) {
-    width: 50%;
-  }
-`;
 
 const DateList = ({ date, fixtures }: any) => {
   const checkFixtures = () => {
@@ -32,9 +18,9 @@ const DateList = ({ date, fixtures }: any) => {
 
   return (
     <>
-      <DateContainer>
-        <LightText>{date}</LightText>
-      </DateContainer>
+      <FlexCenterDiv>
+        <Heading2>{date}</Heading2>
+      </FlexCenterDiv>
       {checkFixtures().map((f) => (
         <ListItem fixture={f} key={f.fixture.id} />
       ))}

@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const Counter = styled.div`
+const Bar = styled.div`
   max-width: 100%;
   height: 10px;
   background-color: #eff1f3;
   border-radius: 2px;
   display: flex;
-  margin-bottom: 40px;
+  
 `;
 
 const ScoreText = styled.h4<{ value: number }>`
   color: ${(props) =>
     props.value > 70 ? "#1fac92" : props.value < 40 ? "#eb428b" : "#eebc72"};
-  font-weight: 600;
   margin-top: -20px;
   margin-bottom: 0;
 `;
@@ -28,7 +27,7 @@ const Flex = styled.div`
   grid-template-columns: 1fr 4fr;
 `;
 
-const StatSlider = ({ description, value }: statProps) => {
+const PercentBar = ({ description, value }: statProps) => {
   const sliderColour =
     parseInt(value) > 70
       ? "#1fac92"
@@ -43,7 +42,7 @@ const StatSlider = ({ description, value }: statProps) => {
           <ScoreText value={parseInt(value)}>
             <p>{value}</p>
           </ScoreText>
-          <Counter>
+          <Bar>
             <div
               style={{
                 maxWidth: "100%",
@@ -53,11 +52,11 @@ const StatSlider = ({ description, value }: statProps) => {
                 height: "100%",
               }}
             ></div>
-          </Counter>
+          </Bar>
         </Flex>
       </div>
     </>
   );
 };
 
-export default StatSlider;
+export default PercentBar;

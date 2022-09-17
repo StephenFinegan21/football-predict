@@ -1,15 +1,16 @@
 import React from "react";
-import { LightText, SectionHeadingText} from "../styles/commonStyles"
+import { LightText, Heading2} from "../styles/commonStyles"
+import Box from "../components/Box";
 
 const Predictions = (props: any) => {
   return (
     <>
-      <div>
-        <SectionHeadingText>Predicted Winner</SectionHeadingText>
+      <Box>
+        <Heading2>Predicted Winner</Heading2>
         <LightText>{props.data.winner.name}</LightText>
-        <SectionHeadingText>Advice</SectionHeadingText>
+        <Heading2>Advice</Heading2>
         <LightText>{props.data.advice}</LightText>
-      </div>
+      </Box>
     </>
   );
 };

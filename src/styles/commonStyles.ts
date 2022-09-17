@@ -1,5 +1,37 @@
 import styled from "styled-components";
 
+export const Heading1 = styled.h1`
+  font-size: large;
+`;
+
+export const Heading2 = styled.h2`
+  text-align: center;
+  font-size: medium;
+  font-weight: 200;
+`;
+
+export const Heading3 = styled.h3`
+  font-size: xx-small;
+  font-weight: 200;
+
+  @media (min-width: 800px) {
+    font-size: small;
+  }
+`;
+
+export const LightText = styled.h4`
+  font-size: small;
+  text-align: center;
+  font-weight: 300;
+  margin: 0;
+  padding: 20px;
+  padding-right: 18px;
+
+  @media (min-width: 800px) {
+    font-size: medium;
+  }
+`;
+
 export const PageContainer = styled.div`
   max-width: 95%;
   padding: 5% 0;
@@ -15,65 +47,22 @@ export const PageContainer = styled.div`
   }
 `;
 
-
-
 export const FlexCenterDiv = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
 `;
 
-export const Heading2 = styled.h2`
-  text-align: center;
-  font-size: medium;
-`;
-
-export const ImageContainer = styled.div`
+export const ImageContainer = styled.div<{ bg?: string }>`
+  margin: auto;
+  background-color: ${(props) => (props.bg ? `${props.bg}` : "")};
   width: 30px;
-
-  @media (min-width: 800px) {
-    width: 100px;
-  }
-`;
-
-export const Heading3 = styled.h2`
-  font-size: xx-small;
-
-  @media (min-width: 800px) {
-    font-size: medium;
-  }
-`;
-
-export const LightText = styled.h4`
-  font-size: small;
-  text-align: center;
-  font-weight: 400;
-  margin: 0;
-  padding: 20px;
-  padding-right: 18px;
-
-  @media (min-width: 800px) {
-    font-size: medium;
-  }
-`;
-
-export const TeamContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  height: 30px;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-`;
-
-export const SectionHeadingText = styled.p`
-  font-size: small;
-  text-align: center;
-  font-weight: 800;
-
-  @media (min-width: 800px) {
-    font-size: x-large;
-  }
+  justify-content: center;
 `;
 
 export const RecordTable = styled.table`
@@ -115,14 +104,10 @@ export const ColouredResultCircle = styled.div<{ bg: string }>`
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  font-size: small;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   padding: 5px;
-  color: #f5f5f5;
   margin-right: 5px;
-  font-weight: 800;
   font-size: xx-small;
 `;

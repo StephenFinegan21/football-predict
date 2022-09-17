@@ -5,59 +5,11 @@ import styled from "styled-components";
 import {
   Heading3,
   FlexCenterDiv,
-  TeamContainer,
   ImageContainer,
 } from "../styles/commonStyles";
+import Item from "./Item";
+import Column from "./Column";
 
-const Fixture = styled.div<{ isLink: boolean }>`
-  background-color: #162c41;
-  padding: 20px 0;
-  width: 100%;
-  border-radius: 4px;
-  margin: 20px auto;
-
-  cursor: ${(props) => (props.isLink ? "pointer" : "default")};
-  &:hover {
-    background: ${(props) => (props.isLink ? "#2b4a67" : "#162c41")};
-  }
-
-  @media (min-width: 800px) {
-    width: 70%;
-  }
-
-  @media (min-width: 1800px) {
-    width: 40%;
-  }
-`;
-
-const DateContainer = styled.div`
-  width: 30px;
-  height: 30px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: small;
-  background-color: #c7cfd5;
-
-  @media (min-width: 800px) {
-    font-size: medium;
-  }
-`;
-
-const ScoreContainer = styled.div`
-  width: 100px;
-  margin: auto;
-  text-align: center;
-  font-size: small;
-  display: flex;
-  justify-content: center;
-
-  @media (min-width: 800px) {
-    font-size: medium;
-  }
-`;
 const Block = styled.div`
   display: block;
 `;
@@ -68,40 +20,42 @@ const ListItem = (props: any) => {
   return (
     <>
       {
-        <Link
-          href={goals.home == null ? `/FixtureInformation/${fixture.id}` : "#"}
-        >
-          <Fixture isLink={goals.home == null ? true : false}>
+        <Item highlight={goals.home == null}>
+          <Link
+            href={
+              goals.home == null ? `/FixtureInformation/${fixture.id}` : "#"
+            }
+          >
             <FlexCenterDiv>
-              <TeamContainer>
+              <Column>
                 <ImageContainer>
                   <Image
                     src={teams.home.logo}
                     alt={teams.home.name + "crest"}
-                    width={30}
-                    height={30}
-                  />
-                </ImageContainer>
-                <Heading3>{teams.home.name}</Heading3>
-              </TeamContainer>
-              <Block>
-                <DateContainer>
-                  <Image
-                    src={league.logo}
-                    alt={league.logo + "logo"}
                     width={35}
                     height={35}
                   />
-                </DateContainer>
+                </ImageContainer>
+                <Heading3>{teams.home.name}</Heading3>
+              </Column>
+              <Block>
+                <ImageContainer bg="white">
+                  <Image
+                    src={league.logo}
+                    alt={league.logo + "logo"}
+                    width={20}
+                    height={20}
+                  />
+                </ImageContainer>
                 {goals.home !== null && (
-                  <ScoreContainer>
+                  <FlexCenterDiv>
                     <p>{goals.home}</p>
                     <p> - </p>
                     <p>{goals.away}</p>
-                  </ScoreContainer>
+                  </FlexCenterDiv>
                 )}
               </Block>
-              <TeamContainer>
+              <Column>
                 <ImageContainer>
                   <Image
                     src={teams.away.logo}
@@ -111,10 +65,10 @@ const ListItem = (props: any) => {
                   />
                 </ImageContainer>
                 <Heading3>{teams.away.name}</Heading3>
-              </TeamContainer>
+              </Column>
             </FlexCenterDiv>
-          </Fixture>
-        </Link>
+          </Link>
+        </Item>
       }
     </>
   );
