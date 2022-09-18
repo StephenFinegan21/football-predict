@@ -27,8 +27,10 @@ type attributeProps = {
 };
 
 const LastFiveGames = ({ away, home }: any) => {
+  console.log()
   return (
     <>
+   
       <Box>
         <h4>Overall Form</h4>
 
@@ -73,7 +75,7 @@ const LastFiveGames = ({ away, home }: any) => {
           <p>&#129349; {away.league.goals.against.total.total}</p>
         </div>
         <PercentBar value={away.last_5.def} />
-      </Box>
+  </Box> 
     </>
   );
 };

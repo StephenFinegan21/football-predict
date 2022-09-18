@@ -3,7 +3,7 @@ import StackedChart from "./StackedChart";
 import styled from "styled-components";
 import { ColouredResultCircle } from "../styles/commonStyles";
 import Box from "./Box";
-
+import Legend from "./Legend";
 const StatTitle = styled.h3`
   font-weight: 800;
   text-align: center;
@@ -23,26 +23,6 @@ const ChartSection = styled.div`
 `;
 
 
-const Legend = styled.div`
-  max-width: 90%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  @media (min-width: 800px) {
-    width: 50%;
-  }
-`;
-
-const LegendIcon = styled.div`
-  width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-`;
-
 const Chart = ({
   homeData,
   awayData,
@@ -51,21 +31,23 @@ const Chart = ({
   awayTeamName,
   title,
 }: any) => {
+
+  const legendData = [
+    {
+      description: "Home",
+      colour: "#521ffa",
+    },
+    {
+      description: "Away",
+      colour: "#c334e3",
+    },
+   
+  ];
   return (
     <>
       <Box>
         <StatTitle>{title}</StatTitle>
-        <Legend>
-            <LegendIcon>
-              <p>Home</p>
-              <ColouredResultCircle bg="#521ffa"></ColouredResultCircle>
-            </LegendIcon>
-
-            <LegendIcon>
-              <p>Away</p>
-              <ColouredResultCircle bg="#c334e3"></ColouredResultCircle>
-            </LegendIcon>
-          </Legend>
+        <Legend data={legendData} />
         <Flex>
           <ChartSection>
             <StackedChart data={homeData} total={total} name={homeTeamName} />

@@ -14,7 +14,7 @@ const Block = styled.div`
   display: block;
 `;
 
-const ListItem = (props: any) => {
+const Fixture = (props: any) => {
   const { fixture, teams, goals, league } = props.fixture;
 
   return (
@@ -74,4 +74,4 @@ const ListItem = (props: any) => {
   );
 };
 
-export default ListItem;
+export default Fixture;

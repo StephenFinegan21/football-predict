@@ -9,7 +9,7 @@ import FixtureHeader from "../../components/fixtureheader/FixtureHeader";
 import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
 import { PageContainer } from "../../styles/commonStyles";
-import ListItem from "../../components/ListItem";
+import Fixture from "../../components/Fixture";
 import Chart from "../../components/Chart";
 
 
@@ -25,6 +25,7 @@ const FixtureInformation = ({ data }: any) => {
   const changeTab = (value: string) => {
     setCurrentTab(value);
   };
+  
 
   return (
     <>
@@ -83,6 +84,7 @@ const FixtureInformation = ({ data }: any) => {
               </>
             </>
           )}
+         
 
           {currentTab === "goals" && (
             <>
@@ -128,7 +130,7 @@ const FixtureInformation = ({ data }: any) => {
               <>
                 <Section>
                   {h2h.map((fixture: any) => (
-                    <ListItem fixture={fixture} key={fixture.fixture.id} />
+                    <Fixture fixture={fixture} key={fixture.fixture.id} />
                   ))}
                 </Section>
               </>

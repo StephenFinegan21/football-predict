@@ -2,10 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import WinPercentage from "../components/WinPercentage";
 import StatTable from "../components/StatTable";
-import { ColouredResultCircle } from "../styles/commonStyles";
 import Box from "../components/Box";
-
-
+import Legend from "../components/Legend";
 
 const Flex = styled.div`
   display: flex;
@@ -21,51 +19,25 @@ const Flex = styled.div`
   }
 `;
 
-const TableContainer = styled.div`
-  padding: 30px 0;
-  text-align: center;
-`;
-
-const Legend = styled.div`
-  max-width: 90%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  @media (min-width: 800px) {
-    width: 50%;
-  }
-`;
-
-const LegendIcon = styled.div`
-  width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
+  const legendData = [
+    {
+      description: "win",
+      colour: "#049c9c",
+    },
+    {
+      description: "draw",
+      colour: "#521ffa",
+    },
+    {
+      description: "loss",
+      colour: "#e01e62",
+    },
+  ];
   return (
     <>
       <Box>
-        <Legend>
-          <LegendIcon>
-            <p>Win</p>
-            <ColouredResultCircle bg="#049c9c"></ColouredResultCircle>
-          </LegendIcon>
-
-          <LegendIcon>
-            <p>Draw</p>
-            <ColouredResultCircle bg="#521ffa"></ColouredResultCircle>
-          </LegendIcon>
-
-          <LegendIcon>
-            <p>Loss</p>
-            <ColouredResultCircle bg="#e01e62"></ColouredResultCircle>
-          </LegendIcon>
-        </Legend>
-
+        <Legend data={legendData} />
         <Flex>
           <WinPercentage
             played={homeFixtures.played.total}
@@ -83,38 +55,43 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
             caption={awayTeam}
           />
         </Flex>
-        </Box>
-        <TableContainer>
-          <StatTable
-            title="Games Played"
-            homeTeam={homeTeam}
-            homeStats={homeFixtures.played}
-            awayTeam={awayTeam}
-            awayStats={awayFixtures.played}
-          />
-          <StatTable
-            title="Wins"
-            homeTeam={homeTeam}
-            homeStats={homeFixtures.wins}
-            awayTeam={awayTeam}
-            awayStats={awayFixtures.wins}
-          />
-          <StatTable
-            title="Losses"
-            homeTeam={homeTeam}
-            homeStats={homeFixtures.loses}
-            awayTeam={awayTeam}
-            awayStats={awayFixtures.loses}
-          />
-          <StatTable
-            title="Draws"
-            homeTeam={homeTeam}
-            homeStats={homeFixtures.draws}
-            awayTeam={awayTeam}
-            awayStats={awayFixtures.draws}
-          />
-        </TableContainer>
-  
+      </Box>
+      <Box>
+        <StatTable
+          title="Games Played"
+          homeTeam={homeTeam}
+          homeStats={homeFixtures.played}
+          awayTeam={awayTeam}
+          awayStats={awayFixtures.played}
+        />
+      </Box>
+      <Box>
+        <StatTable
+          title="Wins"
+          homeTeam={homeTeam}
+          homeStats={homeFixtures.wins}
+          awayTeam={awayTeam}
+          awayStats={awayFixtures.wins}
+        />
+      </Box>
+      <Box>
+        <StatTable
+          title="Losses"
+          homeTeam={homeTeam}
+          homeStats={homeFixtures.loses}
+          awayTeam={awayTeam}
+          awayStats={awayFixtures.loses}
+        />
+      </Box>
+      <Box>
+        <StatTable
+          title="Draws"
+          homeTeam={homeTeam}
+          homeStats={homeFixtures.draws}
+          awayTeam={awayTeam}
+          awayStats={awayFixtures.draws}
+        />
+      </Box>
     </>
   );
 };

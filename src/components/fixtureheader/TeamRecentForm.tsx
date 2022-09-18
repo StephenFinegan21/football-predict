@@ -1,20 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { LightText, ColouredResultCircle } from "../../styles/commonStyles";
+import { LightText, ColouredResultCircle, FlexCenterDiv, Heading3 } from "../../styles/commonStyles";
+import Column from '../Column'
 
 type formProps = {
   form: string;
 };
 
-const ResultsRow = styled.div`
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin-top: -15px;
-  max-width: 100%;
-`;
-
-const FormContainer = styled.div``;
 
 const TeamRecentForm = (props: formProps) => {
   const formString = (str: string) => {
@@ -27,9 +19,9 @@ const TeamRecentForm = (props: formProps) => {
 
   return (
     <>
-      <FormContainer>
-        <LightText>Recent Form</LightText>
-        <ResultsRow>
+      <Column>
+        <Heading3>Recent Form</Heading3>
+        <FlexCenterDiv>
           {formString(props.form).map(
             (result, index) =>
               (result === "W" && (
@@ -52,8 +44,8 @@ const TeamRecentForm = (props: formProps) => {
                 </ColouredResultCircle>
               )
           )}
-        </ResultsRow>
-      </FormContainer>
+        </FlexCenterDiv>
+      </Column>
     </>
   );
 };
