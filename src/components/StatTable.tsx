@@ -25,7 +25,7 @@ const StatTable = ({
     <RecordTable>
       <thead>
         <tr>
-          <TableHead style={{ textAlign: "left", fontSize: "medium" }}>
+          <TableHead style={{ textAlign: "left" }}>
             {title}
           </TableHead>
           <TableHead>Home</TableHead>

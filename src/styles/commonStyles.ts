@@ -66,12 +66,13 @@ export const ImageContainer = styled.div<{ bg?: string }>`
 `;
 
 export const RecordTable = styled.table`
-  max-width: 80%;
-  font-size: smaller;
+  max-width: 100%;
+  font-size: x-small;
   border-collapse: collapse;
-  margin: 60px auto;
+  margin: auto;
 
   @media (min-width: 600px) {
+    font-size: smaller;
   }
 `;
 
@@ -80,14 +81,23 @@ export const Row = styled.tr`
 `;
 
 export const TableData = styled.td`
-  font-size: large;
-  width: 100%;
+  font-size: x-small;
   text-align: left;
-  padding: 20px 14px;
+  padding: 20px 10px;
+  @media (min-width: 600px) {
+    font-size: medium;
+  }
+ 
 `;
 export const TableHead = styled.th`
-  padding: 20px 14px;
+  padding: 20px 10px;
   border-bottom: 1px solid #dfdfdf;
+  font-size: x-small;
+
+  @media (min-width: 600px) {
+    font-size: medium;
+    padding: 40px 20px;
+  }
 `;
 
 export const FlexContainer = styled.div`
