@@ -31,7 +31,7 @@ const getPercentage = (metric: number, total: number) => {
 };
 
 const StackedChart = ({ data, total }: any) => {
-  console.log(getPercentage(data.total.total, total) + "%");
+  //console.log(getPercentage(data.total.total, total) + "%");
   return (
     <>
       <Chart>

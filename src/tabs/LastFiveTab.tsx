@@ -27,7 +27,6 @@ type attributeProps = {
 };
 
 const LastFiveGames = ({ away, home }: any) => {
-  console.log()
   return (
     <>
    

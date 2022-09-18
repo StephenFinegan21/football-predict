@@ -25,7 +25,7 @@ const Legend = ({ data }: any) => {
   return (
     <LegendStyle>
       {data.map((data : any) => (
-        <LegendIcon>
+        <LegendIcon key={data.description}>
           <p>{data.description}</p>
           <ColouredResultCircle bg={data.colour}></ColouredResultCircle>
         </LegendIcon>
