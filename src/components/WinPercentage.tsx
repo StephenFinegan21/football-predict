@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const Counter = styled.div`
-  width: 70px;
+  width: 60px;
   height: 200px;
   margin-bottom: 40px;
 
   @media (min-width: 800px) {
-    width: 100px;
+    width: 60px;
 }
 `;
 
@@ -35,6 +35,7 @@ const InfoText = styled.div`
   padding: 0;
   margin: 0;
   color: #fbfbfb;
+  font-weight:200
 `;
 
 const WinPercentage = ({

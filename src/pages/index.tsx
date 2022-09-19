@@ -11,14 +11,7 @@ const Home: NextPage = ({ data }: any) => {
 
   return (
     <>
-      <Head>
-        <title>Stats of the day</title>
-        <meta
-          name="description"
-          content="Football stats and match information for the next Premier league fixtures."
-        />
-        <link rel="icon" href="/football-icon.jpeg" />
-      </Head>
+     
 
       {typeof window !== "undefined" &&
         localStorage.getItem("cookies") === "yes" && (

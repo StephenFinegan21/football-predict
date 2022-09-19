@@ -67,12 +67,14 @@ export const ImageContainer = styled.div<{ bg?: string }>`
 
 export const RecordTable = styled.table`
   max-width: 100%;
-  font-size: x-small;
+  font-size: smaller;
   border-collapse: collapse;
   margin: auto;
+  
+  padding: 20px 10px;
 
   @media (min-width: 600px) {
-    font-size: smaller;
+    font-size: medium;
   }
 `;
 
@@ -81,23 +83,16 @@ export const Row = styled.tr`
 `;
 
 export const TableData = styled.td`
-  font-size: x-small;
+
   text-align: left;
-  padding: 20px 10px;
-  @media (min-width: 600px) {
-    font-size: medium;
-  }
+  padding: 20px 15px;
+  
  
 `;
 export const TableHead = styled.th`
   padding: 20px 10px;
   border-bottom: 1px solid #dfdfdf;
-  font-size: x-small;
 
-  @media (min-width: 600px) {
-    font-size: medium;
-    padding: 40px 20px;
-  }
 `;
 
 export const FlexContainer = styled.div`
@@ -111,8 +106,8 @@ export const FlexContainer = styled.div`
 
 export const ColouredResultCircle = styled.div<{ bg: string }>`
   background-color: ${(props) => props.bg};
-  width: 6px;
-  height: 6px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -120,4 +115,12 @@ export const ColouredResultCircle = styled.div<{ bg: string }>`
   padding: 5px;
   margin-right: 5px;
   font-size: xx-small;
+
+
+  @media (min-width: 600px) {
+    width: 6px;
+    height: 6px;
+ 
+  
+  }
 `;

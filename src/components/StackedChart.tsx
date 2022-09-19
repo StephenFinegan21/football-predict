@@ -12,7 +12,8 @@ const Chart = styled.div`
 
 const Bar = styled.div<{ height: string }>`
   height: ${(props) => props.height};
-  width: 50px;
+  width: 60px;
+  margin: 0 auto;
 `;
 
 const Value = styled.div<{ height: string; bg: string }>`
@@ -31,7 +32,6 @@ const getPercentage = (metric: number, total: number) => {
 };
 
 const StackedChart = ({ data, total }: any) => {
-  //console.log(getPercentage(data.total.total, total) + "%");
   return (
     <>
       <Chart>

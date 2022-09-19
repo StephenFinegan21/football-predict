@@ -15,10 +15,18 @@ const LegendStyle = styled.div`
 `;
 
 const LegendIcon = styled.div`
-  width: 70px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
+
+
+  @media (min-width: 800px) {
+    width: 70px;
+    padding: 20px;
+  }
+
 `;
 
 const Legend = ({ data }: any) => {
