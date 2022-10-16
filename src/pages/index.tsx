@@ -12,7 +12,7 @@ const Home: NextPage = ({ data }: any) => {
   return (
     <>
      
-
+    {/*
       {typeof window !== "undefined" &&
         localStorage.getItem("cookies") === "yes" && (
           <>
@@ -50,7 +50,7 @@ const Home: NextPage = ({ data }: any) => {
       >
         This website uses analytics to monitor site performance
         </CookieConsent>
-
+      */}
       
       <ListContainer fixtures={data} />
     </>

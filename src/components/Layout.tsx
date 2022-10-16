@@ -14,6 +14,8 @@ export default function Layout({ children } : any) {
           content="Football stats and match information for the next Premier league fixtures."
         />
         <link rel="icon" href="/football-icon.jpeg" />
+        <script defer data-domain="statsoftheday.com" src="https://plausible.io/js/plausible.js"></script>
+
       </Head>
       <Navbar />
       <main>{children}</main>
