@@ -1,13 +1,10 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import ListContainer from "../components/ListContainer";
 import axios from "axios";
-import Script from "next/script";
-import CookieConsent from "react-cookie-consent";
+import { Fixtures } from "../types";
 
 
-const Home: NextPage = ({ data }: any) => {
- 
+const Home = ({ data }: Fixtures) => {
 
   return (
     <>
@@ -73,11 +70,14 @@ export async function getStaticProps() {
   const data = await axios
     .request(options)
     .then(function (response) {
-      return response.data;
+  
+      return response.data
     })
     .catch(function (error) {
       console.error(error);
     });
+
+    
 
   return {
     props: { data }, // will be passed to the page component as props

@@ -1,7 +1,7 @@
 import React from "react";
 import StackedChart from "./StackedChart";
 import styled from "styled-components";
-import { ColouredResultCircle, Heading2, } from "../styles/commonStyles";
+import {  Heading2 } from "../styles/commonStyles";
 import Box from "./Box";
 import Legend from "./Legend";
 import Column from "./Column";
@@ -48,11 +48,11 @@ const Chart = ({
         <Legend data={legendData} />
         <Flex>
           <Column>
-            <StackedChart data={homeData} total={total} name={homeTeamName} />
+            <StackedChart data={homeData} total={total} />
             <p>{homeTeamName}</p>
           </Column>
           <Column>
-            <StackedChart data={awayData} total={total} name={awayTeamName} />
+            <StackedChart data={awayData} total={total}  />
             <p>{awayTeamName}</p>
           </Column>
         </Flex>

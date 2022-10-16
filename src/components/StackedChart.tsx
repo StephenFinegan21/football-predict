@@ -31,7 +31,31 @@ const getPercentage = (metric: number, total: number) => {
   return score.toString();
 };
 
-const StackedChart = ({ data, total }: any) => {
+type average ={
+  away : string 
+  home : string
+  total: string
+}
+type total ={
+  away : number 
+  home : number
+  total: number
+}
+
+
+type chartData = {
+  data :{
+    average : average
+    minutes : any
+    total : total
+  }, 
+  total : number
+  
+
+}
+
+const StackedChart = ({ data, total }: chartData) => {
+
   return (
     <>
       <Chart>
