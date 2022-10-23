@@ -20,7 +20,7 @@ type percentageProps = {
   caption: string;
 };
 
-const TeamName = styled.div`
+export const TeamName = styled.div`
   width: 100%;
   margin: auto;
   padding-top: 10px;
