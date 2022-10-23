@@ -89,15 +89,24 @@
         penalty: Penalty;
     }
 
-    export interface Fixtures {
-        data : {
-            fixture: Fixture;
-            league: League;
-            teams: Teams;
-            goals: Goals;
-            score: Score;
+    export interface Fixtures  {
+       data : {
+                fixture: Fixture;
+                league: League;
+                teams: Teams;
+                goals: Goals;
+                score: Score;
+            }
+           
         }
-        }
+        
+      export  type singleFixture = {
+            fixture : Fixture
+            goals : Goals
+            league : League
+            score : Score
+            team : Teams
+          }
        
 
 

@@ -4,8 +4,8 @@ import axios from "axios";
 import { Fixtures } from "../types";
 
 
-const Home = ({ data }: Fixtures) => {
-
+const Home = ({data}: Fixtures) => {
+  
   return (
     <>
      
@@ -71,14 +71,13 @@ export async function getStaticProps() {
     .request(options)
     .then(function (response) {
   
-      return response.data
+      return response.data.response
     })
     .catch(function (error) {
       console.error(error);
     });
 
-    
-
+  
   return {
     props: { data }, // will be passed to the page component as props
   };

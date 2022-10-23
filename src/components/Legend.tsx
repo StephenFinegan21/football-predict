@@ -3,14 +3,16 @@ import styled from "styled-components";
 import { ColouredResultCircle } from "../styles/commonStyles";
 
 const LegendStyle = styled.div`
-  max-width: 90%;
+  max-width: 80%;
   margin: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 
   @media (min-width: 800px) {
-    width: 50%;
+    width: 40%;
+ 
   }
 `;
 
@@ -19,12 +21,13 @@ const LegendIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 2px;
+  
 
 
   @media (min-width: 800px) {
     width: 70px;
-    padding: 20px;
+  
   }
 
 `;

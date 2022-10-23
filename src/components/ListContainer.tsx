@@ -1,16 +1,17 @@
 import React from "react";
 import { PageContainer, FlexCenterDiv, Heading2 } from "../styles/commonStyles";
+import { singleFixture } from "../types";
 import Fixture from "./Fixture";
 
 //List of fixtures on a particular date (Sat Oct 01 2022)
 const DateList = ({ date, fixtures }: any) => {
   const checkFixtures = () => {
     let matches = []; //Matches that take place on a date
-    for (let i in fixtures.response) {
+    for (let i in fixtures) {
       //Loop through the fixtures,
-      if (new Date(fixtures.response[i].fixture.date).toDateString() === date) {
+      if (new Date(fixtures[i].fixture.date).toDateString() === date) {
         //check if the date of that fixture matches the passed in date
-        matches.push(fixtures.response[i]); // push that fixture into the matches array
+        matches.push(fixtures[i]); // push that fixture into the matches array
       }
     }
     return matches;
@@ -28,14 +29,21 @@ const DateList = ({ date, fixtures }: any) => {
   );
 };
 
-const ListContainer = ({ fixtures }: any) => {
+type matchDateProps = string[]
+
+const ListContainer = ({fixtures} : any ) => {
+
+
+
   //array of all the dates for a list of fixtures
-  const matchDates = fixtures.response.map((fixture: any) =>
+  const matchDates = fixtures.map((fixture: singleFixture) =>
+  
     new Date(fixture.fixture.date).toDateString()
   );
+  //console.log('jjj', matchDates)
 
   //Removes duplicates from list of dates
-  const getDates = (matchDates: any) => {
+  const getDates = (matchDates: matchDateProps) => {
     let dates = [];
     for (let i = 0; i < matchDates.length; i++) {
       if (matchDates[i] != matchDates[i - 1]) {

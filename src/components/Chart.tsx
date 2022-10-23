@@ -44,7 +44,9 @@ const Chart = ({
   return (
     <>
       <Box>
+       
         <Heading2>{title}</Heading2>
+        <Flex>
         <Legend data={legendData} />
         <Flex>
           <Column>
@@ -55,6 +57,7 @@ const Chart = ({
             <StackedChart data={awayData} total={total}  />
             <p>{awayTeamName}</p>
           </Column>
+        </Flex>
         </Flex>
       </Box>
     </>

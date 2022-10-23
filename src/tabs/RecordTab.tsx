@@ -37,6 +37,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   return (
     <>
       <Box>
+        <Flex>
         <Legend data={legendData} />
         <Flex>
           <WinPercentage
@@ -54,6 +55,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
             losses={awayFixtures.loses.total}
             caption={awayTeam}
           />
+        </Flex>
         </Flex>
       </Box>
       <Box>

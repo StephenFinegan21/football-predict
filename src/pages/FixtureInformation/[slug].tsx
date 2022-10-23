@@ -1,4 +1,3 @@
-import React from "react";
 import LastFiveGames from "../../tabs/LastFiveTab";
 import Comparison from "../../tabs/CompareTab";
 import { useState } from "react";
@@ -20,13 +19,14 @@ const Section = styled.div`
 
 const FixtureInformation = ({ data }: any) => {
   const { teams, comparison, predictions, h2h } = data.response[0];
+  const homeTeam = teams.home
+  const awayTeam = teams.away
   const [currentTab, setCurrentTab] = useState("last-five");
 
   const changeTab = (value: string) => {
     setCurrentTab(value);
   };
   
-
   return (
     <>
       {data && (
@@ -40,7 +40,7 @@ const FixtureInformation = ({ data }: any) => {
             <>
               <>
                 <Section>
-                  <LastFiveGames home={teams.home} away={teams.away} />
+                  <LastFiveGames home={homeTeam} away={awayTeam} />
                 </Section>
               </>
             </>
@@ -52,8 +52,8 @@ const FixtureInformation = ({ data }: any) => {
                 <Section>
                   <Comparison
                     data={comparison}
-                    homeName={teams.home.name}
-                    awayName={teams.away.name}
+                    homeName={homeTeam.name}
+                    awayName={awayTeam.name}
                   />
                 </Section>
               </>
@@ -75,10 +75,10 @@ const FixtureInformation = ({ data }: any) => {
               <>
                 <Section>
                   <Record
-                    homeFixtures={teams.home.league.fixtures}
-                    awayFixtures={teams.away.league.fixtures}
-                    homeTeam={teams.home.name}
-                    awayTeam={teams.away.name}
+                    homeFixtures={homeTeam.league.fixtures}
+                    awayFixtures={awayTeam.league.fixtures}
+                    homeTeam={homeTeam.name}
+                    awayTeam={awayTeam.name}
                   />
                 </Section>
               </>
@@ -93,32 +93,32 @@ const FixtureInformation = ({ data }: any) => {
                 <Section>
                   <Chart 
                   title="Goals For"
-                  homeTeamName={teams.home.name}
-                  awayTeamName={teams.away.name}
-                  homeData={teams.home.league.goals.for}
-                  awayData={teams.away.league.goals.for}
-                  total={teams.home.league.goals.for.total.total + teams.away.league.goals.for.total.total}/>
+                  homeTeamName={homeTeam.name}
+                  awayTeamName={awayTeam.name}
+                  homeData={homeTeam.league.goals.for}
+                  awayData={awayTeam.league.goals.for}
+                  total={homeTeam.league.goals.for.total.total + awayTeam.league.goals.for.total.total}/>
                 </Section>
 
                 <Section>
                   <Chart 
                   title="Goals Against"
-                  homeTeamName={teams.home.name}
-                  awayTeamName={teams.away.name}
-                  homeData={teams.home.league.goals.against}
-                  awayData={teams.away.league.goals.against}
-                  total={teams.home.league.goals.against.total.total + teams.away.league.goals.against.total.total}/>
+                  homeTeamName={homeTeam.name}
+                  awayTeamName={awayTeam.name}
+                  homeData={homeTeam.league.goals.against}
+                  awayData={awayTeam.league.goals.against}
+                  total={homeTeam.league.goals.against.total.total + awayTeam.league.goals.against.total.total}/>
                 </Section>
                 
                   <Goals
-                    goals={teams.home.league.goals}
-                    teamName={teams.home.name}
-                    forTotal={teams.home.league.goals.for.total.total + teams.away.league.goals.for.total.total}
+                    goals={homeTeam.league.goals}
+                    teamName={homeTeam.name}
+                    forTotal={homeTeam.league.goals.for.total.total + awayTeam.league.goals.for.total.total}
                   />
                   <Goals
-                    goals={teams.away.league.goals}
-                    teamName={teams.away.name}
-                    forTotal={teams.home.league.goals.for.total.total + teams.away.league.goals.for.total.total}
+                    goals={awayTeam.league.goals}
+                    teamName={awayTeam.name}
+                    forTotal={homeTeam.league.goals.for.total.total + awayTeam.league.goals.for.total.total}
 
                   />
                 </Section>

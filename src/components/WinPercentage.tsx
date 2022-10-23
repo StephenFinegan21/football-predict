@@ -8,7 +8,8 @@ const Counter = styled.div`
 
   @media (min-width: 800px) {
     width: 60px;
-}
+  
+  }
 `;
 
 type percentageProps = {
@@ -22,20 +23,19 @@ type percentageProps = {
 const TeamName = styled.div`
   width: 100%;
   margin: auto;
-  padding-top:10px;
+  padding-top: 10px;
   font-size: xx-small;
   text-align: center;
   @media (min-width: 800px) {
     font-size: small;
-}
-
-`
+  }
+`;
 
 const InfoText = styled.div`
   padding: 0;
   margin: 0;
   color: #fbfbfb;
-  font-weight:200
+  font-weight: 200;
 `;
 
 const WinPercentage = ({
