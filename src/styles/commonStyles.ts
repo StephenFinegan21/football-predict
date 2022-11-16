@@ -5,16 +5,24 @@ export const Heading1 = styled.h1`
 `;
 
 export const Heading2 = styled.h2`
-  text-align: center;
-  font-size: large;
-  font-weight: 200;
-  margin: 0;
+  text-align: left;
+  font-size: medium;
+
+  @media (min-width: 800px) {
+    text-align: center;
+    font-size: large;
+    font-weight: 200;
+    margin: 0;
+  }
 `;
 
 export const LeftBoldHeading = styled.h2`
-  text-align: left;
-  font-size: xx-large;
-  font-weight:800;
+  font-size: medium;
+  @media (min-width: 800px) {
+    text-align: left;
+    font-size: xx-large;
+    font-weight: 800;
+  }
 `;
 
 export const Heading3 = styled.h3`
@@ -77,7 +85,7 @@ export const RecordTable = styled.table`
   font-size: smaller;
   border-collapse: collapse;
   margin: auto;
-  
+
   padding: 20px 10px;
 
   @media (min-width: 600px) {
@@ -90,25 +98,18 @@ export const Row = styled.tr`
 `;
 
 export const TableData = styled.td`
-
   text-align: left;
   padding: 20px 15px;
-  
- 
 `;
 export const TableHead = styled.th`
   padding: 20px 10px;
   border-bottom: 1px solid #dfdfdf;
-
 `;
 
 export const FlexContainer = styled.div`
   max-width: 100%;
   display: flex;
   justify-content: "flex-start";
-
-  @media (min-width: 600px) {
-  }
 `;
 
 export const ColouredResultCircle = styled.div<{ bg: string }>`
@@ -123,11 +124,8 @@ export const ColouredResultCircle = styled.div<{ bg: string }>`
   margin-right: 5px;
   font-size: xx-small;
 
-
   @media (min-width: 600px) {
     width: 6px;
     height: 6px;
- 
-  
   }
 `;

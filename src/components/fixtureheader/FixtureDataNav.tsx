@@ -8,7 +8,7 @@ type navProps = {
 };
 
 const NavContainer = styled.div`
-  max-width: 100%;
+  max-width: 95%;
   border-bottom: 2px solid #7a7a7a;
   display: flex;
   justify-content: flex-start;
@@ -17,6 +17,12 @@ const NavContainer = styled.div`
   padding-top: 20px;
   overflow: auto;
   white-space: nowrap;
+  margin: auto;
+
+  @media (min-width: 1800px) {
+    max-width: 75%;
+
+  }
 `;
 
 const NavList = styled.li<{ current: boolean }>`

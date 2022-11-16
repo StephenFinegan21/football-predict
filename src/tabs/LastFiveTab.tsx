@@ -33,7 +33,15 @@ type attributeProps = {
 };
 
 const Container = styled.div`
-  width: 100%;
+  display: block;
+  padding-bottom:40px; 
+  padding-top:40px; 
+  border-bottom: 1px solid #445a6f;
+  margin: 0;
+ 
+
+  @media (min-width: 600px) {
+    width: 100%;
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: flex-end;
@@ -42,12 +50,12 @@ const Container = styled.div`
   padding-bottom:40px; 
   padding-top:40px; 
   border-bottom: 1px solid #445a6f;
- 
-
+  }
 
 `;
 
 const LastFiveGames = ({ away, home }: any) => {
+
   return (
     <>
       <Box>
@@ -70,13 +78,13 @@ const LastFiveGames = ({ away, home }: any) => {
      
         <Container>
           <Heading2>{home.name}</Heading2>
-          <PercentBar value={home.last_5.att} annotation={`${home.league.goals.for.total.total} Scored`} />
+          <PercentBar value={home.last_5.att} annotation={`${home.last_5.goals.for.total} Scored`} />
         </Container>
    
 
         <Container>
           <Heading2>{away.name}</Heading2>
-          <PercentBar value={away.last_5.att} annotation={`${away.league.goals.for.total.total}  Scored`}  />
+          <PercentBar value={away.last_5.att} annotation={`${away.last_5.goals.for.total}  Scored`}  />
         </Container>
    
       </Box>
@@ -85,13 +93,13 @@ const LastFiveGames = ({ away, home }: any) => {
        
         <Container>
           <Heading2>{home.name}</Heading2>
-          <PercentBar value={home.last_5.def} annotation={`${home.league.goals.against.total.total} Conceded`}  />
+          <PercentBar value={home.last_5.def} annotation={`${home.last_5.goals.against.total} Conceded`}  />
         </Container>
    
 
         <Container>
           <Heading2>{away.name}</Heading2>
-          <PercentBar value={away.last_5.def} annotation={`${away.league.goals.against.total.total} Conceded`}  />
+          <PercentBar value={away.last_5.def} annotation={`${away.last_5.goals.against.total} Conceded`}  />
         </Container>
       </Box>
     </>

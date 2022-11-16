@@ -2,17 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 const BoxStyle = styled.div`
+  max-width: 95%;
   background-color: #162c41;
   margin: 20px auto;
-  padding: 50px ;
+  padding: 2rem ;
 
   @media (min-width: 1200px) {
-    max-width: 60%;
+    max-width: 70%;
   }
 
-  @media (min-width: 1800px) {
-    max-width: 50%;
-  }
+ 
 `;
 
 const Box = (props: any) => {
