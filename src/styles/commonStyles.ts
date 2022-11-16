@@ -6,8 +6,15 @@ export const Heading1 = styled.h1`
 
 export const Heading2 = styled.h2`
   text-align: center;
-  font-size: medium;
+  font-size: large;
   font-weight: 200;
+  margin: 0;
+`;
+
+export const LeftBoldHeading = styled.h2`
+  text-align: left;
+  font-size: xx-large;
+  font-weight:800;
 `;
 
 export const Heading3 = styled.h3`
