@@ -40,7 +40,7 @@ const ListContainer = ({fixtures} : any ) => {
   
     new Date(fixture.fixture.date).toDateString()
   );
-  //console.log('jjj', matchDates)
+
 
   //Removes duplicates from list of dates
   const getDates = (matchDates: matchDateProps) => {

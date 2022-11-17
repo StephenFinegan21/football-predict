@@ -3,6 +3,12 @@ import React from "react";
 import PercentBar from "../components/PercentBar";
 import styled from "styled-components";
 import Box from "../components/Box";
+import {
+  LeftBoldHeading,
+  FlexCenterDiv,
+  Heading2,
+} from "../styles/commonStyles";
+import TeamRecentForm from "../components/fixtureheader/TeamRecentForm";
 
 type goals = {
   for: {
@@ -26,55 +32,76 @@ type attributeProps = {
   teamName: string;
 };
 
+const Container = styled.div`
+  display: block;
+  padding-bottom:40px; 
+  padding-top:40px; 
+  border-bottom: 1px solid #445a6f;
+  margin: 0;
+ 
+
+  @media (min-width: 600px) {
+    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: flex-end;
+  gap: 80px;
+  margin: 20px auto;
+  padding-bottom:40px; 
+  padding-top:40px; 
+  border-bottom: 1px solid #445a6f;
+  }
+
+`;
+
 const LastFiveGames = ({ away, home }: any) => {
+
   return (
     <>
+      <Box>
+        <LeftBoldHeading>Overall Form &#128200;</LeftBoldHeading>
+  
+        <Container>
+          <Heading2>{home.name}</Heading2>
+          <PercentBar value={home.last_5.form} annotation={home.league.form}/>
+        </Container>
+
+        <Container>
+          <Heading2>{away.name}</Heading2>
+          <PercentBar value={away.last_5.form} annotation={away.league.form}/>
+        </Container>
+      </Box>
+
+
+      <Box>
+        <LeftBoldHeading>Attacking Form &#9917; </LeftBoldHeading>
+     
+        <Container>
+          <Heading2>{home.name}</Heading2>
+          <PercentBar value={home.last_5.att} annotation={`${home.last_5.goals.for.total} Scored`} />
+        </Container>
    
-      <Box>
-        <h4>Overall Form</h4>
 
-        <div>
-          <p>{home.name}</p>
-          <p> &#128200; {home.league.form}</p>
-        </div>
-        <PercentBar value={home.last_5.form} />
-
-        <div>
-          <p>{away.name}</p>
-          <p>&#128200; {away.league.form}</p>
-        </div>
-        <PercentBar value={away.last_5.form} />
+        <Container>
+          <Heading2>{away.name}</Heading2>
+          <PercentBar value={away.last_5.att} annotation={`${away.last_5.goals.for.total}  Scored`}  />
+        </Container>
+   
       </Box>
       <Box>
-        <h4>Attacking Form</h4>
+        <LeftBoldHeading>Defensive Form &#129349; </LeftBoldHeading>
+       
+        <Container>
+          <Heading2>{home.name}</Heading2>
+          <PercentBar value={home.last_5.def} annotation={`${home.last_5.goals.against.total} Conceded`}  />
+        </Container>
+   
 
-        <div>
-          <p>{home.name}</p>
-          <p>&#9917; {home.league.goals.for.total.total}</p>
-        </div>
-        <PercentBar value={home.last_5.att} />
-
-        <div>
-          <p>{away.name}</p>
-          <p>&#9917; {away.league.goals.for.total.total}</p>
-        </div>
-        <PercentBar value={away.last_5.att} />
+        <Container>
+          <Heading2>{away.name}</Heading2>
+          <PercentBar value={away.last_5.def} annotation={`${away.last_5.goals.against.total} Conceded`}  />
+        </Container>
       </Box>
-      <Box>
-        <h4>Defensive Form</h4>
-
-        <div>
-          <p>{home.name}</p>
-          <p>&#129349; {home.league.goals.against.total.total}</p>
-        </div>
-        <PercentBar value={home.last_5.def} />
-
-        <div>
-          <p>{away.name}</p>
-          <p>&#129349; {away.league.goals.against.total.total}</p>
-        </div>
-        <PercentBar value={away.last_5.def} />
-  </Box> 
     </>
   );
 };
