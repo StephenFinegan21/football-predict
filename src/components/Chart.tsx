@@ -5,7 +5,7 @@ import {  Heading2 } from "../styles/commonStyles";
 import Box from "./Box";
 import Legend from "./Legend";
 import Column from "./Column";
-import { TeamName } from "./WinPercentage";
+
 
 
 
@@ -52,11 +52,11 @@ const Chart = ({
         <Flex>
           <Column>
             <StackedChart data={homeData} total={total} />
-            <TeamName>{homeTeamName}</TeamName>
+            <h2>{homeTeamName}</h2>
           </Column>
           <Column>
             <StackedChart data={awayData} total={total}  />
-            <TeamName>{awayTeamName}</TeamName>
+            <h2>{awayTeamName}</h2>
           </Column>
         </Flex>
         </Flex>

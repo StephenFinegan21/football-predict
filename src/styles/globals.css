@@ -12,3 +12,12 @@ body {
 .disabled-link {
   pointer-events: none;
 }
+
+.active{
+  text-decoration: underline;
+  font-size: 1.4rem;
+}
+
+.inactive{
+  text-decoration: none;
+}
