@@ -108,6 +108,7 @@ const Comparison = ({ data, homeName, awayName }: ComparisonProps) => {
     <>
       {stats.map((s) => (
         <Stat
+          key={s.title}
           title={s.title}
           icon={s.icon}
           home={s.home}
