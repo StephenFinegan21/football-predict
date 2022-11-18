@@ -23,8 +23,6 @@ const Flex = styled.div`
 const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   
 
-  
-
 const homeStats = {
   winPercentage : Math.floor((homeFixtures.wins.total / homeFixtures.played.total * 100)),
   drawPercentage : Math.floor((homeFixtures.draws.total / homeFixtures.played.total * 100)),
@@ -62,14 +60,24 @@ const AwayPlayAwayStats = {
 
 const [stats, setStats] = useState([homeStats, awayStats])
 
+const Button = styled.button`
+  background-color: #162c41;
+  color:white;
+  border: none;
+  margin: 2px;
+  border-radius: 2px;
+  width: 60px;
+  padding: 5px;
+`
+
 
   
   return (
     <>
       <Box>
-        <button onClick={() => setStats([homeStats, awayStats])}>All</button>
-        <button onClick={() => setStats([homePlayHomeStats, homePlayAwayStats])}>Home</button>
-        <button onClick={() => setStats([awayPlayHomeStats, AwayPlayAwayStats])}>Away</button>
+        <Button onClick={() => setStats([homeStats, awayStats])}>All</Button>
+        <Button onClick={() => setStats([homePlayHomeStats, homePlayAwayStats])}>Home</Button>
+        <Button onClick={() => setStats([awayPlayHomeStats, AwayPlayAwayStats])}>Away</Button>
         <Flex>
           <BarChart stats={stats[0]} />
           <BarChart stats={stats[1]}/>

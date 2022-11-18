@@ -13,6 +13,8 @@ const ChartContainer = styled.div`
 
 const BarChart = (props: any) => {
   const { stats } = props;
+
+  console.log(stats)
   return (
     <>
       <ChartContainer>
@@ -61,12 +63,12 @@ const Bar = (props: BarProps) => {
 
   const Height = styled.div<{ color: string; height: number }>`
     height: 100px;
-    width: 10px;
+   
     background-color: ${(props) => props.color};
     height: ${(props) => props.height.toString()}%;
 
     @media (min-width: 600px) {
-      height: 160px;
+      height: ${(props) => props.height.toString()}%;
       width: 40px;
     }
   `;
