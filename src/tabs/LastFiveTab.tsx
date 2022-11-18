@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Box from "../components/Box";
 import {
   LeftBoldHeading,
-  FlexCenterDiv,
   Heading2,
 } from "../styles/commonStyles";
 import TeamRecentForm from "../components/fixtureheader/TeamRecentForm";
@@ -37,7 +36,6 @@ const Container = styled.div`
   padding-bottom:40px; 
   padding-top:40px; 
   border-bottom: 1px solid #445a6f;
-  margin: 0;
  
 
   @media (min-width: 600px) {

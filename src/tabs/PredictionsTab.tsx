@@ -1,15 +1,28 @@
 import React from "react";
-import { LightText, Heading2} from "../styles/commonStyles"
+import { Heading2, LeftBoldHeading} from "../styles/commonStyles"
 import Box from "../components/Box";
+import ComparisonBar from "../components/ComparisonBar";
 
 const Predictions = (props: any) => {
+  const {percent} = props.data
+  console.log(props)
+
+
+  const values = Object.keys(percent).map(function(key) {
+    return percent[key];
+});
+
   return (
     <>
       <Box>
-        <Heading2>Predicted Winner</Heading2>
-        <LightText>{props.data.winner.name}</LightText>
-        <Heading2>Advice</Heading2>
-        <LightText>{props.data.advice}</LightText>
+        <LeftBoldHeading>Predicted Winner</LeftBoldHeading>
+        <Heading2>{props.data.winner.name}</Heading2>
+        <LeftBoldHeading>Advice</LeftBoldHeading>
+        <Heading2>{props.data.advice}</Heading2>
+      </Box>
+      <Box>
+      <h2>Total &#128221;</h2>
+      <ComparisonBar values={values} />
       </Box>
     </>
   );

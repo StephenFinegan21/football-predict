@@ -13,11 +13,11 @@ const Bar = styled.div`
   
 `;
 
-const ScoreText = styled.h4<{ value: number }>`
+const ScoreText = styled.p<{ value: number }>`
   color: ${(props) =>
     props.value > 70 ? "#1fac92" : props.value < 40 ? "#eb428b" : "#eebc72"};
 
-  color: white;
+  color: #f5f1f1;
   padding: 0;
     margin: 0;
   padding-left: 20px;

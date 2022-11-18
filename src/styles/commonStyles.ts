@@ -9,7 +9,7 @@ export const Heading2 = styled.h2`
   font-size: medium;
 
   @media (min-width: 800px) {
-    text-align: center;
+    text-align: left;
     font-size: large;
     font-weight: 200;
     margin: 0;
