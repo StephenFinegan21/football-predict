@@ -10,8 +10,9 @@ const Flex = styled.div`
   width: 95%;
   margin: auto;
   justify-content: space-around;
-  background-color: #162c41;
-  padding: 5%;
+
+ 
+ 
   
 
   @media (min-width: 800px) {
@@ -59,6 +60,7 @@ const AwayPlayAwayStats = {
 }
 
 const [stats, setStats] = useState([homeStats, awayStats])
+const [activeBtn, setActiveBtn] = useState('all')
 
 const Button = styled.button`
   background-color: #162c41;
@@ -68,16 +70,38 @@ const Button = styled.button`
   border-radius: 2px;
   width: 60px;
   padding: 5px;
+  cursor: pointer;
+  font-size: 1rem;
 `
+
+const ButtonContainer = styled.div`
+  
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+
+`
+
+const changeStats = (stats : any, btn : any) => {
+  setStats(stats)
+  setActiveBtn(btn)
+}
 
 
   
   return (
     <>
       <Box>
-        <Button onClick={() => setStats([homeStats, awayStats])}>All</Button>
-        <Button onClick={() => setStats([homePlayHomeStats, homePlayAwayStats])}>Home</Button>
-        <Button onClick={() => setStats([awayPlayHomeStats, AwayPlayAwayStats])}>Away</Button>
+        <ButtonContainer>
+        <Button className={activeBtn === 'all' ? 'active' : 'inactive'} onClick={() => changeStats([homeStats, awayStats], 'all')}>All</Button>
+        <Button className={activeBtn === 'home' ? 'active' : 'inactive'}  onClick={() => changeStats([homePlayHomeStats, homePlayAwayStats], 'home')}>Home</Button>
+        <Button className={activeBtn === 'away' ? 'active' : 'inactive'}  onClick={() => changeStats([awayPlayHomeStats, AwayPlayAwayStats], 'away')}>Away</Button>
+        </ButtonContainer>
+        <Flex>
+          <h4>{homeTeam}</h4> 
+          <h4>{awayTeam}</h4> 
+        </Flex>
         <Flex>
           <BarChart stats={stats[0]} />
           <BarChart stats={stats[1]}/>

@@ -4,7 +4,9 @@ import styled from "styled-components";
 
 const ChartContainer = styled.div`
   display: flex;
-  width: 100px;
+ 
+  margin: auto;
+
 
   @media (min-width: 600px) {
     font-size: medium;
