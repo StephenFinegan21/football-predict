@@ -3,12 +3,14 @@ import styled from "styled-components";
 import StatTable from "../components/StatTable";
 import Box from "../components/Box";
 import BarChart from "../components/BarChart";
+import { LightText } from "../styles/commonStyles";
 
 export const Flex = styled.div`
   display: flex;
-  width: 95%;
+  width: 100%;
   margin: auto;
-  justify-content: space-around;
+  justify-content: space-between;
+
   text-align: center;
 
   @media (min-width: 800px) {
@@ -53,14 +55,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
     ),
   };
 
-  console.log(homeFixtures.wins.away);
-  console.log(homeFixtures.played.away);
-  console.log(
-    Math.floor((homeFixtures.wins.away / homeFixtures.played.away) * 100)
-  );
-  console.log(
-    Math.floor((homeFixtures.wins.away / homeFixtures.played.away) * 100)
-  );
+ 
   const homePlayAwayStats = {
     first: Math.floor(
       (homeFixtures.wins.away / homeFixtures.played.away) * 100
@@ -125,6 +120,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   return (
     <>
       <Box>
+      <LightText>Goals</LightText>
         <ButtonContainer>
           <Button
             className={activeBtn === "all" ? "active" : "inactive"}
@@ -150,19 +146,17 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
           </Button>
         </ButtonContainer>
         <Flex>
-          <h4>{homeTeam}</h4>
-          <h4>{awayTeam}</h4>
-        </Flex>
-        <Flex>
           <BarChart
             stats={stats[0]}
             type={"percentage"}
-            titles={["W", "L", "D"]}
+            titles={["Win", "Loss", "Draw"]}
+            heading={homeTeam}
           />
           <BarChart
             stats={stats[1]}
             type={"percentage"}
-            titles={["W", "L", "D"]}
+            titles={["Win", "Loss", "Draw"]}
+            heading={awayTeam}
           />
         </Flex>
       </Box>

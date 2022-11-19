@@ -35,7 +35,7 @@ export const Heading3 = styled.h3`
 `;
 
 export const LightText = styled.h4`
-  font-size: small;
+  font-size: medium;
   text-align: center;
   font-weight: 300;
   margin: 0;

@@ -7,12 +7,11 @@ import styled from "styled-components";
 import FixtureHeader from "../../components/fixtureheader/FixtureHeader";
 import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
-import { PageContainer } from "../../styles/commonStyles";
+import { Heading3, LeftBoldHeading, LightText, PageContainer } from "../../styles/commonStyles";
 import Fixture from "../../components/Fixture";
 import Box from "../../components/Box";
 import BarChart from "../../components/BarChart";
 import { Flex } from "../../tabs/RecordTab";
-
 
 const Section = styled.div`
   max-width: 100%;
@@ -21,25 +20,43 @@ const Section = styled.div`
 
 const FixtureInformation = ({ data }: any) => {
   const { teams, comparison, predictions, h2h } = data.response[0];
-  const homeTeam = teams.home
-  const awayTeam = teams.away
+  const homeTeam = teams.home;
+  const awayTeam = teams.away;
   const [currentTab, setCurrentTab] = useState("last-five");
 
   const changeTab = (value: string) => {
     setCurrentTab(value);
   };
-  
-  
-  const homeGoals = {
-   first: Math.floor(homeTeam.league.goals.for.total.total / (awayTeam.league.goals.for.total.total + homeTeam.league.goals.for.total.total) * 100),
-   second: Math.floor(homeTeam.league.goals.against.total.total / (awayTeam.league.goals.against.total.total + homeTeam.league.goals.against.total.total) * 100)
-  }
-  const awayGoals = {
-    first: Math.floor(awayTeam.league.goals.for.total.total / (awayTeam.league.goals.for.total.total + homeTeam.league.goals.for.total.total) * 100),
-    second: Math.floor(awayTeam.league.goals.against.total.total / (awayTeam.league.goals.against.total.total + homeTeam.league.goals.against.total.total) * 100)
-  }
 
-  
+  const homeGoals = {
+    first: Math.floor(
+      (homeTeam.league.goals.for.total.total /
+        (awayTeam.league.goals.for.total.total +
+          homeTeam.league.goals.for.total.total)) *
+        100
+    ),
+    second: Math.floor(
+      (homeTeam.league.goals.against.total.total /
+        (awayTeam.league.goals.against.total.total +
+          homeTeam.league.goals.against.total.total)) *
+        100
+    ),
+  };
+  const awayGoals = {
+    first: Math.floor(
+      (awayTeam.league.goals.for.total.total /
+        (awayTeam.league.goals.for.total.total +
+          homeTeam.league.goals.for.total.total)) *
+        100
+    ),
+    second: Math.floor(
+      (awayTeam.league.goals.against.total.total /
+        (awayTeam.league.goals.against.total.total +
+          homeTeam.league.goals.against.total.total)) *
+        100
+    ),
+  };
+
   return (
     <>
       {data && (
@@ -97,34 +114,54 @@ const FixtureInformation = ({ data }: any) => {
               </>
             </>
           )}
-         
 
           {currentTab === "goals" && (
             <>
               <>
                 <Section>
                   <Box>
-                  <Flex>
-                    <h4>{homeTeam.name}</h4> 
-                    <h4>{awayTeam.name}</h4> 
-                  </Flex>
+                    <LightText>Goals</LightText>
                     <Flex>
-                    <BarChart stats = {homeGoals} type={'number'} ann={[homeTeam.league.goals.for.total.total, homeTeam.league.goals.against.total.total ]} titles={['⚽', '🥅' ]}/>
-                    <BarChart stats = {awayGoals} type={'number'} ann={[awayTeam.league.goals.for.total.total, awayTeam.league.goals.against.total.total ]} titles={['⚽', '🥅']}/>
+                      <BarChart
+                        stats={homeGoals}
+                        type={"number"}
+                        ann={[
+                          homeTeam.league.goals.for.total.total,
+                          homeTeam.league.goals.against.total.total,
+                        ]}
+                        titles={["⚽", "🥅"]}
+                        heading={homeTeam.name}
+                      />
+                      <BarChart
+                        stats={awayGoals}
+                        type={"number"}
+                        ann={[
+                          awayTeam.league.goals.for.total.total,
+                          awayTeam.league.goals.against.total.total,
+                        ]}
+                        titles={["⚽", "🥅"]}
+                        heading={awayTeam.name}
+                      />
                     </Flex>
                   </Box>
-                <Section>
-                  <Goals
-                    goals={homeTeam.league.goals}
-                    teamName={homeTeam.name}
-                    forTotal={homeTeam.league.goals.for.total.total + awayTeam.league.goals.for.total.total}
-                  />
-                  <Goals
-                    goals={awayTeam.league.goals}
-                    teamName={awayTeam.name}
-                    forTotal={homeTeam.league.goals.for.total.total + awayTeam.league.goals.for.total.total}
-                  />
-                </Section>
+                  <Section>
+                    <Goals
+                      goals={homeTeam.league.goals}
+                      teamName={homeTeam.name}
+                      forTotal={
+                        homeTeam.league.goals.for.total.total +
+                        awayTeam.league.goals.for.total.total
+                      }
+                    />
+                    <Goals
+                      goals={awayTeam.league.goals}
+                      teamName={awayTeam.name}
+                      forTotal={
+                        homeTeam.league.goals.for.total.total +
+                        awayTeam.league.goals.for.total.total
+                      }
+                    />
+                  </Section>
                 </Section>
               </>
             </>
