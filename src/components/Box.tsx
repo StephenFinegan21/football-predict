@@ -5,7 +5,7 @@ const BoxStyle = styled.div`
   max-width: 95%;
   background-color: #162c41;
   margin: 20px auto;
-  padding: 2rem ;
+  padding: .5rem ;
 
   @media (min-width: 1200px) {
     max-width: 70%;

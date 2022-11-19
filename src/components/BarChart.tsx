@@ -5,9 +5,9 @@ import styled from "styled-components";
 const ChartContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: auto;
-  margin: 20px;
-
+  margin: 10px auto;
+  width: 80%;
+  
   @media (min-width: 600px) {
     font-size: medium;
   }
@@ -60,9 +60,10 @@ const Bar = (props: BarProps) => {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    margin: 15px;
+    margin: 2px;
     display: flex;
     width: 10px;
+  
 
     @media (min-width: 600px) {
       height: 160px;
@@ -89,7 +90,7 @@ const Bar = (props: BarProps) => {
   return (
     <Column>
     
-      <ChartText>{ann ? ann : height} {type && '%' }</ChartText>
+      <ChartText>{ann ? ann : height}{type && '%' }</ChartText>
       <BarStyle>
         <Height color={color} height={height} />
       </BarStyle>

@@ -5,7 +5,6 @@ import ComparisonBar from "../components/ComparisonBar";
 
 const Predictions = (props: any) => {
   const {percent} = props.data
-  console.log(props)
 
 
   const values = Object.keys(percent).map(function(key) {

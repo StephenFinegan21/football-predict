@@ -11,6 +11,7 @@ export const Flex = styled.div`
   margin: auto;
   justify-content: space-between;
 
+
   text-align: center;
 
   @media (min-width: 800px) {
@@ -120,7 +121,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   return (
     <>
       <Box>
-      <LightText>Goals</LightText>
+      <LightText>Results</LightText>
         <ButtonContainer>
           <Button
             className={activeBtn === "all" ? "active" : "inactive"}
@@ -149,13 +150,13 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
           <BarChart
             stats={stats[0]}
             type={"percentage"}
-            titles={["Win", "Loss", "Draw"]}
+            titles={["Win", "Draw", "Loss"]}
             heading={homeTeam}
           />
           <BarChart
             stats={stats[1]}
             type={"percentage"}
-            titles={["Win", "Loss", "Draw"]}
+            titles={["Win", "Draw", "Loss"]}
             heading={awayTeam}
           />
         </Flex>
