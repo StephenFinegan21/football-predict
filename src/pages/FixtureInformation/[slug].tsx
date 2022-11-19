@@ -9,7 +9,9 @@ import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
 import { PageContainer } from "../../styles/commonStyles";
 import Fixture from "../../components/Fixture";
-import Chart from "../../components/Chart";
+import Box from "../../components/Box";
+import BarChart from "../../components/BarChart";
+import { Flex } from "../../tabs/RecordTab";
 
 
 const Section = styled.div`
@@ -26,6 +28,17 @@ const FixtureInformation = ({ data }: any) => {
   const changeTab = (value: string) => {
     setCurrentTab(value);
   };
+  
+  
+  const homeGoals = {
+   first: Math.floor(homeTeam.league.goals.for.total.total / (awayTeam.league.goals.for.total.total + homeTeam.league.goals.for.total.total) * 100),
+   second: Math.floor(homeTeam.league.goals.against.total.total / (awayTeam.league.goals.against.total.total + homeTeam.league.goals.against.total.total) * 100)
+  }
+  const awayGoals = {
+    first: Math.floor(awayTeam.league.goals.for.total.total / (awayTeam.league.goals.for.total.total + homeTeam.league.goals.for.total.total) * 100),
+    second: Math.floor(awayTeam.league.goals.against.total.total / (awayTeam.league.goals.against.total.total + homeTeam.league.goals.against.total.total) * 100)
+  }
+
   
   return (
     <>
@@ -90,26 +103,17 @@ const FixtureInformation = ({ data }: any) => {
             <>
               <>
                 <Section>
+                  <Box>
+                  <Flex>
+                    <h4>{homeTeam.name}</h4> 
+                    <h4>{awayTeam.name}</h4> 
+                  </Flex>
+                    <Flex>
+                    <BarChart stats = {homeGoals} type={'number'} ann={[homeTeam.league.goals.for.total.total, homeTeam.league.goals.against.total.total ]} titles={['⚽', '🥅' ]}/>
+                    <BarChart stats = {awayGoals} type={'number'} ann={[awayTeam.league.goals.for.total.total, awayTeam.league.goals.against.total.total ]} titles={['⚽', '🥅']}/>
+                    </Flex>
+                  </Box>
                 <Section>
-                  <Chart 
-                  title="Goals For"
-                  homeTeamName={homeTeam.name}
-                  awayTeamName={awayTeam.name}
-                  homeData={homeTeam.league.goals.for}
-                  awayData={awayTeam.league.goals.for}
-                  total={homeTeam.league.goals.for.total.total + awayTeam.league.goals.for.total.total}/>
-                </Section>
-
-                <Section>
-                  <Chart 
-                  title="Goals Against"
-                  homeTeamName={homeTeam.name}
-                  awayTeamName={awayTeam.name}
-                  homeData={homeTeam.league.goals.against}
-                  awayData={awayTeam.league.goals.against}
-                  total={homeTeam.league.goals.against.total.total + awayTeam.league.goals.against.total.total}/>
-                </Section>
-                
                   <Goals
                     goals={homeTeam.league.goals}
                     teamName={homeTeam.name}
@@ -119,8 +123,8 @@ const FixtureInformation = ({ data }: any) => {
                     goals={awayTeam.league.goals}
                     teamName={awayTeam.name}
                     forTotal={homeTeam.league.goals.for.total.total + awayTeam.league.goals.for.total.total}
-
                   />
+                </Section>
                 </Section>
               </>
             </>
