@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 const BoxStyle = styled.div`
   max-width: 95%;
-  background-color: #162c41;
+  background-color: #24292f;
   margin: 20px auto;
-  padding: .5rem ;
+  padding: 2rem ;
 
   @media (min-width: 1200px) {
     max-width: 70%;

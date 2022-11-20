@@ -20,7 +20,7 @@ const TeamRecentForm = (props: formProps) => {
   return (
     <>
       <Column>
-        <Heading3>Recent Form</Heading3>
+        <LightText>Recent Form</LightText>
         <FlexCenterDiv>
           {formString(props.form).map(
             (result, index) =>

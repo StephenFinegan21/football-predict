@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Heading1 } from "../styles/commonStyles";
 
 const Nav = styled.div`
-  background-color: #162c41;
+  background-color: #24292f;
   margin: 0;
   padding: 0;
   height: 70px;

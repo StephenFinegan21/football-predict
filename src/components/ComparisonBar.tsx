@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Bar = styled.div`
   max-width: 100%;
-  height: 20px;
+  height: 10px;
   
   border-radius: 20px;
   display: flex;

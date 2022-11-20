@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import styled from "styled-components";
-import { FlexCenterDiv, Heading2 } from "../../styles/commonStyles";
+import { FlexCenterDiv, Heading3 } from "../../styles/commonStyles";
 import Column from "../Column";
 
 const BackContainer = styled.div`
@@ -40,7 +40,7 @@ const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
             width={50}
             height={50}
           />
-          <Heading2>{teams.home.name}</Heading2>
+          <Heading3>{teams.home.name}</Heading3>
           {!teams?.home.league.form && <p>No form</p>}
           {teams.home.league.form && (
             <TeamRecentForm form={teams?.home.league.form} />
@@ -55,7 +55,7 @@ const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
             height={50}
           />
 
-          <Heading2> {teams.away.name}</Heading2>
+          <Heading3> {teams.away.name}</Heading3>
 
           {!teams?.away.league.form && <p>No form</p>}
           {teams.away.league.form && (
