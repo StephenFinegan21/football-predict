@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ItemDiv = styled.div<{ highlight: boolean }>`
-  background-color: #162c41;
+  background-color: #24292f;
   padding: 20px 0;
   width: 100%;
   border-radius: 4px;

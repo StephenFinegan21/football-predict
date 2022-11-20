@@ -12,7 +12,6 @@ export const Heading2 = styled.h2`
     text-align: left;
     font-size: large;
     font-weight: 200;
-    margin: 0;
   }
 `;
 
@@ -26,18 +25,21 @@ export const LeftBoldHeading = styled.h2`
 `;
 
 export const Heading3 = styled.h3`
-  font-size: xx-small;
-  font-weight: 200;
+  font-size: small;
+  font-weight: 400;
 
   @media (min-width: 800px) {
-    font-size: small;
+    font-size: medium;
+  }
+  @media (min-width: 1200px) {
+    font-size: large;
   }
 `;
 
 export const LightText = styled.h4`
-  font-size: medium;
+  font-size: small;
   text-align: center;
-  font-weight: 300;
+  font-weight: 200;
   margin: 0;
   padding: 20px;
   padding-right: 18px;
