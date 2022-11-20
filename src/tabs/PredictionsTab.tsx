@@ -2,10 +2,12 @@ import React from "react";
 import { Heading2, LeftBoldHeading} from "../styles/commonStyles"
 import Box from "../components/Box";
 import ComparisonBar from "../components/ComparisonBar";
+import { getColours } from "../functions/getColour";
 
 const Predictions = (props: any) => {
   const {percent} = props.data
-
+  const homeColours = getColours(props.homeTeam)
+  const awayColours = getColours(props.awayTeam)
 
   const values = Object.keys(percent).map(function(key) {
     return percent[key];
@@ -21,7 +23,7 @@ const Predictions = (props: any) => {
       </Box>
       <Box>
       <h2>Total &#128221;</h2>
-      <ComparisonBar values={values} />
+      <ComparisonBar values={values} homeColours={homeColours} awayColours={awayColours} />
       </Box>
     </>
   );

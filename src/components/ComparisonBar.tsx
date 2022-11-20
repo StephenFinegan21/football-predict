@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Bar = styled.div`
   max-width: 100%;
   height: 20px;
-
+  
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -23,7 +23,10 @@ const Flex = styled.div`
   justify-content: space-between;
 `;
 
-const ComparisonBar = ({ values }: any) => {
+const ComparisonBar = ({ values, homeColours, awayColours }: any) => {
+
+  
+  
   return (
     <>
       <Block>
@@ -40,7 +43,7 @@ const ComparisonBar = ({ values }: any) => {
                   maxWidth: "100%",
                   width: `${values[0]}`,
                   borderRadius: "20px 0 0 20px",
-                  background: "#46b3f1",
+                  background: homeColours[0],
                   height: "100%",
                 }}
               ></div>
@@ -49,7 +52,7 @@ const ComparisonBar = ({ values }: any) => {
                   maxWidth: "100%",
                   width: `${values[1]}`,
 
-                  background: "#631fd8",
+                  background: "#0e2439",
                   height: "100%",
                 }}
               ></div>
@@ -59,7 +62,7 @@ const ComparisonBar = ({ values }: any) => {
                   maxWidth: "100%",
                   width: `${values[2]}`,
                   borderRadius: "0 20px 20px 0",
-                  background: "#ff3c83",
+                  background: awayColours[0],
                   height: "100%",
                 }}
               ></div>
@@ -71,7 +74,17 @@ const ComparisonBar = ({ values }: any) => {
                   maxWidth: "100%",
                   width: `${values[0]}`,
                   borderRadius: "5px 0 0 5px",
-                  background: "#3680ff",
+
+                  height: "100%",
+                  background:`${homeColours[0]}`
+
+                   
+                }}
+              ></div>
+               <div
+                style={{
+                  width: "10px",
+                  background: "#0e2439",
                   height: "100%",
                 }}
               ></div>
@@ -80,8 +93,9 @@ const ComparisonBar = ({ values }: any) => {
                   maxWidth: "100%",
                   width: `${values[1]}`,
                   borderRadius: "0 5px 5px 0",
-                  background: "#54ffd4",
+                  background:`${awayColours[0]}`,
                   height: "100%",
+                
                 }}
               ></div>
             </>
