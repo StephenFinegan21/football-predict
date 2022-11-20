@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 
 
 const ItemDiv = styled.div<{ highlight: boolean, theme: string }>`
-  background-color: ${(props) => (props.theme === 'light' ? `#f1f1f1` : "#24292f")};
+  background-color: ${(props) => (props.theme === 'light' ? `#f4f4f4` : "#24292f")};
   transition: 0.3s;
   padding: 20px 0;
   width: 100%;
@@ -12,7 +12,7 @@ const ItemDiv = styled.div<{ highlight: boolean, theme: string }>`
   margin: 20px auto;
   cursor: ${(props) => (props.highlight ? "pointer" : "default")};
   &:hover {
-    background: ${(props) => (props.highlight ? props.theme === 'light' ? "#e9e9e9" : "#2b4a67" : "")};
+    background: ${(props) => (props.highlight ? props.theme === 'light' ? "#dadadb" : "#2b4a67" : "")};
   }
 
   @media (min-width: 800px) {

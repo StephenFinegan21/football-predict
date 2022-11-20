@@ -7,7 +7,7 @@ import styled from "styled-components";
 import FixtureHeader from "../../components/fixtureheader/FixtureHeader";
 import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
-import {  LightText, PageContainer } from "../../styles/commonStyles";
+import {  CenterText, Heading2, LeftBoldHeading, LightText, PageContainer } from "../../styles/commonStyles";
 import Fixture from "../../components/Fixture";
 import Box from "../../components/Box";
 import BarChart from "../../components/BarChart";
@@ -123,7 +123,7 @@ const FixtureInformation = ({ data }: any) => {
               <>
                 <Section>
                   <Box>
-                    <LightText>Goals</LightText>
+                    <CenterText>Goals</CenterText>
                     <Flex>
                       <BarChart
                         stats={homeGoals}

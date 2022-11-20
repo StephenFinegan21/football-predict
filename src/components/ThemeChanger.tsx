@@ -4,21 +4,21 @@ import styled from "styled-components";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 const ThemeToggle = styled.div`
-  position: fixed;
-  right: 0;
+  position: absolute;
+  right: 20%;
   padding: 2px;
 `;
 
 const Moon = styled.div`
   color: #220080;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   padding: 1rem;
   transition: 0.3s;
 `;
 const Sun = styled.div`
   color: #ffe57c;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   padding: 1rem;
   transition: 0.3s;
@@ -26,7 +26,7 @@ const Sun = styled.div`
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const {  setTheme, resolvedTheme } = useTheme();
 
   console.log(resolvedTheme)
 
@@ -44,7 +44,6 @@ const ThemeChanger = () => {
 
   return (
     <ThemeToggle>
-      {theme}
       {resolvedTheme === "light" && (
         <Moon>
           <FaMoon onClick={() => setTheme("dark")}></FaMoon>

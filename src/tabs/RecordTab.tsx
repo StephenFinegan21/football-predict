@@ -11,6 +11,7 @@ export const Flex = styled.div`
   margin: auto;
   justify-content: space-between;
 
+  padding: 0;
 
   text-align: center;
 
@@ -56,7 +57,6 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
     ),
   };
 
- 
   const homePlayAwayStats = {
     first: Math.floor(
       (homeFixtures.wins.away / homeFixtures.played.away) * 100
@@ -95,7 +95,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   const [activeBtn, setActiveBtn] = useState("all");
 
   const Button = styled.button`
-    background-color:inherit;
+    background-color: inherit;
     border: none;
     margin: 2px;
     border-radius: 2px;
@@ -120,7 +120,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   return (
     <>
       <Box>
-      <LightText>Results</LightText>
+        <LightText>Results</LightText>
         <ButtonContainer>
           <Button
             className={activeBtn === "all" ? "active" : "inactive"}

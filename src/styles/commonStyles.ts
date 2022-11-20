@@ -48,6 +48,15 @@ export const LightText = styled.h4`
     font-size: medium;
   }
 `;
+export const CenterText = styled.h2`
+  font-size: small;
+  text-align: center;
+  font-weight: 600;
+
+  @media (min-width: 800px) {
+    font-size: x-large;
+  }
+`;
 
 export const PageContainer = styled.div`
   max-width: 95%;

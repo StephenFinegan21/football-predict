@@ -5,11 +5,12 @@ import { useTheme } from 'next-themes'
 const ChartContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 10px auto;
-  width: 80%;
+  margin: 15px auto;
+  width: 100%;
   
   @media (min-width: 600px) {
     font-size: medium;
+    width: 85%;
   }
 `;
 
@@ -18,6 +19,12 @@ const HeadingText = styled.h3`
   font-weight: 600;
   margin-bottom: 0;
   margin-top: 40px;
+
+  @media (min-width: 800px) {
+    font-size: medium;
+    width: 85%;
+  }
+
 `
 
 const BarChart = (props: any) => {
@@ -58,24 +65,31 @@ const Bar = (props: BarProps) => {
 
   const BarStyle = styled.div<{ theme: string }>`
     height: 100px;
-    background-color: ${(props) => (props.theme === 'light' ? `#fafafa` : "#1b1f24")};
+    background-color: ${(props) => (props.theme === 'light' ? `#EBECED` : "#1b1f24")};
     display: flex;
     flex-direction: column;
     justify-content: end;
-    margin: 2px;
+
+    
+    margin-top: 10px;
+    
     display: flex;
     width: 10px;
   
 
-    @media (min-width: 600px) {
+    @media (min-width: 800px) {
       height: 160px;
       width: 60px;
       margin: 10px;
+      
     }
   `;
 
   const ChartText = styled.div`
     font-size: x-small;
+    @media (min-width: 800px) {
+      font-size: medium;
+    }
   `
 
   const Height = styled.div<{ color: string; height: number }>`
@@ -84,14 +98,14 @@ const Bar = (props: BarProps) => {
     background-color: ${(props) => props.color};
     height: ${(props) => props.height}%;
 
-    @media (min-width: 600px) {
+    @media (min-width: 800px) {
       height: ${(props) => props.height}%;
       width: 60px;
     }
   `;
   return (
     <Column>
-    
+
       <ChartText>{ann ? ann : height}{type && '%' }</ChartText>
       <BarStyle theme={theme}>
         <Height color={color} height={height} />

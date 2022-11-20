@@ -79,7 +79,7 @@ const ComparisonBar = ({ values, homeColours, awayColours }: any) => {
               <div
                 style={{
                   width: "8px",
-                  background: "#ffffff",
+                  background: "#ffffff",  
                   borderRadius:"5px",
                   height: "200%",
                 }}

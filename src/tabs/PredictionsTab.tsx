@@ -1,10 +1,20 @@
 import React from "react";
-import { Heading2, LeftBoldHeading} from "../styles/commonStyles"
+import { Heading3, LeftBoldHeading} from "../styles/commonStyles"
 import Box from "../components/Box";
 import ComparisonBar from "../components/ComparisonBar";
 import { getColours } from "../functions/getColour";
+import { Flex } from "./RecordTab";
+import styled from "styled-components";
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  text-align: center;
+`
 
 const Predictions = (props: any) => {
+  console.log(props)
   const {percent} = props.data
   const homeColours = getColours(props.homeTeam)
   const awayColours = getColours(props.awayTeam)
@@ -17,13 +27,18 @@ const Predictions = (props: any) => {
     <>
       <Box>
         <LeftBoldHeading>Predicted Winner</LeftBoldHeading>
-        <Heading2>{props.data.winner.name}</Heading2>
+        <Heading3>{props.data.winner.name}</Heading3>
         <LeftBoldHeading>Advice</LeftBoldHeading>
-        <Heading2>{props.data.advice}</Heading2>
+        <Heading3>{props.data.advice}</Heading3>
       </Box>
       <Box>
-      <h2>Total &#128221;</h2>
+      <h2>Prediction % &#128221;</h2>
       <ComparisonBar values={values} homeColours={homeColours} awayColours={awayColours} />
+      <Grid>
+        <p style={{textAlign:'left'}}>{props.homeTeam}</p>
+        <p >Draw</p>
+        <p style={{textAlign:'right'}}>{props.awayTeam}</p>
+      </Grid>
       </Box>
     </>
   );

@@ -8,6 +8,7 @@ const ColumnStyle = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  
 `
 
 

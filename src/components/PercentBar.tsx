@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes'
 const Bar = styled.div`
   max-width: 100%;
   height: 10px;
-  background-color: #eff1f3;
+  background-color: #e2e3e3;
   border-radius: 5px;
   display: flex;
   align-items: center;
