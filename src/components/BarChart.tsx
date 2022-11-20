@@ -1,6 +1,6 @@
-import React from "react";
 import Column from "./Column";
 import styled from "styled-components";
+import { useTheme } from 'next-themes'
 
 const ChartContainer = styled.div`
   display: flex;
@@ -53,10 +53,12 @@ type BarProps = {
 
 const Bar = (props: BarProps) => {
   const { color, height, title, ann, type } = props;
+  const { theme } = useTheme()
 
-  const BarStyle = styled.div`
+
+  const BarStyle = styled.div<{ theme: string }>`
     height: 100px;
-    background-color: #223c54;
+    background-color: ${(props) => (props.theme === 'light' ? `#fafafa` : "#1b1f24")};
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -91,7 +93,7 @@ const Bar = (props: BarProps) => {
     <Column>
     
       <ChartText>{ann ? ann : height}{type && '%' }</ChartText>
-      <BarStyle>
+      <BarStyle theme={theme}>
         <Height color={color} height={height} />
       </BarStyle>
       <ChartText>{title}</ChartText>

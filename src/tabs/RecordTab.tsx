@@ -95,8 +95,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   const [activeBtn, setActiveBtn] = useState("all");
 
   const Button = styled.button`
-    background-color: #162c41;
-    color: white;
+    background-color:inherit;
     border: none;
     margin: 2px;
     border-radius: 2px;

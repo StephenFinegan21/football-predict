@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useTheme } from 'next-themes'
 
 const Bar = styled.div`
   max-width: 100%;
@@ -9,8 +9,7 @@ const Bar = styled.div`
   border-radius: 5px;
   display: flex;
   align-items: center;
-  margin-bottom:0;
-  
+  margin-bottom: 0;
 `;
 
 const ScoreText = styled.p<{ value: number }>`
@@ -19,9 +18,8 @@ const ScoreText = styled.p<{ value: number }>`
 
   color: #f5f1f1;
   padding: 0;
-    margin: 0;
+  margin: 0;
   padding-left: 20px;
- 
 `;
 
 type statProps = {
@@ -30,11 +28,9 @@ type statProps = {
 };
 
 const Block = styled.div`
- display: block;
-margin-bottom:0;
-padding-bottom: 0;
-
-
+  display: block;
+  margin-bottom: 0;
+  padding-bottom: 0;
 `;
 
 const Flex = styled.div`
@@ -45,15 +41,17 @@ const Flex = styled.div`
   padding: 0;
 `;
 
-const FormString = styled.p`
+const FormString = styled.p<{ theme: string }>`
   margin: 0;
   letter-spacing: 3px;
-  color: #bebfd0;
-  font-size: 0.8rem  ;
-  
+  color:  ${(props) => (props.theme === 'light' ?  "#24292f" : `#dedede`)};
+  transition:0.3s;
+  font-size: 0.8rem;
 `;
 
 const PercentBar = ({ annotation, value }: statProps) => {
+  const { theme } = useTheme()
+
   const sliderColour =
     parseInt(value) > 70
       ? "#1fac92"
@@ -63,7 +61,7 @@ const PercentBar = ({ annotation, value }: statProps) => {
   return (
     <>
       <Block>
-      <FormString>{annotation}</FormString>
+        <FormString theme={theme}>{annotation}</FormString>
         <Flex>
           <Bar>
             <div
@@ -76,9 +74,7 @@ const PercentBar = ({ annotation, value }: statProps) => {
               }}
             ></div>
           </Bar>
-          <ScoreText value={parseInt(value)}>
-            {value}
-          </ScoreText>
+          <ScoreText value={parseInt(value)}>{value}</ScoreText>
         </Flex>
       </Block>
     </>

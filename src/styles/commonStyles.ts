@@ -122,9 +122,10 @@ export const ColouredResultCircle = styled.div<{ bg: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 7px;
   margin-right: 5px;
   font-size: xx-small;
+  color: white;
 
   @media (min-width: 600px) {
     width: 6px;

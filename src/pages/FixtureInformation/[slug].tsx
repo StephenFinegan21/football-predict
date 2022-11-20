@@ -7,7 +7,7 @@ import styled from "styled-components";
 import FixtureHeader from "../../components/fixtureheader/FixtureHeader";
 import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
-import { Heading3, LeftBoldHeading, LightText, PageContainer } from "../../styles/commonStyles";
+import {  LightText, PageContainer } from "../../styles/commonStyles";
 import Fixture from "../../components/Fixture";
 import Box from "../../components/Box";
 import BarChart from "../../components/BarChart";
