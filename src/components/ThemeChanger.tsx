@@ -42,6 +42,7 @@ const ThemeChanger = () => {
 
   return (
     <ThemeToggle>
+      {theme}
       {theme === "light" && (
         <Moon>
           <FaMoon onClick={() => setTheme("dark")}></FaMoon>
