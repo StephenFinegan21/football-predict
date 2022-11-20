@@ -26,7 +26,9 @@ const Sun = styled.div`
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+
+  console.log(resolvedTheme)
 
   const toggleTheme = (newTheme: string) => {
     setTheme(newTheme);
@@ -43,12 +45,12 @@ const ThemeChanger = () => {
   return (
     <ThemeToggle>
       {theme}
-      {theme === "light" && (
+      {resolvedTheme === "light" && (
         <Moon>
           <FaMoon onClick={() => setTheme("dark")}></FaMoon>
         </Moon>
       )}
-      {theme === "dark" && (
+      {resolvedTheme === "dark" && (
         <Sun>
           <FaSun onClick={() => setTheme("light")}></FaSun>
         </Sun>
