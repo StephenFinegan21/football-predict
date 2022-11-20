@@ -34,7 +34,7 @@ export async function getStaticProps() {
       return response.data.response
     })
     .catch(function (error) {
-      console.error(error);
+      console.error('err', error);
     });
 
   

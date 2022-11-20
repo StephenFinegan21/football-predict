@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes'
 
 const ItemDiv = styled.div<{ highlight: boolean, theme: string }>`
   background-color: ${(props) => (props.theme === 'light' ? `#f1f1f1` : "#24292f")};
+  transition: 0.3s;
   padding: 20px 0;
   width: 100%;
   border-radius: 4px;
@@ -24,7 +25,7 @@ const ItemDiv = styled.div<{ highlight: boolean, theme: string }>`
 `;
 
 const Item = (props: any) => {
-  const { theme, setTheme } = useTheme()
+  const { theme } = useTheme()
   const { highlight } = props;
 
   return <ItemDiv highlight={highlight} theme={theme}>{props.children} </ItemDiv>;

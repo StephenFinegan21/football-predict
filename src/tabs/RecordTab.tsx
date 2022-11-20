@@ -96,7 +96,6 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
 
   const Button = styled.button`
     background-color:inherit;
-    color: white;
     border: none;
     margin: 2px;
     border-radius: 2px;

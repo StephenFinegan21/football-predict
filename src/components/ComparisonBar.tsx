@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Bar = styled.div`
   max-width: 100%;
   height: 10px;
-  
+
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -24,16 +24,13 @@ const Flex = styled.div`
 `;
 
 const ComparisonBar = ({ values, homeColours, awayColours }: any) => {
-
-  
-  
   return (
     <>
       <Block>
         <Flex>
           <p>{values[0]}</p>
           <p>{values[1]} </p>
-       {values[2] &&  <p>{values[2]}</p> }
+          {values[2] && <p>{values[2]}</p>}
         </Flex>
         <Bar>
           {values.length > 2 ? (
@@ -76,16 +73,15 @@ const ComparisonBar = ({ values, homeColours, awayColours }: any) => {
                   borderRadius: "5px 0 0 5px",
 
                   height: "100%",
-                  background:`${homeColours[0]}`
-
-                   
+                  background: `${homeColours[0]}`,
                 }}
               ></div>
-               <div
+              <div
                 style={{
-                  width: "10px",
-                  background: "#0e2439",
-                  height: "100%",
+                  width: "8px",
+                  background: "#ffffff",
+                  borderRadius:"5px",
+                  height: "200%",
                 }}
               ></div>
               <div
@@ -93,9 +89,8 @@ const ComparisonBar = ({ values, homeColours, awayColours }: any) => {
                   maxWidth: "100%",
                   width: `${values[1]}`,
                   borderRadius: "0 5px 5px 0",
-                  background:`${awayColours[0]}`,
+                  background: `${awayColours[0]}`,
                   height: "100%",
-                
                 }}
               ></div>
             </>
