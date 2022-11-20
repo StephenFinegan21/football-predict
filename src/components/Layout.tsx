@@ -2,9 +2,21 @@
 
 import Navbar from './Navbar'
 import Head from 'next/head'
+import styled from 'styled-components'
+import { useTheme } from 'next-themes'
 
+
+
+const Wrapper = styled.main<{ theme: string }>`
+  background-color: ${(props) => (props.theme === 'light' ? `#fafafa` : "#1b1f24")};
+  color: ${(props) => (props.theme === 'light' ?  "#1b1f24" : `#fafafa`)};
+
+
+`
 
 export default function Layout({ children } : any) {
+
+  const { theme } = useTheme()
   return (
     <>
      <Head>
@@ -18,7 +30,9 @@ export default function Layout({ children } : any) {
 
       </Head>
       <Navbar />
-      <main>{children}</main>
+     
+      
+      <Wrapper theme={theme}>{children}</Wrapper>
     </>
   )
 }
