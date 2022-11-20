@@ -94,9 +94,12 @@ const FixtureInformation = ({ data }: any) => {
             <>
               <>
                 <Section>
-                  <Predictions data={predictions} />
+                  <Predictions data={predictions}
+                    homeTeam={homeTeam.name}
+                    awayTeam={awayTeam.name} />
                 </Section>
               </>
+              
             </>
           )}
 

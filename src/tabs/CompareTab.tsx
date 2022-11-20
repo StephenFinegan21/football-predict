@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Box from "../components/Box";
 import ComparisonBar from "../components/ComparisonBar";
+import {getColours} from '../functions/getColour'
 
 
 type ComparisonProps = {
@@ -46,6 +47,9 @@ const Flex = styled.div`
 `;
 
 const Comparison = ({ data, homeName, awayName }: ComparisonProps) => {
+ 
+  
+ 
   const stats = [
     {
       title: "Total",
@@ -124,6 +128,9 @@ const Comparison = ({ data, homeName, awayName }: ComparisonProps) => {
 export default Comparison;
 
 const Stat = ({ title, icon, home, away, homeName, awayName }: any) => {
+
+  const homeColours = getColours(homeName)
+  const awayColours = getColours(awayName)
   return (
     <Box>
       <h2>
@@ -132,7 +139,7 @@ const Stat = ({ title, icon, home, away, homeName, awayName }: any) => {
           {icon}
         </span>
       </h2>
-      <ComparisonBar values={[home, away]} />
+      <ComparisonBar values={[home, away]} homeColours={homeColours} awayColours={awayColours}/>
       <Flex>
         <p>{homeName}</p>
         <p>{awayName}</p>
