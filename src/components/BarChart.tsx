@@ -38,14 +38,14 @@ const BarChart = (props: any) => {
         <ChartContainer>
           <Bar
             color="rgb(18, 228, 186)"
-            height={stats.first}
+            height={isNaN(stats.first) ? 0 : stats.first}
             title={titles[0]}
             ann={ann ? ann[0] : null}
             type={type === "percentage" ? true : false}
           />
           <Bar
             color="rgb(103, 39, 232)"
-            height={stats.second}
+            height={isNaN(stats.second) ? 0 : stats.second}
             title={titles[1]}
             ann={ann ? ann[1] : null}
             type={type === "percentage" ? true : false}
@@ -53,7 +53,7 @@ const BarChart = (props: any) => {
           {Object.keys(stats).length > 2 && (
             <Bar
               color="rgb(231, 30, 104)"
-              height={stats.third}
+              height={isNaN(stats.third) ? 0 : stats.third}
               title={titles[2]}
               ann={ann ? ann[2] : null}
               type={type === "percentage" ? true : false}

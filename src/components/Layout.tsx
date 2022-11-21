@@ -21,7 +21,6 @@ export default function Layout({ children } : any) {
 `
 
   const { resolvedTheme } = useTheme()
-  console.log('resolved-layout',  resolvedTheme)
   return (
     <>
      <Head>

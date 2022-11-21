@@ -14,7 +14,6 @@ const Grid = styled.div`
 `
 
 const Predictions = (props: any) => {
-  console.log(props)
   const {percent} = props.data
   const homeColours = getColours(props.homeTeam)
   const awayColours = getColours(props.awayTeam)
@@ -33,7 +32,9 @@ const Predictions = (props: any) => {
       </Box>
       <Box>
       <h2>Prediction % &#128221;</h2>
-      <ComparisonBar values={values} homeColours={homeColours} awayColours={awayColours} />
+      <ComparisonBar values={values}
+       homeColours={homeColours ? homeColours : ['rgb(108, 171, 221)', 'white']}
+       awayColours={awayColours ? awayColours : ['rgb(239, 1, 7), white']} />
       <Grid>
         <p style={{textAlign:'left'}}>{props.homeTeam}</p>
         <p >Draw</p>

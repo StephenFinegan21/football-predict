@@ -24,6 +24,9 @@ const FixtureInformation = ({ data }: any) => {
   const awayTeam = teams.away;
   const [currentTab, setCurrentTab] = useState("last-five");
 
+
+
+
   const changeTab = (value: string) => {
     setCurrentTab(value);
   };
@@ -177,6 +180,7 @@ const FixtureInformation = ({ data }: any) => {
                     <Fixture fixture={fixture} key={fixture.fixture.id} />
                   ))}
                 </Section>
+              
               </>
             </>
           )}
@@ -205,13 +209,29 @@ export async function getStaticProps(context: any) {
     return response.data;
   });
 
+  
+
   return {
     props: { data }, // will be passed to the page component as props
   };
 }
 
+
+
+
+
 export async function getStaticPaths() {
+
   const options = {
+    method: "GET",
+    url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
+    params: { league: "1", next: "15" },
+    headers: {
+      "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
+      "X-RapidAPI-Host": `${process.env.NEXT_PUBLIC_HOST_NAME}`,
+    },
+  };
+  const premierLeague = {
     method: "GET",
     url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
     params: { league: "39", next: "10" },
@@ -221,8 +241,11 @@ export async function getStaticPaths() {
     },
   };
 
-  const res = await axios.request(options);
-  const paths = res.data.response.map((fixture: any) => {
+  const resWC = await axios.request(options);
+  const resPL = await axios.request(premierLeague);
+  const res = [...resWC.data.response , ...resPL.data.response]
+
+  const paths = res.map((fixture: any) => {
     return {
       params: {
         slug: `${fixture.fixture.id}`,
