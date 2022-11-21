@@ -4,11 +4,12 @@ import Navbar from './Navbar'
 import Head from 'next/head'
 import styled from 'styled-components'
 import { useTheme } from 'next-themes'
+import { globalTheme } from '../styles/theme'
 
 
 
 const Wrapper = styled.main<{ theme: string }>`
-  background-color: ${(props) => (props.theme === 'light' ? `#EBECED` : "#1b1f24")};
+  background-color: ${(props) => (props.theme === 'light' ? globalTheme.colour.LIGHT : globalTheme.colour.DARK)};
   transition: 0.3s;
   color: ${(props) => (props.theme === 'light' ?  "#1b1f24" : `#EBECED`)};
 
