@@ -5,19 +5,23 @@ import { FaMoon, FaSun } from "react-icons/fa";
 
 const ThemeToggle = styled.div`
   position: absolute;
-  right: 20%;
+  right: 2%;
   padding: 2px;
+
+  @media (min-width: 800px) {
+    right: 20%;
+  }
 `;
 
 const Moon = styled.div`
-  color: #220080;
+  color: #343336;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 1rem;
   transition: 0.3s;
 `;
 const Sun = styled.div`
-  color: #ffe57c;
+  color: #f8f7f5;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 1rem;

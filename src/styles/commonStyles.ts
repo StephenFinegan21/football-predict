@@ -7,6 +7,8 @@ export const Heading1 = styled.h1`
 export const Heading2 = styled.h2`
   text-align: left;
   font-size: medium;
+  padding: 0;
+  margin-bottom: 2px;
 
   @media (min-width: 800px) {
     text-align: left;

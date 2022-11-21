@@ -33,9 +33,9 @@ type attributeProps = {
 
 const Container = styled.div`
   display: block;
-  padding-bottom:40px; 
-  padding-top:40px; 
-  border-bottom: 1px solid #445a6f;
+  padding-bottom:10px; 
+  padding-top:10px; 
+  border-bottom: 0.8px solid #445a6f;
  
 
   @media (min-width: 600px) {
@@ -47,7 +47,7 @@ const Container = styled.div`
   margin: 20px auto;
   padding-bottom:40px; 
   padding-top:40px; 
-  border-bottom: 1px solid #445a6f;
+  border-bottom: 1px solid #6b7986;
   }
 
 `;

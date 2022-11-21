@@ -25,10 +25,10 @@ const ItemDiv = styled.div<{ highlight: boolean, theme: string }>`
 `;
 
 const Item = (props: any) => {
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
   const { highlight } = props;
 
-  return <ItemDiv highlight={highlight} theme={theme}>{props.children} </ItemDiv>;
+  return <ItemDiv highlight={highlight} theme={resolvedTheme}>{props.children} </ItemDiv>;
 };
 
 export default Item;

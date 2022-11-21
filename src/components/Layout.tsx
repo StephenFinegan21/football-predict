@@ -8,17 +8,20 @@ import { globalTheme } from '../styles/theme'
 
 
 
-const Wrapper = styled.main<{ theme: string }>`
+
+
+export default function Layout({ children } : any) {
+
+  const Wrapper = styled.main<{ theme: string }>`
   background-color: ${(props) => (props.theme === 'light' ? globalTheme.colour.LIGHT : globalTheme.colour.DARK)};
   transition: 0.3s;
-  color: ${(props) => (props.theme === 'light' ?  "#1b1f24" : `#EBECED`)};
+  color: ${(props) => (props.theme === 'light' ? globalTheme.colour.DARK : globalTheme.colour.LIGHT)};
 
 
 `
 
-export default function Layout({ children } : any) {
-
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
+  console.log('resolved-layout',  resolvedTheme)
   return (
     <>
      <Head>
@@ -34,7 +37,7 @@ export default function Layout({ children } : any) {
       <Navbar />
      
       
-      <Wrapper theme={theme}>{children}</Wrapper>
+      <Wrapper theme={resolvedTheme}>{children}</Wrapper>
     </>
   )
 }

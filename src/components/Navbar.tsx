@@ -4,7 +4,11 @@ import { Heading1 } from "../styles/commonStyles";
 import { useTheme } from "next-themes";
 import ThemeChanger from "./ThemeChanger";
 
-const Nav = styled.div<{ theme: string }>`
+
+const Navbar = () => {
+
+
+  const Nav = styled.div<{ theme: string }>`
   background-color: ${(props) =>
     props.theme === "light" ? `#ededed` : "rgb(36, 41, 47)"};
   transition: 0.3s;
@@ -15,11 +19,11 @@ const Nav = styled.div<{ theme: string }>`
   align-items: center;
   justify-content: center;
 `;
-const Navbar = () => {
-  const { theme } = useTheme();
+
+  const { resolvedTheme } = useTheme();
 
   return (
-    <Nav theme={theme}>
+    <Nav theme={resolvedTheme}>
       <ThemeChanger />
       <Heading1>Stats of the day</Heading1>
     </Nav>

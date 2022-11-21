@@ -19,10 +19,11 @@ const BoxStyle = styled.div<{  theme: string }>`
 `;
 
 const Box = (props: any) => {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme } = useTheme()
+  console.log('resolved - box', resolvedTheme)
 
   return (
-    <BoxStyle theme={theme}>{props.children}</BoxStyle>
+    <BoxStyle theme={resolvedTheme}>{props.children}</BoxStyle>
   )
 }
 

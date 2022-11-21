@@ -18,11 +18,17 @@ body {
 
 .active{
   text-decoration: underline;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+
+
 }
 
 .inactive{
   text-decoration: none;
+  font-size: 1rem;
+  font-weight: 200;
+  color: rgb(183, 182, 182);
+
 
 }
 

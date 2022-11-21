@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Box from "../components/Box";
 import ComparisonBar from "../components/ComparisonBar";
 import {getColours} from '../functions/getColour'
+import { LeftBoldHeading } from "../styles/commonStyles";
 
 
 type ComparisonProps = {
@@ -133,12 +134,12 @@ const Stat = ({ title, icon, home, away, homeName, awayName }: any) => {
   const awayColours = getColours(awayName)
   return (
     <Box>
-      <h2>
+      <LeftBoldHeading>
         {title}{" "}
         <span role="img" aria-label="stat">
           {icon}
         </span>
-      </h2>
+      </LeftBoldHeading>
       <ComparisonBar values={[home, away]} homeColours={homeColours} awayColours={awayColours}/>
       <Flex>
         <p>{homeName}</p>

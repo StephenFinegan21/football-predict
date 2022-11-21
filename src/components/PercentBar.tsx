@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useTheme } from 'next-themes'
+import { globalTheme } from "../styles/theme";
 
 const Bar = styled.div`
   max-width: 100%;
@@ -44,13 +45,13 @@ const Flex = styled.div`
 const FormString = styled.p<{ theme: string }>`
   margin: 0;
   letter-spacing: 3px;
-  color:  ${(props) => (props.theme === 'light' ?  "#24292f" : `#dedede`)};
+  color:  ${(props) => (props.theme === 'light' ? globalTheme.colour.DARK :  globalTheme.colour.LIGHT )};
   transition:0.3s;
   font-size: 0.8rem;
 `;
 
 const PercentBar = ({ annotation, value }: statProps) => {
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
 
   const sliderColour =
     parseInt(value) > 70
@@ -61,7 +62,7 @@ const PercentBar = ({ annotation, value }: statProps) => {
   return (
     <>
       <Block>
-        <FormString theme={theme}>{annotation}</FormString>
+        <FormString theme={resolvedTheme}>{annotation}</FormString>
         <Flex>
           <Bar>
             <div

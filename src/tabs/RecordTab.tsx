@@ -3,7 +3,7 @@ import styled from "styled-components";
 import StatTable from "../components/StatTable";
 import Box from "../components/Box";
 import BarChart from "../components/BarChart";
-import { LightText } from "../styles/commonStyles";
+import { CenterText } from "../styles/commonStyles";
 
 export const Flex = styled.div`
   display: flex;
@@ -102,7 +102,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
     width: 60px;
     padding: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    
   `;
 
   const ButtonContainer = styled.div`
@@ -120,7 +120,7 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   return (
     <>
       <Box>
-        <LightText>Results</LightText>
+        <CenterText>Results</CenterText>
         <ButtonContainer>
           <Button
             className={activeBtn === "all" ? "active" : "inactive"}
