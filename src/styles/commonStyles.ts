@@ -62,7 +62,7 @@ export const CenterText = styled.h2`
 
 export const PageContainer = styled.div`
   max-width: 95%;
-  padding: 5% 0;
+  padding: 2% 0;
   min-height: 100vh;
   margin: 0 auto;
 

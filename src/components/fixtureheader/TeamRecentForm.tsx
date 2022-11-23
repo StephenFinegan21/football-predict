@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { LightText, ColouredResultCircle, FlexCenterDiv, Heading3 } from "../../styles/commonStyles";
 import Column from '../Column'
+import {globalTheme} from '../../styles/theme'
+
 
 type formProps = {
   form: string;
@@ -25,17 +27,17 @@ const TeamRecentForm = (props: formProps) => {
           {formString(props.form).map(
             (result, index) =>
               (result === "W" && (
-                <ColouredResultCircle key={index} bg="#049c9c">
+                <ColouredResultCircle key={index} bg={globalTheme.colour.WIN}>
                   W
                 </ColouredResultCircle>
               )) ||
               (result === "D" && (
-                <ColouredResultCircle key={index} bg="#521ffa">
+                <ColouredResultCircle key={index} bg={globalTheme.colour.DRAW}>
                   D
                 </ColouredResultCircle>
               )) ||
               (result === "L" && (
-                <ColouredResultCircle key={index} bg="#e01e62">
+                <ColouredResultCircle key={index} bg={globalTheme.colour.LOSS}>
                   L
                 </ColouredResultCircle>
               )) || (
