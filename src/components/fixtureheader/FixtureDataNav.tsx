@@ -18,6 +18,7 @@ type navProps = {
   overflow: auto;
   white-space: nowrap;
   margin: auto;
+ 
 
   @media (min-width: 1800px) {
     max-width: 75%;
@@ -32,6 +33,12 @@ export const NavList = styled.li<{ current: boolean }>`
   max-width: 100%;
   list-style: none;
   cursor: pointer;
+  font-size: .8rem;
+
+  @media (min-width: 1200px) {
+    font-size: 1rem;
+
+  }
 `;
 
 const FixtureDataNav = ({ currentTab, changeTab }: navProps) => {

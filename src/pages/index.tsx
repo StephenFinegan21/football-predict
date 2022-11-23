@@ -18,8 +18,9 @@ const Home = ({ data }: Fixtures) => {
     display: flex;
     justify-content: flex-start;
     gap: 5%;
-    margin: auto;
+    margin:auto;
     max-width: 100%;
+    margin-bottom: 2%;
 
     @media (min-width: 800px) {
       max-width: 70%;

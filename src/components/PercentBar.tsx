@@ -55,10 +55,10 @@ const PercentBar = ({ annotation, value }: statProps) => {
 
   const sliderColour =
     parseInt(value) > 70
-      ? "#1fac92"
+      ? globalTheme.colour.WIN
       : parseInt(value) < 40
-      ? "#eb428b"
-      : "#eebc72";
+      ? globalTheme.colour.LOSS
+      : globalTheme.colour.DRAW
   return (
     <>
       <Block>
