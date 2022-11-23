@@ -140,7 +140,9 @@ const Stat = ({ title, icon, home, away, homeName, awayName }: any) => {
           {icon}
         </span>
       </LeftBoldHeading>
-      <ComparisonBar values={[home, away]} homeColours={homeColours ? homeColours : ['rgb(108, 171, 221)', 'white']} awayColours={awayColours ? awayColours : ['rgb(239, 1, 7), white']}/>
+      <ComparisonBar values={[home, away]}
+       homeColours={homeColours ? homeColours : ['rgb(108, 171, 221)', 'white']}
+        awayColours={awayColours ? awayColours : ['rgb(239, 1, 7), white']}/>
       <Flex>
         <p>{homeName}</p>
         <p>{awayName}</p>

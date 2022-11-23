@@ -7,7 +7,7 @@ type navProps = {
   changeTab: Function;
 };
 
-const NavContainer = styled.div`
+ const NavContainer = styled.div`
   max-width: 95%;
   border-bottom: 2px solid #7a7a7a;
   display: flex;
@@ -25,7 +25,7 @@ const NavContainer = styled.div`
   }
 `;
 
-const NavList = styled.li<{ current: boolean }>`
+export const NavList = styled.li<{ current: boolean }>`
   opacity: ${(props) => (props.current ? "100%" : "40%")};
   text-decoration: ${(props) => (props.current ? "underline" : "none")};
   text-underline-offset: 5px;

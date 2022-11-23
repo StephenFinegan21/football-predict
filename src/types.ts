@@ -96,7 +96,7 @@
                 teams: Teams;
                 goals: Goals;
                 score: Score;
-            }
+            }[]
            
         }
         
