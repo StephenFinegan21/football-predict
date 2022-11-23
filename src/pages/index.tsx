@@ -2,14 +2,48 @@ import type { NextPage } from "next";
 import ListContainer from "../components/ListContainer";
 import axios from "axios";
 import { Fixtures } from "../types";
+import { useState } from "react";
+import { getNextFixtures } from "../functions/getNextFixtures";
+import { PageContainer } from "../styles/commonStyles";
+import { NavList } from "../components/fixtureheader/FixtureDataNav";
+import styled from "styled-components";
+import { Flex } from "../tabs/RecordTab";
 
+const Home = ({ data }: Fixtures) => {
+  const [league, setLeague] = useState(39);
+  console.log("check", data);
+  data = data.filter((d) => d.league.id === league);
 
-const Home = ({data}: Fixtures) => {
-  
+  const OptionsGrid = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    margin: auto;
+    max-width: 100%;
+
+    @media (min-width: 800px) {
+      max-width: 70%;
+    }
+
+    @media (min-width: 1800px) {
+      max-width: 40%;
+    }
+  `
+
   return (
     <>
-      
-      <ListContainer fixtures={data} />
+      <PageContainer>
+        <OptionsGrid>
+          <NavList current={league === 1} onClick={() => setLeague(1)}>
+            World Cup
+          </NavList>
+          <NavList current={league === 39}  onClick={() => setLeague(39)}>
+            Premier League
+          </NavList>
+        </OptionsGrid>
+
+        <ListContainer fixtures={data} />
+      </PageContainer>
     </>
   );
 };
@@ -17,27 +51,9 @@ const Home = ({data}: Fixtures) => {
 export default Home;
 
 export async function getStaticProps() {
-  const options = {
-    method: "GET",
-    url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
-    params: { league: "39", next: "10" },
-    headers: {
-      "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
-      "X-RapidAPI-Host": `${process.env.NEXT_PUBLIC_HOST_NAME}`,
-    },
-  };
+  const dataObject = await getNextFixtures();
+  const data = dataObject.data.fixtures;
 
-  const data = await axios
-    .request(options)
-    .then(function (response) {
-  
-      return response.data.response
-    })
-    .catch(function (error) {
-      console.error('err', error);
-    });
-
-  
   return {
     props: { data }, // will be passed to the page component as props
   };

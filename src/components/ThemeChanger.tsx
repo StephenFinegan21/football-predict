@@ -32,7 +32,6 @@ const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
   const {  setTheme, resolvedTheme } = useTheme();
 
-  console.log(resolvedTheme)
 
   const toggleTheme = (newTheme: string) => {
     setTheme(newTheme);

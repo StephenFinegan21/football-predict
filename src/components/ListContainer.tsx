@@ -57,11 +57,11 @@ const ListContainer = ({fixtures} : any ) => {
   return (
     <>
       <div>
-        <PageContainer>
+       
           {getDates(matchDates).map((date) => (
             <DateList date={date} fixtures={fixtures} key={date} />
           ))}
-        </PageContainer>
+      
       </div>
     </>
   );
