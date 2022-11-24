@@ -5,6 +5,7 @@ import Head from 'next/head'
 import styled from 'styled-components'
 import { useTheme } from 'next-themes'
 import { globalTheme } from '../styles/theme'
+import Footer from './Footer'
 
 
 
@@ -32,11 +33,13 @@ export default function Layout({ children } : any) {
         <link rel="icon" href="/football-icon.jpeg" />
         <script defer data-domain="statsoftheday.com" src="https://plausible.io/js/plausible.js"></script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5030123259786817" crossOrigin="anonymous"></script>
+     
       </Head>
       <Navbar />
      
       
       <Wrapper theme={resolvedTheme}>{children}</Wrapper>
+      <Footer />
     </>
   )
 }
