@@ -40,7 +40,7 @@ const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
             width={50}
             height={50}
           />
-          <Heading3>{teams.home.name}</Heading3>
+         <Link href={`/${teams.home.id}`}><Heading3><a>{teams.home.name}</a></Heading3></Link>
           {!teams?.home.league.form && <p>No form</p>}
           {teams.home.league.form && (
             <TeamRecentForm form={teams?.home.league.form} />
@@ -55,7 +55,7 @@ const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
             height={50}
           />
 
-          <Heading3> {teams.away.name}</Heading3>
+<Link href={`/${teams.home.id}`}><Heading3><a> {teams.away.name}</a></Heading3></Link>
 
           {!teams?.away.league.form && <p>No form</p>}
           {teams.away.league.form && (

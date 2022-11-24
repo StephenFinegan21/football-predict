@@ -45,7 +45,6 @@ const FixtureInformation =  ({ data }: any) => {
     const newData = await axios.request(options).then(function (response: any) {
       return response.data;
     });
-    console.log(newData)
   }
 
   fetch()
@@ -237,7 +236,6 @@ export async function getStaticPaths() {
 
 const dataObject = await getNextFixtures();
 const data = dataObject.data.ids
-console.log(dataObject.data.teamIds.map(d => d))
 
   const paths = data.map((id: any) => {
     return {

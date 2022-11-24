@@ -11,7 +11,6 @@ import { Flex } from "../tabs/RecordTab";
 
 const Home = ({ data }: Fixtures) => {
   const [league, setLeague] = useState(39);
-  console.log("check", data);
   data = data.filter((d) => d.league.id === league);
 
   const OptionsGrid = styled.div`
