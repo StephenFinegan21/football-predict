@@ -55,7 +55,7 @@ const FixtureHeader = ({ teams, currentTab, changeTab }: headerProps) => {
             height={50}
           />
 
-<Link href={`/${teams.home.id}`}><Heading3><a> {teams.away.name}</a></Heading3></Link>
+<Link href={`/${teams.away.id}`}><Heading3><a> {teams.away.name}</a></Heading3></Link>
 
           {!teams?.away.league.form && <p>No form</p>}
           {teams.away.league.form && (
