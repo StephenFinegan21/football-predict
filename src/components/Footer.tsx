@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { FlexCenterDiv } from "../styles/commonStyles";
-import { globalTheme } from "../styles/theme";
 import styled from "styled-components";
 import { useTheme } from "next-themes";
 
