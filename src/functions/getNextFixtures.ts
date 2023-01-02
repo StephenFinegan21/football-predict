@@ -20,28 +20,8 @@ export const getNextFixtures = async () => {
         .catch(function (error : any) {
           console.error('err', error);
         });
-    
-        const world = {
-          method: "GET",
-          url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
-          params: { league: "1", next: "15" },
-          headers: {
-            "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
-            "X-RapidAPI-Host": `${process.env.NEXT_PUBLIC_HOST_NAME}`,
-          },
-        };
-
-
-        const worldData = await axios
-          .request(world)
-          .then(function (response : any) {
-      
-            return response.data.response
-          })
-          .catch(function (error : any) {
-            console.error('err', error);
-          });
-          const fixtures = [...premierLeague , ...worldData]
+  
+          const fixtures = [...premierLeague]
           const homeIds = fixtures.map(d => d.teams.home.id.toString())
           const awayIds = fixtures.map(d => d.teams.away.id.toString())
 

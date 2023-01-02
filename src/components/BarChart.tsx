@@ -71,7 +71,7 @@ type BarProps = {
   color: string;
   height: number;
   title: string;
-  ann?: any;
+  ann?: string;
   type?: boolean;
 };
 
