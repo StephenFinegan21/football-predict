@@ -7,22 +7,7 @@ import styled from "styled-components";
 
 const Home = ({ data }: Fixtures) => {
 
-  const OptionsGrid = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    gap: 5%;
-    margin: auto;
-    max-width: 100%;
-    margin-bottom: 2%;
-
-    @media (min-width: 800px) {
-      max-width: 70%;
-    }
-
-    @media (min-width: 1800px) {
-      max-width: 40%;
-    }
-  `;
+ 
 
   return (
     <>
