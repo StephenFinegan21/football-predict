@@ -3,6 +3,13 @@ import styled from "styled-components";
 import { CenterText, Flex } from "../styles/commonStyles";
 import { Box, BarChart, StatTable } from "../components/index";
 
+type Recordprops = {
+  homeFixtures: any;
+  awayFixtures: any;
+  homeTeam: string;
+  awayTeam: string;
+};
+
 const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   const homeStats = {
     first: Math.floor(
@@ -127,18 +134,22 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
           </Button>
         </ButtonContainer>
         <Flex>
-          <BarChart
-            stats={stats[0]}
-            type={"percentage"}
-            titles={["Win", "Draw", "Loss"]}
-            heading={homeTeam}
-          />
-          <BarChart
-            stats={stats[1]}
-            type={"percentage"}
-            titles={["Win", "Draw", "Loss"]}
-            heading={awayTeam}
-          />
+          {stats[0] && (
+            <BarChart
+              stats={stats[0]}
+              type={"percentage"}
+              titles={["Win", "Draw", "Loss"]}
+              heading={homeTeam}
+            />
+          )}
+          {stats[1] && (
+            <BarChart
+              stats={stats[1]}
+              type={"percentage"}
+              titles={["Win", "Draw", "Loss"]}
+              heading={awayTeam}
+            />
+          )}
         </Flex>
       </Box>
 

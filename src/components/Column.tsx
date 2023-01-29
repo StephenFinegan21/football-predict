@@ -1,3 +1,4 @@
+import { type } from "os";
 import styled from "styled-components";
 
 const ColumnStyle = styled.div`
@@ -9,7 +10,12 @@ const ColumnStyle = styled.div`
   text-align: center;
 `;
 
-const Column = (props: any) => {
+type ColumnProps = {
+  children: React.ReactNode;
+};
+
+
+const Column = (props: ColumnProps) => {
   return <ColumnStyle>{props.children}</ColumnStyle>;
 };
 

@@ -17,8 +17,6 @@ const Navbar = () => {
     justify-content: center;
   `;
 
-
-
   const { resolvedTheme } = useTheme();
 
   return (

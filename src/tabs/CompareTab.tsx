@@ -126,7 +126,18 @@ const Comparison = ({ data, homeName, awayName }: ComparisonProps) => {
 
 export default Comparison;
 
-const Stat = ({ title, icon, home, away, homeName, awayName }: any) => {
+type StatProps = {
+  title: string;
+  icon: string;
+  home: string;
+  away: string;
+  homeName: string;
+  awayName: string;
+};
+
+const Stat = ({ title, icon, home, away, homeName, awayName }: StatProps) => {
+
+  console.log('home , ' , home)
 
   const homeColours = getColours(homeName)
   const awayColours = getColours(awayName)

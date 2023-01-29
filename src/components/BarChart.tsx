@@ -28,7 +28,19 @@ const HeadingText = styled.h3`
   }
 `;
 
-const BarChart = (props: any) => {
+type BarChartProps = {
+  stats: {
+    first: number;
+    second: number;
+    third?: number 
+  }
+  type: string;
+  ann?: string[];
+  titles: string[];
+  heading: string;
+};
+
+const BarChart = (props: BarChartProps) => {
   const { stats, type, ann, titles, heading } = props;
 
   return (
@@ -39,23 +51,23 @@ const BarChart = (props: any) => {
           <Bar
             color={globalTheme.colour.WIN}
             height={isNaN(stats.first) ? 0 : stats.first}
-            title={titles[0]}
-            ann={ann ? ann[0] : null}
+            title={titles ? titles[0] : ''}
+            ann={ann ? ann[0] : undefined}
             type={type === "percentage" ? true : false}
           />
           <Bar
             color={globalTheme.colour.DRAW}
             height={isNaN(stats.second) ? 0 : stats.second}
             title={titles[1]}
-            ann={ann ? ann[1] : null}
+            ann={ann ? ann[1] : undefined}
             type={type === "percentage" ? true : false}
           />
           {Object.keys(stats).length > 2 && (
             <Bar
               color={globalTheme.colour.LOSS}
-              height={isNaN(stats.third) ? 0 : stats.third}
+              height={stats.third && isNaN(stats.third) ? 0 : stats.third}
               title={titles[2]}
-              ann={ann ? ann[2] : null}
+              ann={ann ? ann[2] : undefined}
               type={type === "percentage" ? true : false}
             />
           )}
@@ -69,8 +81,8 @@ export default BarChart;
 
 type BarProps = {
   color: string;
-  height: number;
-  title: string;
+  height: number | undefined;
+  title: string | undefined;
   ann?: string;
   type?: boolean;
 };
@@ -127,7 +139,7 @@ const Bar = (props: BarProps) => {
         {type && "%"}
       </ChartText>
       <BarStyle theme={resolvedTheme}>
-        <Height color={color} height={height} />
+        <Height color={color} height={height ? height : 0} />
       </BarStyle>
       <ChartText>{title}</ChartText>
     </Column>

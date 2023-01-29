@@ -1,7 +1,19 @@
 ;
+import { type } from "os";
 import { RecordTable, TableHead, TableData, Row } from "../styles/commonStyles";
 
-const StatRow = ({ teamName, stat }: any) => {
+type StatProps = {
+  teamName: string;
+  stat: {
+    home: string;
+    away: string;
+    total: string;
+
+  }
+}
+
+const StatRow = ({ teamName, stat }: StatProps ) => {
+  console.log(teamName, stat)
   return (
     <>
       <Row>
@@ -14,13 +26,30 @@ const StatRow = ({ teamName, stat }: any) => {
   );
 };
 
+type StatTableProps = {
+  homeTeam: string;
+  homeStats: {
+    home: string;
+    away: string;
+    total: string;
+  };
+  awayTeam: string;
+  awayStats: {
+    home: string;
+    away: string;
+    total: string;
+  };
+  title: string;
+};
+
+
 const StatTable = ({
   homeTeam,
   homeStats,
   awayTeam,
   awayStats,
   title,
-}: any) => {
+}: StatTableProps) => {
   return (
     <RecordTable>
       <thead>

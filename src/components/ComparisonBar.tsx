@@ -23,7 +23,14 @@ const Flex = styled.div`
   justify-content: space-between;
 `;
 
-const ComparisonBar = ({ values, homeColours, awayColours }: any) => {
+type ComparisonBarProps = {
+  values: string[];
+  homeColours: string[];
+  awayColours: string[];
+};
+
+
+const ComparisonBar = ({ values, homeColours, awayColours }: ComparisonBarProps) => {
   return (
     <>
       <Block>

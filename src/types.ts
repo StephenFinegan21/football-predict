@@ -1,12 +1,12 @@
 
 
     export interface Periods {
-        first?: any;
-        second?: any;
+        first: number | null;
+        second: number | null;
     }
 
     export interface Venue {
-        id?: any;
+        id?: number;
         name: string;
         city: string;
     }
@@ -14,12 +14,12 @@
     export interface Status {
         long: string;
         short: string;
-        elapsed?: any;
+        elapsed?: number | null;
     }
 
     export interface Fixture {
         id: number;
-        referee?: any;
+        referee: string | null;
         timezone: string;
         date: Date;
         timestamp: number;
@@ -42,14 +42,14 @@
         id: number;
         name: string;
         logo: string;
-        winner?: any;
+        winner: boolean | null;
     }
 
     export interface Away {
         id: number;
         name: string;
         logo: string;
-        winner?: any;
+        winner: boolean | null;
     }
 
     export interface Teams {
@@ -58,28 +58,28 @@
     }
 
     export interface Goals {
-        home?: any;
-        away?: any;
+        home: number | null;
+        away: number | null;
     }
 
     export interface Halftime {
-        home?: any;
-        away?: any;
+        home: number | null;
+        away: number | null;
     }
 
     export interface Fulltime {
-        home?: any;
-        away?: any;
+        home: number | null;
+        away: number | null;
     }
 
     export interface Extratime {
-        home?: any;
-        away?: any;
+        home: number | null;
+        away: number | null;
     }
 
     export interface Penalty {
-        home?: any;
-        away?: any;
+        home: number | null;
+        away: number | null;
     }
 
     export interface Score {

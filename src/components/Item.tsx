@@ -24,7 +24,12 @@ const ItemDiv = styled.div<{ highlight: boolean; theme: string }>`
   }
 `;
 
-const Item = (props: any) => {
+type ItemProps = {
+  children: React.ReactNode;
+  highlight: boolean;
+};
+
+const Item = (props: ItemProps) => {
   const { resolvedTheme } = useTheme();
   const { highlight } = props;
 

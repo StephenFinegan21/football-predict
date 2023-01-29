@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useTheme } from "next-themes";
+import React from "react";
 
 const BoxStyle = styled.div<{ theme: string }>`
   max-width: 95%;
@@ -15,7 +16,12 @@ const BoxStyle = styled.div<{ theme: string }>`
   }
 `;
 
-const Box = (props: any) => {
+type BoxProps = {
+  children: React.ReactNode;
+};
+
+
+const Box = (props: BoxProps) => {
   const { resolvedTheme } = useTheme();
 
   return <BoxStyle theme={resolvedTheme}>{props.children}</BoxStyle>;

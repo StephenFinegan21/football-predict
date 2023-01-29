@@ -21,7 +21,7 @@ const colours = {
   Wolves: ["rgb(253,185,19)", "rgb(0, 0, 0)"],
 };
 
-export const getColours = (teamName: any) => {
+export const getColours = (teamName: string) => {
   let match;
   for (const [key, value] of Object.entries(colours)) {
     if (`${key}` === teamName.split(" ").join("")) {

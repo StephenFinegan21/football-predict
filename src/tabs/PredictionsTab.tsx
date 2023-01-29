@@ -10,13 +10,32 @@ const Grid = styled.div`
   text-align: center;
 `
 
-const Predictions = (props: any) => {
+type PredictionsProps = {
+  data: {
+    winner: {
+      name: string;
+    };  
+    advice: string;
+    percent: {
+      home: string;
+      draw: string;
+      away: string;
+    };
+  };
+  homeTeam: string;
+  awayTeam: string;
+};
+
+
+const Predictions = (props: PredictionsProps) => {
+
+  console.log(props)
   const {percent} = props.data
   const homeColours = getColours(props.homeTeam)
   const awayColours = getColours(props.awayTeam)
 
   const values = Object.keys(percent).map(function(key) {
-    return percent[key];
+    return percent[key as keyof typeof percent];
 });
 
   return (
