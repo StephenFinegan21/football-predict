@@ -242,6 +242,7 @@ const data = dataObject.data.ids
       params: {
         slug: `${id}`,
       },
+      revalidate: 60,
     };
   });
 

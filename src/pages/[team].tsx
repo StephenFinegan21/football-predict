@@ -103,6 +103,7 @@ export async function getStaticPaths() {
       params: {
         team: `${id}`,
       },
+      revalidate: 60,
     };
   });
 
