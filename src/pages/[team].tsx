@@ -48,7 +48,7 @@ const Team = ({ data, recentFixtures }: any) => {
         <HeaderText>
           <BoldLeftHeading>{data.team.name}</BoldLeftHeading>
           <LeagueSubHeading>
-            {data.league.name === "Friendlies" ? "World" : data.league.name}
+            {data.league.name}
           </LeagueSubHeading>
         </HeaderText>
       </Header>
