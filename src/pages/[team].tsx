@@ -50,7 +50,9 @@ const Team = ({ data, recentFixtures }: any) => {
         />
         <HeaderText>
           <BoldLeftHeading>{data.team.name}</BoldLeftHeading>
-          <LeagueSubHeading>{data.league.name === 'Friendlies' ? 'World' : data.league.name}</LeagueSubHeading>
+          <LeagueSubHeading>
+            {data.league.name === "Friendlies" ? "World" : data.league.name}
+          </LeagueSubHeading>
         </HeaderText>
       </Header>
       <Column>
@@ -67,8 +69,7 @@ export default Team;
 export async function getStaticProps(context: any) {
   const slug = context.params.team;
   const recentFixtures = await getLastFiveFixtures(slug);
-  const league = recentFixtures[0].league.id
-  
+  const league = recentFixtures[0].league.id;
 
   const options = {
     method: "GET",
@@ -84,13 +85,9 @@ export async function getStaticProps(context: any) {
     return response.data.response;
   });
 
-
-
-  
-
- 
   return {
     props: { data, recentFixtures }, // will be passed to the page component as props
+    revalidate: 60,
   };
 }
 
@@ -103,7 +100,6 @@ export async function getStaticPaths() {
       params: {
         team: `${id}`,
       },
-      revalidate: 60,
     };
   });
 
