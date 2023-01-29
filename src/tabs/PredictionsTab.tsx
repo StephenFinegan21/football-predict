@@ -1,9 +1,6 @@
-import React from "react";
 import { Heading3, LeftBoldHeading} from "../styles/commonStyles"
-import Box from "../components/Box";
-import ComparisonBar from "../components/ComparisonBar";
+import {Box, ComparisonBar} from "../components/index";
 import { getColours } from "../functions/getColour";
-import { Flex } from "./RecordTab";
 import styled from "styled-components";
 
 const Grid = styled.div`

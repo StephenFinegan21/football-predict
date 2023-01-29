@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Heading1 } from "../styles/commonStyles";
 import { useTheme } from "next-themes";

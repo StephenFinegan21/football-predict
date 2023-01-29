@@ -2,7 +2,6 @@ import ListContainer from "../components/ListContainer";
 import { Fixtures } from "../types";
 import { getNextFixtures } from "../functions/getNextFixtures";
 import { PageContainer } from "../styles/commonStyles";
-import styled from "styled-components";
 
 
 const Home = ({ data }: Fixtures) => {

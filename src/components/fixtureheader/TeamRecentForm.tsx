@@ -1,4 +1,4 @@
-import React from "react";
+;
 import styled from "styled-components";
 import { LightText, ColouredResultCircle, FlexCenterDiv, Heading3 } from "../../styles/commonStyles";
 import Column from '../Column'

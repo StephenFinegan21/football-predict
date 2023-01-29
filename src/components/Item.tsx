@@ -1,10 +1,9 @@
-import React from "react";
 import styled from "styled-components";
-import { useTheme } from 'next-themes'
+import { useTheme } from "next-themes";
 
-
-const ItemDiv = styled.div<{ highlight: boolean, theme: string }>`
-  background-color: ${(props) => (props.theme === 'light' ? `#f4f4f4` : "#24292f")};
+const ItemDiv = styled.div<{ highlight: boolean; theme: string }>`
+  background-color: ${(props) =>
+    props.theme === "light" ? `#f4f4f4` : "#24292f"};
   transition: 0.3s;
   padding: 20px 0;
   width: 100%;
@@ -12,7 +11,8 @@ const ItemDiv = styled.div<{ highlight: boolean, theme: string }>`
   margin: 20px auto;
   cursor: ${(props) => (props.highlight ? "pointer" : "default")};
   &:hover {
-    background: ${(props) => (props.highlight ? props.theme === 'light' ? "#dadadb" : "#2b4a67" : "")};
+    background: ${(props) =>
+      props.highlight ? (props.theme === "light" ? "#dadadb" : "#2b4a67") : ""};
   }
 
   @media (min-width: 800px) {
@@ -25,10 +25,14 @@ const ItemDiv = styled.div<{ highlight: boolean, theme: string }>`
 `;
 
 const Item = (props: any) => {
-  const { resolvedTheme } = useTheme()
+  const { resolvedTheme } = useTheme();
   const { highlight } = props;
 
-  return <ItemDiv highlight={highlight} theme={resolvedTheme}>{props.children} </ItemDiv>;
+  return (
+    <ItemDiv highlight={highlight} theme={resolvedTheme}>
+      {props.children}{" "}
+    </ItemDiv>
+  );
 };
 
 export default Item;

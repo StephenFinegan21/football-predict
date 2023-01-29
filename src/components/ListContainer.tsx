@@ -1,4 +1,4 @@
-import React from "react";
+;
 import { PageContainer, FlexCenterDiv, Heading2 } from "../styles/commonStyles";
 import { singleFixture } from "../types";
 import Fixture from "./Fixture";

@@ -1,19 +1,24 @@
-import LastFiveGames from "../../tabs/LastFiveTab";
-import Comparison from "../../tabs/CompareTab";
+
 import { useState } from "react";
-import Predictions from "../../tabs/PredictionsTab";
-import Record from "../../tabs/RecordTab";
 import styled from "styled-components";
-import FixtureHeader from "../../components/fixtureheader/FixtureHeader";
-import Goals from "../../tabs/GoalsTab";
 import axios from "axios";
-import {  CenterText, Heading2, LeftBoldHeading, LightText, PageContainer } from "../../styles/commonStyles";
-import Fixture from "../../components/Fixture";
-import Box from "../../components/Box";
-import BarChart from "../../components/BarChart";
-import { Flex } from "../../tabs/RecordTab";
-import { useGetRecentFixtures } from "../../hooks/useGetRecentFixtures";
+import {  CenterText, PageContainer, Flex } from "../../styles/commonStyles";
 import { getNextFixtures } from "../../functions/getNextFixtures";
+import  {
+  LastFiveGames,
+  Predictions,
+  Record,
+  Goals,
+  Comparison
+} from "../../tabs/index"
+
+import {
+  BarChart,
+  Fixture,
+  Box,
+  FixtureHeader,
+} from "../../components/index";
+
 
 const Section = styled.div`
   max-width: 100%;
@@ -31,23 +36,7 @@ const FixtureInformation =  ({ data }: any) => {
     setCurrentTab(value);
   };
 
-  const fetch = async () => {
-    const options = {
-      method: "GET",
-      url: 'https://api-football-v1.p.rapidapi.com/v3/teams/statistics',
-      params: {league: '39', season: '2022', team: `52`},
-      headers: {
-        "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
-        "X-RapidAPI-Host": `${process.env.NEXT_PUBLIC_HOST_NAME}`,
-      },
-    };
-  
-    const newData = await axios.request(options).then(function (response: any) {
-      return response.data;
-    });
-  }
-
-  fetch()
+ 
 
 
   const homeGoals = {

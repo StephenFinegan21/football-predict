@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
 import { getNextFixtures } from "../functions/getNextFixtures";
 import axios from "axios";
-import { Heading2 } from "../styles/commonStyles";
 import Image from "next/image";
 import styled from "styled-components";
 import { getLastFiveFixtures } from "../functions/getLastFiveFixtures";
-import Fixture from "../components/Fixture";
-import Column from "../components/Column";
+import {Fixture, Column } from "../components/index";
 
 const Header = styled.div`
   display: flex;

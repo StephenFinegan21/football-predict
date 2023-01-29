@@ -4,6 +4,22 @@ export const Heading1 = styled.h1`
   font-size: large;
 `;
 
+export const Flex = styled.div`
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: space-between;
+
+  padding: 0;
+
+  text-align: center;
+
+  @media (min-width: 800px) {
+    max-width: 100%;
+    margin: auto;
+  }
+`;
+
 export const Heading2 = styled.h2`
   text-align: left;
   font-size: medium;

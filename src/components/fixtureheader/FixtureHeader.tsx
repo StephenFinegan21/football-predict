@@ -1,4 +1,4 @@
-import React from "react";
+;
 import FixtureDataNav from "./FixtureDataNav";
 import TeamRecentForm from "./TeamRecentForm";
 import Link from "next/link";

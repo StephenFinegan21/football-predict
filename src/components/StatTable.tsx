@@ -1,4 +1,4 @@
-import React from "react";
+;
 import { RecordTable, TableHead, TableData, Row } from "../styles/commonStyles";
 
 const StatRow = ({ teamName, stat }: any) => {

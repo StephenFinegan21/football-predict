@@ -1,25 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import StatTable from "../components/StatTable";
-import Box from "../components/Box";
-import BarChart from "../components/BarChart";
-import { CenterText } from "../styles/commonStyles";
-
-export const Flex = styled.div`
-  display: flex;
-  width: 100%;
-  margin: auto;
-  justify-content: space-between;
-
-  padding: 0;
-
-  text-align: center;
-
-  @media (min-width: 800px) {
-    max-width: 100%;
-    margin: auto;
-  }
-`;
+import { CenterText, Flex } from "../styles/commonStyles";
+import { Box, BarChart, StatTable } from "../components/index";
 
 const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
   const homeStats = {
@@ -102,7 +84,6 @@ const Record = ({ homeFixtures, awayFixtures, homeTeam, awayTeam }: any) => {
     width: 60px;
     padding: 5px;
     cursor: pointer;
-    
   `;
 
   const ButtonContainer = styled.div`

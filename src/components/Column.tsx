@@ -1,5 +1,4 @@
-import React from 'react'
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ColumnStyle = styled.div`
   width: 100%;
@@ -8,14 +7,10 @@ const ColumnStyle = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  
-`
+`;
 
+const Column = (props: any) => {
+  return <ColumnStyle>{props.children}</ColumnStyle>;
+};
 
-const Column = (props : any) => {
-  return (
-    <ColumnStyle>{props.children}</ColumnStyle>
-  )
-}
-
-export default Column
+export default Column;

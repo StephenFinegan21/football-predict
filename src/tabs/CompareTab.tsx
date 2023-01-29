@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import Box from "../components/Box";
-import ComparisonBar from "../components/ComparisonBar";
+import {Box, ComparisonBar} from "../components/index";
 import {getColours} from '../functions/getColour'
 import { LeftBoldHeading } from "../styles/commonStyles";
 

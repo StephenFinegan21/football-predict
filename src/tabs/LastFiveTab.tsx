@@ -1,13 +1,9 @@
-import React from "react";
-
-import PercentBar from "../components/PercentBar";
 import styled from "styled-components";
-import Box from "../components/Box";
+import {Box, PercentBar} from "../components/index";
 import {
   LeftBoldHeading,
   Heading2,
 } from "../styles/commonStyles";
-import TeamRecentForm from "../components/fixtureheader/TeamRecentForm";
 
 type goals = {
   for: {
