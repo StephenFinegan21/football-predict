@@ -216,6 +216,7 @@ export async function getStaticProps(context: any) {
   const data = await axios.request(options).then(function (response: any) {
     return response.data;
   });
+  console.log(data)
   return {
     props: { data }, // will be passed to the page component as props
     revalidate: 60,
@@ -237,6 +238,6 @@ const data = dataObject.data.ids
 
   return {
     paths,
-    fallback: false, // can also be true or 'blocking'
+    fallback: 'blocking'
   };
 }
