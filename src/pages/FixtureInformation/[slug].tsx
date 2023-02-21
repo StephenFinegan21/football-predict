@@ -237,6 +237,6 @@ const data = dataObject.data.ids
 
   return {
     paths,
-    fallback: 'false'
+    fallback: false
   };
 }
