@@ -84,7 +84,7 @@ export async function getStaticProps(context: any) {
 
   return {
     props: { data, recentFixtures }, // will be passed to the page component as props
-    revalidate: 60,
+  
   };
 }
 
@@ -102,6 +102,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: 'blocking'
+    
   };
 }

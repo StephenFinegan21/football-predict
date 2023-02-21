@@ -219,7 +219,7 @@ export async function getStaticProps(context: any) {
   console.log(data)
   return {
     props: { data }, // will be passed to the page component as props
-    revalidate: 60,
+    
   };
 }
 
@@ -238,6 +238,5 @@ const data = dataObject.data.ids
 
   return {
     paths,
-    fallback: 'blocking'
   };
 }
